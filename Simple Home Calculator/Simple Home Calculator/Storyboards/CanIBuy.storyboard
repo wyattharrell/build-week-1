@@ -7,27 +7,46 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--CanI Buy View Controller-->
         <scene sceneID="tZd-lZ-SKu">
             <objects>
-                <viewController id="mah-Vt-0gT" sceneMemberID="viewController">
+                <viewController id="mah-Vt-0gT" customClass="CanIBuyViewController" customModule="Simple_Home_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fR8-22-GfP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W9w-c0-KQH">
+                                <rect key="frame" x="20" y="743" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="PqK-6Z-F9d"/>
+                                </constraints>
+                                <state key="normal" title="Calculate">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Y5V-Ac-gEq" firstAttribute="bottom" secondItem="W9w-c0-KQH" secondAttribute="bottom" constant="20" id="HBR-Aq-eEH"/>
+                            <constraint firstItem="Y5V-Ac-gEq" firstAttribute="trailing" secondItem="W9w-c0-KQH" secondAttribute="trailing" constant="20" id="UGn-t0-ifh"/>
+                            <constraint firstItem="W9w-c0-KQH" firstAttribute="leading" secondItem="Y5V-Ac-gEq" secondAttribute="leading" constant="20" id="tiI-yj-Hh3"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Y5V-Ac-gEq"/>
                     </view>
                     <navigationItem key="navigationItem" id="2AL-mP-X80"/>
+                    <connections>
+                        <outlet property="calculateButton" destination="W9w-c0-KQH" id="oxS-Mn-WS1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WcY-k9-h5e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="673.91304347826087" y="-68.303571428571431"/>
         </scene>
-        <!--Can I Buy?-->
+        <!--Can I Buy-->
         <scene sceneID="EUD-hL-qSu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wc5-Cx-vg8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Can I Buy?" id="hqr-lh-gts"/>
+                    <tabBarItem key="tabBarItem" title="Can I Buy" id="hqr-lh-gts"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="dkP-MT-BeA">

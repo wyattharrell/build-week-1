@@ -15,6 +15,7 @@
 		13A8BEC3240A174900088296 /* CanIBuy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A8BEC2240A174900088296 /* CanIBuy.storyboard */; };
 		13A8BEC5240A175300088296 /* CostOfLiving.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A8BEC4240A175300088296 /* CostOfLiving.storyboard */; };
 		13A8BEC7240A176B00088296 /* TipOfTheDay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A8BEC6240A176B00088296 /* TipOfTheDay.storyboard */; };
+		13A8BEE9240AB49B00088296 /* CanIBuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A8BEE8240AB49B00088296 /* CanIBuyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		13A8BEC2240A174900088296 /* CanIBuy.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CanIBuy.storyboard; sourceTree = "<group>"; };
 		13A8BEC4240A175300088296 /* CostOfLiving.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CostOfLiving.storyboard; sourceTree = "<group>"; };
 		13A8BEC6240A176B00088296 /* TipOfTheDay.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TipOfTheDay.storyboard; sourceTree = "<group>"; };
+		13A8BEE8240AB49B00088296 /* CanIBuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanIBuyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		13A8BEAB240A164700088296 /* Simple Home Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				13A8BEEA240AB5B700088296 /* Can I Buy */,
 				13A8BEC0240A165800088296 /* Resources */,
 				13A8BEC1240A166100088296 /* Storyboards */,
 			);
@@ -87,6 +90,14 @@
 				13A8BEB7240A164700088296 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		13A8BEEA240AB5B700088296 /* Can I Buy */ = {
+			isa = PBXGroup;
+			children = (
+				13A8BEE8240AB49B00088296 /* CanIBuyViewController.swift */,
+			);
+			path = "Can I Buy";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +174,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13A8BEE9240AB49B00088296 /* CanIBuyViewController.swift in Sources */,
 				13A8BEAD240A164700088296 /* AppDelegate.swift in Sources */,
 				13A8BEAF240A164700088296 /* SceneDelegate.swift in Sources */,
 			);
