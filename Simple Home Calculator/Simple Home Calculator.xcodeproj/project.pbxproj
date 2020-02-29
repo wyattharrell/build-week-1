@@ -1,0 +1,365 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		13A8BEAD240A164700088296 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A8BEAC240A164700088296 /* AppDelegate.swift */; };
+		13A8BEAF240A164700088296 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A8BEAE240A164700088296 /* SceneDelegate.swift */; };
+		13A8BEB4240A164700088296 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A8BEB2240A164700088296 /* Main.storyboard */; };
+		13A8BEB6240A164700088296 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13A8BEB5240A164700088296 /* Assets.xcassets */; };
+		13A8BEB9240A164700088296 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A8BEB7240A164700088296 /* LaunchScreen.storyboard */; };
+		13A8BEC3240A174900088296 /* CanIBuy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A8BEC2240A174900088296 /* CanIBuy.storyboard */; };
+		13A8BEC5240A175300088296 /* CostOfLiving.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A8BEC4240A175300088296 /* CostOfLiving.storyboard */; };
+		13A8BEC7240A176B00088296 /* TipOfTheDay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A8BEC6240A176B00088296 /* TipOfTheDay.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		13A8BEA9240A164700088296 /* Simple Home Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple Home Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13A8BEAC240A164700088296 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		13A8BEAE240A164700088296 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		13A8BEB3240A164700088296 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		13A8BEB5240A164700088296 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		13A8BEB8240A164700088296 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		13A8BEBA240A164700088296 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13A8BEC2240A174900088296 /* CanIBuy.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CanIBuy.storyboard; sourceTree = "<group>"; };
+		13A8BEC4240A175300088296 /* CostOfLiving.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CostOfLiving.storyboard; sourceTree = "<group>"; };
+		13A8BEC6240A176B00088296 /* TipOfTheDay.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TipOfTheDay.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		13A8BEA6240A164700088296 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		13A8BEA0240A164600088296 = {
+			isa = PBXGroup;
+			children = (
+				13A8BEAB240A164700088296 /* Simple Home Calculator */,
+				13A8BEAA240A164700088296 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		13A8BEAA240A164700088296 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				13A8BEA9240A164700088296 /* Simple Home Calculator.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		13A8BEAB240A164700088296 /* Simple Home Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				13A8BEC0240A165800088296 /* Resources */,
+				13A8BEC1240A166100088296 /* Storyboards */,
+			);
+			path = "Simple Home Calculator";
+			sourceTree = "<group>";
+		};
+		13A8BEC0240A165800088296 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				13A8BEAC240A164700088296 /* AppDelegate.swift */,
+				13A8BEAE240A164700088296 /* SceneDelegate.swift */,
+				13A8BEB5240A164700088296 /* Assets.xcassets */,
+				13A8BEBA240A164700088296 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		13A8BEC1240A166100088296 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				13A8BEB2240A164700088296 /* Main.storyboard */,
+				13A8BEC2240A174900088296 /* CanIBuy.storyboard */,
+				13A8BEC6240A176B00088296 /* TipOfTheDay.storyboard */,
+				13A8BEC4240A175300088296 /* CostOfLiving.storyboard */,
+				13A8BEB7240A164700088296 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		13A8BEA8240A164700088296 /* Simple Home Calculator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13A8BEBD240A164700088296 /* Build configuration list for PBXNativeTarget "Simple Home Calculator" */;
+			buildPhases = (
+				13A8BEA5240A164700088296 /* Sources */,
+				13A8BEA6240A164700088296 /* Frameworks */,
+				13A8BEA7240A164700088296 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Simple Home Calculator";
+			productName = "Simple Home Calculator";
+			productReference = 13A8BEA9240A164700088296 /* Simple Home Calculator.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		13A8BEA1240A164700088296 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Wyatt Harrell";
+				TargetAttributes = {
+					13A8BEA8240A164700088296 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 13A8BEA4240A164700088296 /* Build configuration list for PBXProject "Simple Home Calculator" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 13A8BEA0240A164600088296;
+			productRefGroup = 13A8BEAA240A164700088296 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				13A8BEA8240A164700088296 /* Simple Home Calculator */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		13A8BEA7240A164700088296 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13A8BEC3240A174900088296 /* CanIBuy.storyboard in Resources */,
+				13A8BEC5240A175300088296 /* CostOfLiving.storyboard in Resources */,
+				13A8BEB9240A164700088296 /* LaunchScreen.storyboard in Resources */,
+				13A8BEB6240A164700088296 /* Assets.xcassets in Resources */,
+				13A8BEC7240A176B00088296 /* TipOfTheDay.storyboard in Resources */,
+				13A8BEB4240A164700088296 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		13A8BEA5240A164700088296 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13A8BEAD240A164700088296 /* AppDelegate.swift in Sources */,
+				13A8BEAF240A164700088296 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		13A8BEB2240A164700088296 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				13A8BEB3240A164700088296 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		13A8BEB7240A164700088296 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				13A8BEB8240A164700088296 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		13A8BEBB240A164700088296 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		13A8BEBC240A164700088296 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		13A8BEBE240A164700088296 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Simple Home Calculator/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wyattharrell.Simple-Home-Calculator";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		13A8BEBF240A164700088296 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Simple Home Calculator/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wyattharrell.Simple-Home-Calculator";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		13A8BEA4240A164700088296 /* Build configuration list for PBXProject "Simple Home Calculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13A8BEBB240A164700088296 /* Debug */,
+				13A8BEBC240A164700088296 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		13A8BEBD240A164700088296 /* Build configuration list for PBXNativeTarget "Simple Home Calculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13A8BEBE240A164700088296 /* Debug */,
+				13A8BEBF240A164700088296 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 13A8BEA1240A164700088296 /* Project object */;
+}

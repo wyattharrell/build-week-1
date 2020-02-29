@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wc5-Cx-vg8">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tZd-lZ-SKu">
+            <objects>
+                <viewController id="mah-Vt-0gT" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fR8-22-GfP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Y5V-Ac-gEq"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2AL-mP-X80"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WcY-k9-h5e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="673.91304347826087" y="-68.303571428571431"/>
+        </scene>
+        <!--Can I Buy?-->
+        <scene sceneID="EUD-hL-qSu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wc5-Cx-vg8" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Can I Buy?" id="hqr-lh-gts"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="dkP-MT-BeA">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mah-Vt-0gT" kind="relationship" relationship="rootViewController" id="lOg-9H-fgg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c81-E7-5we" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-236.23188405797103" y="-68.303571428571431"/>
+        </scene>
+    </scenes>
+</document>
