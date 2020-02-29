@@ -16,7 +16,7 @@ class CanIBuyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        calculateButton.layer.cornerRadius = 8
+        calculateButton.layer.cornerRadius = 12
         calculateButton.backgroundColor = UIColor(red:0.00, green:0.51, blue:0.33, alpha:1.0)
         
         
