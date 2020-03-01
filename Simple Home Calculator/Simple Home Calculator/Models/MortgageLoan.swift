@@ -9,14 +9,14 @@
 import Foundation
 
 struct MortgageLoan {
-    var amount: Double
+    var amount: Double?
     var mortgageType: String
     var downPayment: Double?
     var interestRate: Double?
     var mortgageLength: Int?
     
     
-    init(amount: Double, mortgageType: String, downPayment: Double?, interestRate: Double? = nil, mortgageLength: Int? = nil) {
+    init(mortgageType: String, amount: Double?, downPayment: Double?, interestRate: Double? = nil, mortgageLength: Int? = nil) {
         self.amount = amount
         self.mortgageType = mortgageType
         self.downPayment = downPayment

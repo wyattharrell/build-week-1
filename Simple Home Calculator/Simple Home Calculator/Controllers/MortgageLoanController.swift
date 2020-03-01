@@ -15,7 +15,7 @@ class MortgageLoanController {
     
     // MARK: - CRUD
     
-    func createMortgageLoan(amount: Double, mortgageType: String, interestRate: Double?, mortgageLength: Int?) {
+    func createMortgageLoan(mortgageType: String, amount: Double?, downPayment: Double?, interestRate: Double?, mortgageLength: Int?) {
         
     }
 }
