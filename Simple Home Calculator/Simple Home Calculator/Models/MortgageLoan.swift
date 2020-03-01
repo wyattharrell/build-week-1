@@ -16,7 +16,7 @@ struct MortgageLoan {
     var mortgageLength: Int?
     
     
-    init(amount: Double, mortgageType: String, downPayment: Double? interestRate: Double? = nil, mortgageLength: Int? = nil) {
+    init(amount: Double, mortgageType: String, downPayment: Double?, interestRate: Double? = nil, mortgageLength: Int? = nil) {
         self.amount = amount
         self.mortgageType = mortgageType
         self.downPayment = downPayment
