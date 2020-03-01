@@ -16,6 +16,12 @@
 		13A8BEC5240A175300088296 /* CostOfLiving.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A8BEC4240A175300088296 /* CostOfLiving.storyboard */; };
 		13A8BEC7240A176B00088296 /* TipOfTheDay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A8BEC6240A176B00088296 /* TipOfTheDay.storyboard */; };
 		13A8BEE9240AB49B00088296 /* CanIBuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A8BEE8240AB49B00088296 /* CanIBuyViewController.swift */; };
+		BB612A49240B92FF00A451ED /* MortgagePage1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB612A48240B92FF00A451ED /* MortgagePage1ViewController.swift */; };
+		BB612A4B240B932600A451ED /* MortgagePage2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB612A4A240B932600A451ED /* MortgagePage2ViewController.swift */; };
+		BB612A4D240B934D00A451ED /* MortgagePage3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB612A4C240B934D00A451ED /* MortgagePage3ViewController.swift */; };
+		BB612A4F240BA26D00A451ED /* MortgageLoan.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB612A4E240BA26D00A451ED /* MortgageLoan.swift */; };
+		BB612A51240BA4CC00A451ED /* MortgageLoanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB612A50240BA4CC00A451ED /* MortgageLoanController.swift */; };
+		BB612A53240BA75E00A451ED /* MortgageEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB612A52240BA75E00A451ED /* MortgageEnums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +36,12 @@
 		13A8BEC4240A175300088296 /* CostOfLiving.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CostOfLiving.storyboard; sourceTree = "<group>"; };
 		13A8BEC6240A176B00088296 /* TipOfTheDay.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TipOfTheDay.storyboard; sourceTree = "<group>"; };
 		13A8BEE8240AB49B00088296 /* CanIBuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanIBuyViewController.swift; sourceTree = "<group>"; };
+		BB612A48240B92FF00A451ED /* MortgagePage1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortgagePage1ViewController.swift; sourceTree = "<group>"; };
+		BB612A4A240B932600A451ED /* MortgagePage2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortgagePage2ViewController.swift; sourceTree = "<group>"; };
+		BB612A4C240B934D00A451ED /* MortgagePage3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortgagePage3ViewController.swift; sourceTree = "<group>"; };
+		BB612A4E240BA26D00A451ED /* MortgageLoan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortgageLoan.swift; sourceTree = "<group>"; };
+		BB612A50240BA4CC00A451ED /* MortgageLoanController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortgageLoanController.swift; sourceTree = "<group>"; };
+		BB612A52240BA75E00A451ED /* MortgageEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortgageEnums.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +74,10 @@
 		13A8BEAB240A164700088296 /* Simple Home Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				BB612A44240B6CB300A451ED /* Models */,
+				BB612A45240B6CC600A451ED /* Views */,
+				BB612A46240B6CD000A451ED /* View Controllers */,
+				BB612A47240B6CDC00A451ED /* Controllers */,
 				13A8BEEA240AB5B700088296 /* Can I Buy */,
 				13A8BEC0240A165800088296 /* Resources */,
 				13A8BEC1240A166100088296 /* Storyboards */,
@@ -98,6 +114,40 @@
 				13A8BEE8240AB49B00088296 /* CanIBuyViewController.swift */,
 			);
 			path = "Can I Buy";
+			sourceTree = "<group>";
+		};
+		BB612A44240B6CB300A451ED /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BB612A4E240BA26D00A451ED /* MortgageLoan.swift */,
+				BB612A52240BA75E00A451ED /* MortgageEnums.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BB612A45240B6CC600A451ED /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BB612A46240B6CD000A451ED /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BB612A48240B92FF00A451ED /* MortgagePage1ViewController.swift */,
+				BB612A4A240B932600A451ED /* MortgagePage2ViewController.swift */,
+				BB612A4C240B934D00A451ED /* MortgagePage3ViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		BB612A47240B6CDC00A451ED /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BB612A50240BA4CC00A451ED /* MortgageLoanController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,7 +224,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB612A4B240B932600A451ED /* MortgagePage2ViewController.swift in Sources */,
 				13A8BEE9240AB49B00088296 /* CanIBuyViewController.swift in Sources */,
+				BB612A4F240BA26D00A451ED /* MortgageLoan.swift in Sources */,
+				BB612A51240BA4CC00A451ED /* MortgageLoanController.swift in Sources */,
+				BB612A49240B92FF00A451ED /* MortgagePage1ViewController.swift in Sources */,
+				BB612A4D240B934D00A451ED /* MortgagePage3ViewController.swift in Sources */,
+				BB612A53240BA75E00A451ED /* MortgageEnums.swift in Sources */,
 				13A8BEAD240A164700088296 /* AppDelegate.swift in Sources */,
 				13A8BEAF240A164700088296 /* SceneDelegate.swift in Sources */,
 			);

@@ -7,21 +7,139 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Mortgage Calculator-->
         <scene sceneID="C3J-3m-hYV">
             <objects>
-                <viewController id="PqJ-0c-KkT" sceneMemberID="viewController">
+                <viewController id="PqJ-0c-KkT" customClass="MortgagePage1ViewController" customModule="Simple_Home_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NlS-IU-sIW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Ea-yT-qYf">
+                                <rect key="frame" x="20" y="160" width="374" height="426"/>
+                            </imageView>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iNN-IZ-Aau">
+                                <rect key="frame" x="20" y="635" width="414" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="4kz-hp-PHw"/>
+                                </constraints>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rnc-jn-JWq">
+                                <rect key="frame" x="20" y="743" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="c10-Nw-WlD"/>
+                                </constraints>
+                                <state key="normal" title="Calculate">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Dsc-Yj-OLo" kind="show" identifier="SelectMortgageTypeSegue" id="3VU-GD-DbZ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SELECT A MORTGAGE TYPE: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovN-b5-2a1">
+                                <rect key="frame" x="93" y="606" width="228" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="iNN-IZ-Aau" firstAttribute="top" secondItem="ovN-b5-2a1" secondAttribute="bottom" constant="8" id="0BH-g9-IQ5"/>
+                            <constraint firstItem="5eE-Wd-I4q" firstAttribute="bottom" secondItem="Rnc-jn-JWq" secondAttribute="bottom" constant="20" id="6Md-px-HmJ"/>
+                            <constraint firstItem="iNN-IZ-Aau" firstAttribute="trailing" secondItem="5eE-Wd-I4q" secondAttribute="trailing" constant="20" id="G6n-BC-2Cc"/>
+                            <constraint firstItem="ovN-b5-2a1" firstAttribute="top" secondItem="7Ea-yT-qYf" secondAttribute="bottom" constant="20" id="HV0-jG-ixv"/>
+                            <constraint firstItem="5eE-Wd-I4q" firstAttribute="trailing" secondItem="7Ea-yT-qYf" secondAttribute="trailing" constant="20" id="Jz3-AP-es1"/>
+                            <constraint firstItem="iNN-IZ-Aau" firstAttribute="leading" secondItem="5eE-Wd-I4q" secondAttribute="leading" constant="20" id="RPZ-tx-CWe"/>
+                            <constraint firstItem="Rnc-jn-JWq" firstAttribute="top" secondItem="iNN-IZ-Aau" secondAttribute="bottom" constant="8" id="RcS-OZ-Wvz"/>
+                            <constraint firstItem="7Ea-yT-qYf" firstAttribute="leading" secondItem="5eE-Wd-I4q" secondAttribute="leading" constant="20" id="Sht-fA-xS9"/>
+                            <constraint firstItem="7Ea-yT-qYf" firstAttribute="top" secondItem="5eE-Wd-I4q" secondAttribute="top" constant="20" id="hsO-4F-PHW"/>
+                            <constraint firstItem="5eE-Wd-I4q" firstAttribute="trailing" secondItem="Rnc-jn-JWq" secondAttribute="trailing" constant="20" id="i1Z-fM-OjA"/>
+                            <constraint firstItem="ovN-b5-2a1" firstAttribute="centerX" secondItem="NlS-IU-sIW" secondAttribute="centerX" id="s7v-B5-XQe"/>
+                            <constraint firstItem="Rnc-jn-JWq" firstAttribute="leading" secondItem="5eE-Wd-I4q" secondAttribute="leading" constant="20" id="ul5-ay-7rP"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="5eE-Wd-I4q"/>
                     </view>
-                    <navigationItem key="navigationItem" id="2AD-C6-bmV"/>
+                    <navigationItem key="navigationItem" title="Mortgage Calculator" id="2AD-C6-bmV"/>
+                    <connections>
+                        <outlet property="mortgageTypePickerView" destination="iNN-IZ-Aau" id="ZNj-ex-c9W"/>
+                        <outlet property="selectMortgageTypeButton" destination="Rnc-jn-JWq" id="iCq-UA-Nzm"/>
+                        <outlet property="titleImage" destination="7Ea-yT-qYf" id="5ig-3b-IEr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gem-LI-mk6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="985.50724637681162" y="-201.5625"/>
+        </scene>
+        <!--Mortgage Calculator-->
+        <scene sceneID="E2R-hx-O3f">
+            <objects>
+                <viewController id="Dsc-Yj-OLo" customClass="MortgagePage2ViewController" customModule="Simple_Home_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dfV-sW-pUZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLj-hH-pg4">
+                                <rect key="frame" x="20" y="743" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="pEf-yq-Ah4"/>
+                                </constraints>
+                                <state key="normal" title="Calculate">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="l4M-4M-Zwi" kind="show" identifier="CalculateMortgageSegue" id="oof-wV-R2T"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="XLj-hH-pg4" firstAttribute="leading" secondItem="T9s-ra-8Cq" secondAttribute="leading" constant="20" id="8tC-6G-Iog"/>
+                            <constraint firstItem="T9s-ra-8Cq" firstAttribute="trailing" secondItem="XLj-hH-pg4" secondAttribute="trailing" constant="20" id="kvF-kH-5aB"/>
+                            <constraint firstItem="T9s-ra-8Cq" firstAttribute="bottom" secondItem="XLj-hH-pg4" secondAttribute="bottom" constant="20" id="xHL-Yz-mmJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="T9s-ra-8Cq"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Mortgage Calculator" id="WkY-3v-DwE"/>
+                    <connections>
+                        <outlet property="calculateMortgageButton" destination="XLj-hH-pg4" id="3Hn-ew-lg9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tEb-aG-5l3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1728" y="-202"/>
+        </scene>
+        <!--Mortgage Calculator-->
+        <scene sceneID="9Ao-7t-YWO">
+            <objects>
+                <viewController id="l4M-4M-Zwi" customClass="MortgagePage3ViewController" customModule="Simple_Home_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5x8-VE-Mgr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eL6-r9-OZn">
+                                <rect key="frame" x="20" y="743" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="h3d-qd-zAr"/>
+                                </constraints>
+                                <state key="normal" title="Calculate">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ywU-5C-uef" firstAttribute="trailing" secondItem="eL6-r9-OZn" secondAttribute="trailing" constant="20" id="Qbd-UC-p3o"/>
+                            <constraint firstItem="ywU-5C-uef" firstAttribute="bottom" secondItem="eL6-r9-OZn" secondAttribute="bottom" constant="20" id="Sdl-fu-Xi6"/>
+                            <constraint firstItem="eL6-r9-OZn" firstAttribute="leading" secondItem="ywU-5C-uef" secondAttribute="leading" constant="20" id="tVx-cj-eaX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ywU-5C-uef"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Mortgage Calculator" id="Cyz-Xo-G1Y"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E2r-wa-ehy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2448" y="-202"/>
         </scene>
         <!--Mortgage-->
         <scene sceneID="IUx-8L-Kvc">
@@ -68,6 +186,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="6Na-7U-MHt" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HKz-js-4xo">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
