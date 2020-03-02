@@ -35,7 +35,6 @@ class MortgageCalculatorViewController: UIViewController {
     @IBOutlet var interestRateTextField: UITextField!
     @IBOutlet var downPaymentTextField: UITextField!
     @IBOutlet var mortgageLengthPickerView: UIPickerView!
-    @IBOutlet var mortgageTypePickerView: UIPickerView!
     @IBOutlet var errorLabel: UILabel!
     @IBOutlet var monthlyHOATextField: UITextField!
     @IBOutlet var homeInsuranceTextField: UITextField!
@@ -53,18 +52,9 @@ class MortgageCalculatorViewController: UIViewController {
         
         mortgageLengthPickerView.delegate = self
         mortgageLengthPickerView.dataSource = self
-        mortgageTypePickerView.delegate = self
-        mortgageTypePickerView.dataSource = self
         
         guard let mortgageLoan = mortgageLoanController.mortgageLoan else { return }
-        let mortgageType = mortgageLoan.mortgageType
-        if mortgageType == .mortgage {
-            mortgageTypePickerView.selectRow(0, inComponent: 1, animated: true)
-        } else if mortgageType == .vaLoan {
-            mortgageTypePickerView.selectRow(1, inComponent: 1, animated: true)
-        } else {
-            mortgageTypePickerView.selectRow(2, inComponent: 1, animated: true)
-        }
+        title = "\(mortgageLoan.mortgageType)"
 
         calculateMortgageButton.layer.cornerRadius = 12
         calculateMortgageButton.backgroundColor = UIColor(red:0.00, green:0.51, blue:0.33, alpha:1.0)
@@ -77,8 +67,7 @@ class MortgageCalculatorViewController: UIViewController {
             !interestRateString.isEmpty,
             let downPaymentString = downPaymentTextField.text,
             !downPaymentString.isEmpty,
-            let mortgageLengthString = mortgageLength,
-            let mortgageType = mortgageType else {
+            let mortgageLengthString = mortgageLength else {
                 errorLabel.text = "Please enter values for requred fields (*)"
                 return }
         
@@ -90,22 +79,21 @@ class MortgageCalculatorViewController: UIViewController {
                 errorLabel.text = "Please enter valid valid numbers for required fields (*)"
                 return }
         
-        let monthlyHOA: Double?
-        let homeInsurance: Double?
-        let propertyTax: Double?
-        if let monthlyHOAString = monthlyHOATextField.text {
-            monthlyHOA = Double(monthlyHOAString) ?? 0.0
-        }
-        if let homeInsuranceString = homeInsuranceTextField.text {
-            homeInsurance = Double(homeInsuranceString) ?? 0.0
-        }
-        if let propertyTaxString = propertyTaxTextField.text {
-            propertyTax = Double(propertyTaxString) ?? 0.0
-        }
+        let monthlyHOASTring = monthlyHOATextField.text ?? "0.0"
+        let monthlyHOA = Double(monthlyHOASTring) ?? 0.0
         
-        //mortgageLoanController.updateMortgageLoan(mortgageLoan: mortgageLoanController.mortgageLoan!, amount: loanAmount, downPayment: downPayment, interestRate: interestRate, mortgageLength: mortgageLength, monthlyHOA: monthlyHOA, homeInsurance: homeInsurance, propertyTax: propertyTax)
+        let homeInsuranceString = homeInsuranceTextField.text ?? "0.0"
+        let homeInsurance = Double(homeInsuranceString) ?? 0.0
+        
+        let propertyTaxString = propertyTaxTextField.text ?? "0.0"
+        let propertyTax = Double(propertyTaxString) ?? 0.0
+
+        
+        mortgageLoanController.updateMortgageLoan(mortgageLoan: mortgageLoanController.mortgageLoan!, amount: loanAmount, downPayment: downPayment, interestRate: interestRate, mortgageLength: mortgageLength, monthlyHOA: monthlyHOA, homeInsurance: homeInsurance, propertyTax: propertyTax)
         
     }
+    
+    
     
 
 

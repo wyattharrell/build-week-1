@@ -13,7 +13,7 @@ class MortgageLoanController {
     // MARK: - Properties
     static var mortgageLoanController = MortgageLoanController()
     var mortgageLoan: MortgageLoan?
-    var mortgages: [MortgageLoan] = []
+    var mortgages: [String: MortgageLoan] = [:]
     
     
     // MARK: - CRUD
@@ -22,9 +22,11 @@ class MortgageLoanController {
         mortgageLoan = MortgageLoan(mortgageType: mortgageType)
     }
     
-//    func retrieveMortgageLoan() -> MortgageLoan {
-//
-//    }
+    func retrieveMortgageLoan(savedAs named: String) {
+        if let tempMortgage = mortgages[named] {
+            mortgageLoan = tempMortgage
+        }
+    }
     
     func updateMortgageLoan(mortgageLoan: MortgageLoan,
                             amount: Double,
@@ -41,16 +43,21 @@ class MortgageLoanController {
         self.mortgageLoan?.monthlyHOA = monthlyHOA
         self.mortgageLoan?.homeInsurance = homeInsurance
         self.mortgageLoan?.propertyTax = propertyTax
-        
+        let values = mortgages.values
+        if values.contains(mortgageLoan) {
+            saveToPersistentStore()
+        }
     }
     
-    func saveMortgageLoan(mortgageLoan: MortgageLoan, savedName: String) {
-        
+    func saveMortgageLoan(savedName: String) {
+        mortgageLoan?.savedName = savedName
+        mortgages[savedName] = mortgageLoan!
+        saveToPersistentStore()
     }
     
-    func deleteMortgageLoan(mortgageLoan: MortgageLoan) {
-        guard let index = mortgages.firstIndex(of: mortgageLoan) else { return }
-        mortgages.remove(at: index)
+    func deleteMortgageLoan(savedName: String) {
+        mortgages[savedName] = nil
+        saveToPersistentStore()
     }
     
     func createMortgageArray() {
@@ -92,7 +99,7 @@ class MortgageLoanController {
         do {
             let data = try Data(contentsOf: url)
             let decoder = PropertyListDecoder()
-            mortgages = try decoder.decode([MortgageLoan].self, from: data)
+            mortgages = try decoder.decode([String : MortgageLoan].self, from: data)
         } catch {
             print("Error loading Mortgage data: \(error)")
         }

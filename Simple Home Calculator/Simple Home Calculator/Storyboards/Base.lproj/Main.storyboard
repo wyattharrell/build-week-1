@@ -92,7 +92,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="klY-0U-DpE">
-                                <rect key="frame" x="20" y="146.5" width="374" height="576.5"/>
+                                <rect key="frame" x="20" y="311.5" width="374" height="411.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMD-Q9-A8W">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
@@ -211,14 +211,8 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fNS-Ah-FLP">
-                                        <rect key="frame" x="0.0" y="249.5" width="374" height="162"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="162" id="XzO-JT-edc"/>
-                                        </constraints>
-                                    </pickerView>
                                     <pickerView tag="1" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Bx3-hy-YcI">
-                                        <rect key="frame" x="0.0" y="414.5" width="374" height="162"/>
+                                        <rect key="frame" x="0.0" y="249.5" width="374" height="162"/>
                                         <accessibility key="accessibilityConfiguration" identifier="MortgageType"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="162" id="Gfz-Tb-vas"/>
@@ -248,7 +242,6 @@
                         <outlet property="loanAmountTextField" destination="Xyp-Sy-1RD" id="ppq-hF-asy"/>
                         <outlet property="monthlyHOATextField" destination="GGD-R2-Cqm" id="QpR-cV-sOb"/>
                         <outlet property="mortgageLengthPickerView" destination="Bx3-hy-YcI" id="UAf-1v-d5C"/>
-                        <outlet property="mortgageTypePickerView" destination="fNS-Ah-FLP" id="naI-dk-H5R"/>
                         <outlet property="propertyTaxTextField" destination="t6f-cP-qPb" id="nmH-3A-EbM"/>
                     </connections>
                 </viewController>
