@@ -20,7 +20,6 @@ class MortgageLoanController {
     
     func createMortgageLoan(mortgageType: String) {
         mortgageLoan = MortgageLoan(mortgageType: mortgageType)
-        saveToPersistentStore()
     }
     
 //    func retrieveMortgageLoan() -> MortgageLoan {
@@ -37,7 +36,8 @@ class MortgageLoanController {
     }
     
     func deleteMortgageLoan(mortgageLoan: MortgageLoan) {
-        
+        guard let index = mortgages.firstIndex(of: mortgageLoan) else { return }
+        mortgages.remove(at: index)
     }
     
     func createMortgageArray() {
@@ -47,6 +47,7 @@ class MortgageLoanController {
             UserDefaults.standard.set(true, forKey: .didInitializeMortgagesArray)
         }
     }
+    
     
     // MARK: - Persistence
     

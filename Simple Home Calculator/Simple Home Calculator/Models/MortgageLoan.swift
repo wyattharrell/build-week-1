@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MortgageLoan: Codable {
+struct MortgageLoan: Codable, Equatable {
     var amount: Double?
     var mortgageType: String
     var downPayment: Double?

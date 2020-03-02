@@ -1,5 +1,5 @@
 //
-//  MortgagePage3ViewController.swift
+//  MortgageResultsViewController.swift
 //  Simple Home Calculator
 //
 //  Created by Lambda_School_Loaner_259 on 3/1/20.
@@ -9,7 +9,7 @@
 
 import UIKit
 
-class MortgagePage3ViewController: UIViewController {
+class MortgageResultsViewController: UIViewController {
     
     // MARK: - Properties
     

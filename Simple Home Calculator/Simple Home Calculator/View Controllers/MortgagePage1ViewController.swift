@@ -13,7 +13,7 @@ class MortgagePage1ViewController: UIViewController {
     
     // MARK: - Properties
     private let mortgageTypes: [String] = ["Mortgage", "VA Loan", "Refinance"]
-    
+    var mortgageLoanController = MortgageLoanController.mortgageLoanController
     
     
     // MARK: - IBOutlets
@@ -39,7 +39,13 @@ class MortgagePage1ViewController: UIViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == "SelectMortgageTypeSegue" {
+            let mortgageTypeIndex = mortgageTypePickerView.selectedRow(inComponent: 0)
+            let mortgageType = mortgageTypes[mortgageTypeIndex]
+            mortgageLoanController.createMortgageLoan(mortgageType: mortgageType)
+            let mortgageP2VC = segue.destination as! MortgageCalculatorViewController
+            mortgageP2VC.mortgageLoanController = mortgageLoanController
+        }
     }
 
 }
