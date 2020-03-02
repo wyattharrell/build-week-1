@@ -70,7 +70,7 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8HJ-7r-nT7">
                                                         <rect key="frame" x="19" y="0.0" width="355" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -414,7 +414,7 @@
                                                         </state>
                                                         <connections>
                                                             <action selector="calculateButtonTapped:" destination="2q4-yD-Mzj" eventType="touchUpInside" id="PDQ-9Q-MrR"/>
-                                                            <segue destination="Foc-qC-ckt" kind="show" id="gnm-xI-NiY"/>
+                                                            <segue destination="Foc-qC-ckt" kind="show" identifier="ShowCanIBuyResults" id="gnm-xI-NiY"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>

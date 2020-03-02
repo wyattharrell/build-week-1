@@ -15,7 +15,7 @@ class CanIBuyViewController: UIViewController {
     @IBOutlet weak var annualIncomeTextField: UITextField!
     @IBOutlet weak var expensePercentSegmentedControl: UISegmentedControl!
     
-    var maxHousingExpensePercent: Int = 0
+    var maxHousingExpensePercent: Double = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class CanIBuyViewController: UIViewController {
     @IBAction func expensePercentSegmentedControllTapped(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            maxHousingExpensePercent = 28
+            maxHousingExpensePercent = 0.28
         case 1:
             #warning("MUST CALL A UIALERT")
         default:
@@ -39,20 +39,29 @@ class CanIBuyViewController: UIViewController {
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowCanIBuyForm" {
-            guard let showCanIBuyFormVC = segue.destination as? CanIBuyFormViewController else { return }
+            guard let CanIBuyFormVC = segue.destination as? CanIBuyFormViewController else { return }
             
             guard let income = annualIncomeTextField.text, !income.isEmpty else { return }
             
-            showCanIBuyFormVC.annualIncome = Int(income)
-            
             switch expensePercentSegmentedControl.selectedSegmentIndex {
                 case 0:
-                    showCanIBuyFormVC.maxHousingExpensePercent = 28
+                    let result = calculateMaxMonthlyPaymentBasedOnIncome_M1(income: Int(income)!, maxHousingExpense: 0.28)
+                    CanIBuyFormVC.maxMonthlyPaymentBasedOnIncome_M1 = result
+                    CanIBuyFormVC.income = Int(income)
                 case 1:
-                    print("none")
+                    let result = calculateMaxMonthlyPaymentBasedOnIncome_M1(income: Int(income)!, maxHousingExpense: maxHousingExpensePercent)
+                    CanIBuyFormVC.maxMonthlyPaymentBasedOnIncome_M1 = result
+                    CanIBuyFormVC.income = Int(income)
                 default:
                     print("N/A")
             }
         }
     }
+
+    func calculateMaxMonthlyPaymentBasedOnIncome_M1(income: Int, maxHousingExpense: Double) -> Double {
+        return Double(income) * maxHousingExpense / 12
+    }
+    
 }
+
+#warning("ADD ERROR CHECKING FOR BLACK TEXTFIELD")
