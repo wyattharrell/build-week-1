@@ -13,12 +13,14 @@ class CanIBuyViewController: UIViewController {
     
     @IBOutlet weak var calculateButton: UIButton!
     
+    @IBOutlet weak var circleImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         calculateButton.layer.cornerRadius = 12
         calculateButton.backgroundColor = UIColor(red:0.00, green:0.51, blue:0.33, alpha:1.0)
         
+        circleImageView.tintColor = UIColor(red:0.00, green:0.51, blue:0.33, alpha:1.0)
         
     }
     

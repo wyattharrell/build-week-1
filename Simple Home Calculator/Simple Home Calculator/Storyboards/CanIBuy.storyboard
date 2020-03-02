@@ -25,41 +25,50 @@
                                 </state>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Whh-05-W4j">
-                                <rect key="frame" x="20" y="141.5" width="374" height="224"/>
+                                <rect key="frame" x="20" y="140.5" width="374" height="224"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="225" id="rfC-rD-wJy"/>
+                                    <constraint firstAttribute="height" constant="225" id="Pug-9h-dcx"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="house.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vh5-3h-blu">
-                                <rect key="frame" x="20" y="174.5" width="374" height="149.5"/>
+                                <rect key="frame" x="120" y="176.5" width="174" height="150"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="m27-p3-RcF"/>
+                                    <constraint firstAttribute="height" constant="150.5" id="zkN-hZ-XIe"/>
                                 </constraints>
                             </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8HJ-7r-nT7">
+                                <rect key="frame" x="20" y="694" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Y5V-Ac-gEq" firstAttribute="trailing" secondItem="vh5-3h-blu" secondAttribute="trailing" constant="20" id="2WD-Up-EEs"/>
-                            <constraint firstItem="Whh-05-W4j" firstAttribute="top" secondItem="Y5V-Ac-gEq" secondAttribute="top" constant="1" id="Gwc-S8-lfw"/>
+                            <constraint firstItem="vh5-3h-blu" firstAttribute="leading" secondItem="Y5V-Ac-gEq" secondAttribute="leading" constant="120" id="3KZ-rP-E2R"/>
+                            <constraint firstItem="Y5V-Ac-gEq" firstAttribute="trailing" secondItem="vh5-3h-blu" secondAttribute="trailing" constant="120" id="7wz-v2-ikZ"/>
                             <constraint firstItem="Y5V-Ac-gEq" firstAttribute="bottom" secondItem="W9w-c0-KQH" secondAttribute="bottom" constant="20" id="HBR-Aq-eEH"/>
-                            <constraint firstItem="vh5-3h-blu" firstAttribute="leading" secondItem="Y5V-Ac-gEq" secondAttribute="leading" constant="20" id="Osx-nb-I5u"/>
+                            <constraint firstItem="W9w-c0-KQH" firstAttribute="top" secondItem="8HJ-7r-nT7" secondAttribute="bottom" constant="15" id="Q4p-OU-mxl"/>
                             <constraint firstItem="Y5V-Ac-gEq" firstAttribute="trailing" secondItem="W9w-c0-KQH" secondAttribute="trailing" constant="20" id="UGn-t0-ifh"/>
-                            <constraint firstItem="Whh-05-W4j" firstAttribute="leading" secondItem="Y5V-Ac-gEq" secondAttribute="leading" constant="20" id="UUP-gN-Hay"/>
-                            <constraint firstItem="vh5-3h-blu" firstAttribute="top" secondItem="Y5V-Ac-gEq" secondAttribute="top" constant="35" id="eIB-XQ-VZS"/>
+                            <constraint firstItem="Y5V-Ac-gEq" firstAttribute="trailing" secondItem="8HJ-7r-nT7" secondAttribute="trailing" constant="20" id="WzI-c8-1Oz"/>
+                            <constraint firstItem="Whh-05-W4j" firstAttribute="leading" secondItem="Y5V-Ac-gEq" secondAttribute="leading" constant="20" id="aDK-uy-buH"/>
+                            <constraint firstItem="vh5-3h-blu" firstAttribute="top" secondItem="Y5V-Ac-gEq" secondAttribute="top" constant="37" id="e2e-vR-8eZ"/>
+                            <constraint firstItem="8HJ-7r-nT7" firstAttribute="leading" secondItem="Y5V-Ac-gEq" secondAttribute="leading" constant="20" id="fiq-xT-8AI"/>
+                            <constraint firstItem="Y5V-Ac-gEq" firstAttribute="trailing" secondItem="Whh-05-W4j" secondAttribute="trailing" constant="20" id="p8P-v4-RIA"/>
                             <constraint firstItem="W9w-c0-KQH" firstAttribute="leading" secondItem="Y5V-Ac-gEq" secondAttribute="leading" constant="20" id="tiI-yj-Hh3"/>
-                            <constraint firstItem="Y5V-Ac-gEq" firstAttribute="trailing" secondItem="Whh-05-W4j" secondAttribute="trailing" constant="20" id="u8l-YN-jDI"/>
+                            <constraint firstItem="Whh-05-W4j" firstAttribute="top" secondItem="Y5V-Ac-gEq" secondAttribute="top" id="yb0-u7-jbT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Y5V-Ac-gEq"/>
                     </view>
                     <navigationItem key="navigationItem" title="Can I Buy?" id="2AL-mP-X80"/>
                     <connections>
                         <outlet property="calculateButton" destination="W9w-c0-KQH" id="oxS-Mn-WS1"/>
+                        <outlet property="circleImageView" destination="Whh-05-W4j" id="qjy-Cx-XGg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WcY-k9-h5e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="673.91304347826087" y="-68.303571428571431"/>
+            <point key="canvasLocation" x="672.46376811594212" y="-68.303571428571431"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="nYi-ti-k6f">
