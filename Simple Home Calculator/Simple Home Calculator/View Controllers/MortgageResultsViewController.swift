@@ -12,6 +12,7 @@ import UIKit
 class MortgageResultsViewController: UIViewController {
     
     // MARK: - Properties
+    let mortgageLoanController = MortgageLoanController.mortgageLoanController
     
     
     // MARK: - IBOutlets

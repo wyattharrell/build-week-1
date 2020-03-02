@@ -25,6 +25,9 @@ class MortgageCalculatorViewController: UIViewController {
         return data
     }()
     
+    var mortgageType: String?
+    var mortgageLength: String?
+    
     
     // MARK: - IBOutlets
     @IBOutlet var calculateMortgageButton: UIButton!
@@ -33,6 +36,11 @@ class MortgageCalculatorViewController: UIViewController {
     @IBOutlet var downPaymentTextField: UITextField!
     @IBOutlet var mortgageLengthPickerView: UIPickerView!
     @IBOutlet var mortgageTypePickerView: UIPickerView!
+    @IBOutlet var errorLabel: UILabel!
+    @IBOutlet var monthlyHOATextField: UITextField!
+    @IBOutlet var homeInsuranceTextField: UITextField!
+    @IBOutlet var propertyTaxTextField: UITextField!
+    
     
     
     // MARK: - IBActions
@@ -42,10 +50,12 @@ class MortgageCalculatorViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         mortgageLengthPickerView.delegate = self
         mortgageLengthPickerView.dataSource = self
         mortgageTypePickerView.delegate = self
         mortgageTypePickerView.dataSource = self
+        
         guard let mortgageLoan = mortgageLoanController.mortgageLoan else { return }
         let mortgageType = mortgageLoan.mortgageType
         if mortgageType == .mortgage {
@@ -60,16 +70,55 @@ class MortgageCalculatorViewController: UIViewController {
         calculateMortgageButton.backgroundColor = UIColor(red:0.00, green:0.51, blue:0.33, alpha:1.0)
     }
     
+    func getAllInputs() {
+        guard let loanAmountString = loanAmountTextField.text,
+            !loanAmountString.isEmpty,
+            let interestRateString = interestRateTextField.text,
+            !interestRateString.isEmpty,
+            let downPaymentString = downPaymentTextField.text,
+            !downPaymentString.isEmpty,
+            let mortgageLength = mortgageLength,
+            let mortgageType = mortgageType else {
+                errorLabel.text = "Please enter values for requred fields (*)"
+                return }
+        
+        guard let loanAmount = Double(loanAmountString),
+            let interestRate = Double(interestRateString),
+            let downPayment = Double(downPaymentString)
+            else {
+                errorLabel.text = "Please enter valid valid numbers for required fields (*)"
+                return }
+        
+        let monthlyHOA: Double?
+        let homeInsurance: Double?
+        let propertyTax: Double?
+        if let monthlyHOAString = monthlyHOATextField.text {
+            monthlyHOA = Double(monthlyHOAString) ?? 0.0
+        }
+        if let homeInsuranceString = homeInsuranceTextField.text {
+            homeInsurance = Double(homeInsuranceString) ?? 0.0
+        }
+        if let propertyTaxString = propertyTaxTextField.text {
+            propertyTax = Double(propertyTaxString) ?? 0.0
+        }
+        
+        mortgageLoanController.updateMortgageLoan(mortgageLoan: mortgageLoanController.mortgageLoan!, amount: loanAmount, downPayment: downPayment, interestRate: interestRate, mortgageLength: mortgageLength, monthlyHOA: monthlyHOA, homeInsurance: homeInsurance, propertyTax: propertyTax)
+        
+    }
+    
 
-    /*
+
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
+        if segue.identifier == "CalculateMortgageSegue" {
+            let mortgageResultsVC = segue.destination as! MortgageResultsViewController
+            
+            
+        }
         // Pass the selected object to the new view controller.
     }
-    */
+
 
 }
 
@@ -95,6 +144,14 @@ extension MortgageCalculatorViewController: UIPickerViewDataSource, UIPickerView
             return mortgageTypeData[component][row]
         } else {
             return mortgageLengthData[component][row]
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView.tag == 0 {
+            mortgageType = mortgageTypeData[component][row]
+        } else {
+            mortgageLength = mortgageLengthData[component][row]
         }
     }
     

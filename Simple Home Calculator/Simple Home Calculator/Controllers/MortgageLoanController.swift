@@ -27,14 +27,24 @@ class MortgageLoanController {
 //    }
     
     func updateMortgageLoan(mortgageLoan: MortgageLoan,
-                            amount: Double?,
-                            downPayment: Double?,
-                            interestRate: Double?,
-                            mortgageLength: Int?,
-                            savedName: String?,
-                            monthlyHOA: Double?,
-                            homeInsurance: Double?,
-                            propertyTax: Double?) {
+                            amount: Double,
+                            downPayment: Double,
+                            interestRate: Double,
+                            mortgageLength: Int,
+                            monthlyHOA: Double,
+                            homeInsurance: Double,
+                            propertyTax: Double) {
+        self.mortgageLoan?.amount = amount
+        self.mortgageLoan?.downPayment = downPayment
+        self.mortgageLoan?.interestRate = interestRate
+        self.mortgageLoan?.mortgageLength = mortgageLength
+        self.mortgageLoan?.monthlyHOA = monthlyHOA
+        self.mortgageLoan?.homeInsurance = homeInsurance
+        self.mortgageLoan?.propertyTax = propertyTax
+        
+    }
+    
+    func saveMortgageLoan(mortgageLoan: MortgageLoan, savedName: String) {
         
     }
     
