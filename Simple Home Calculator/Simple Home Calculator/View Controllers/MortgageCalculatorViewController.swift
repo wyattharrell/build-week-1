@@ -77,14 +77,15 @@ class MortgageCalculatorViewController: UIViewController {
             !interestRateString.isEmpty,
             let downPaymentString = downPaymentTextField.text,
             !downPaymentString.isEmpty,
-            let mortgageLength = mortgageLength,
+            let mortgageLengthString = mortgageLength,
             let mortgageType = mortgageType else {
                 errorLabel.text = "Please enter values for requred fields (*)"
                 return }
         
         guard let loanAmount = Double(loanAmountString),
             let interestRate = Double(interestRateString),
-            let downPayment = Double(downPaymentString)
+            let downPayment = Double(downPaymentString),
+            let mortgageLength = Int(mortgageLengthString)
             else {
                 errorLabel.text = "Please enter valid valid numbers for required fields (*)"
                 return }
@@ -102,7 +103,7 @@ class MortgageCalculatorViewController: UIViewController {
             propertyTax = Double(propertyTaxString) ?? 0.0
         }
         
-        mortgageLoanController.updateMortgageLoan(mortgageLoan: mortgageLoanController.mortgageLoan!, amount: loanAmount, downPayment: downPayment, interestRate: interestRate, mortgageLength: mortgageLength, monthlyHOA: monthlyHOA, homeInsurance: homeInsurance, propertyTax: propertyTax)
+        //mortgageLoanController.updateMortgageLoan(mortgageLoan: mortgageLoanController.mortgageLoan!, amount: loanAmount, downPayment: downPayment, interestRate: interestRate, mortgageLength: mortgageLength, monthlyHOA: monthlyHOA, homeInsurance: homeInsurance, propertyTax: propertyTax)
         
     }
     
