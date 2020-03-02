@@ -12,6 +12,7 @@ extension String {
     static let mortgage = "mortgage"
     static let vaLoan = "vaLoan"
     static let refinance = "refinance"
+    static let didInitializeMortgagesArray = "DidInitializeMortgagesArray"
 }
 
 extension Int {

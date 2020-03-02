@@ -8,20 +8,22 @@
 
 import Foundation
 
-struct MortgageLoan {
+struct MortgageLoan: Codable {
     var amount: Double?
     var mortgageType: String
     var downPayment: Double?
     var interestRate: Double?
     var mortgageLength: Int?
+    var savedName: String?
     
     
-    init(mortgageType: String, amount: Double?, downPayment: Double?, interestRate: Double? = nil, mortgageLength: Int? = nil) {
-        self.amount = amount
+    init(mortgageType: String) {
+        self.amount = nil
         self.mortgageType = mortgageType
-        self.downPayment = downPayment
-        self.interestRate = interestRate
-        self.mortgageLength = mortgageLength
+        self.downPayment = nil
+        self.interestRate = nil
+        self.mortgageLength = nil
+        self.savedName = nil
     }
     /* can add:
     property tax

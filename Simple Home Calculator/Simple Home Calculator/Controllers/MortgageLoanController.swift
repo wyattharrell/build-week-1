@@ -11,11 +11,76 @@ import Foundation
 class MortgageLoanController {
     
     // MARK: - Properties
+    static var mortgageLoanController = MortgageLoanController()
+    var mortgageLoan: MortgageLoan?
+    var mortgages: [MortgageLoan] = []
     
     
     // MARK: - CRUD
     
-    func createMortgageLoan(mortgageType: String, amount: Double?, downPayment: Double?, interestRate: Double?, mortgageLength: Int?) {
+    func createMortgageLoan(mortgageType: String) {
+        mortgageLoan = MortgageLoan(mortgageType: mortgageType)
+        saveToPersistentStore()
+    }
+    
+//    func retrieveMortgageLoan() -> MortgageLoan {
+//
+//    }
+    
+    func updateMortgageLoan(mortgageLoan: MortgageLoan,
+                            amount: Double?,
+                            downPayment: Double?,
+                            interestRate: Double?,
+                            mortgageLength: Int?,
+                            savedName: String?) {
         
+    }
+    
+    func deleteMortgageLoan(mortgageLoan: MortgageLoan) {
+        
+    }
+    
+    func createMortgageArray() {
+        if UserDefaults.standard.bool(forKey: .didInitializeMortgagesArray) {
+            loadFromPersistentStore()
+        } else {
+            UserDefaults.standard.set(true, forKey: .didInitializeMortgagesArray)
+        }
+    }
+    
+    // MARK: - Persistence
+    
+    private var persistentFileURL: URL? {
+        let fileManager = FileManager.default
+        guard let documents = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+        
+        return documents.appendingPathComponent("mortgageLoans.plist")
+    }
+    
+    func saveToPersistentStore() {
+        guard let url = persistentFileURL else { return }
+        
+        do {
+            let encoder = PropertyListEncoder()
+            let data = try encoder.encode(mortgages)
+            try data.write(to: url)
+        } catch {
+            print("Error saving Motgage data: \(error)")
+        }
+    }
+    
+    func loadFromPersistentStore() {
+        
+        let fileManager = FileManager.default
+        guard let url = persistentFileURL, fileManager.fileExists(atPath: url.path) else {
+            return }
+        
+        do {
+            let data = try Data(contentsOf: url)
+            let decoder = PropertyListDecoder()
+            mortgages = try decoder.decode([MortgageLoan].self, from: data)
+        } catch {
+            print("Error loading Mortgage data: \(error)")
+        }
     }
 }
