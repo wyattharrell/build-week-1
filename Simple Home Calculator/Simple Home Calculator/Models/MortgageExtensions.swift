@@ -9,9 +9,9 @@
 import Foundation
 
 extension String {
-    static let mortgage = "mortgage"
-    static let vaLoan = "vaLoan"
-    static let refinance = "refinance"
+    static let mortgage = "Mortgage"
+    static let vaLoan = "VA Loan"
+    static let refinance = "Refinance"
     static let didInitializeMortgagesArray = "DidInitializeMortgagesArray"
 }
 
