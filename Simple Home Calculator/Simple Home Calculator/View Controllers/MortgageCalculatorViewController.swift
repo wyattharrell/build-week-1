@@ -12,16 +12,16 @@ import UIKit
 class MortgageCalculatorViewController: UIViewController {
     
     // MARK: - Properties
-    var mortgageLoanController: MortgageLoanController?
-    lazy private var mortgagePickerData: [[String]] = {
+    var mortgageLoanController = MortgageLoanController.mortgageLoanController
+    lazy private var mortgageTypeData: [[String]] = {
         let loanType: [String] = [.mortgage, .vaLoan, .refinance]
         let data: [[String]] = [["Type"], loanType]
         return data
     }()
     
     lazy private var mortgageLengthData: [[String]] = {
-        let loanDuration: [String] = ["15 Years", "30 Years", "5/1 ARM"]
-        let data: [[String]] = [["Mortgage Duration"], loanDuration]
+        let loanLength: [String] = ["15 Years", "30 Years", "5/1 ARM"]
+        let data: [[String]] = [["Length"], loanLength]
         return data
     }()
     
@@ -31,7 +31,8 @@ class MortgageCalculatorViewController: UIViewController {
     @IBOutlet var loanAmountTextField: UITextField!
     @IBOutlet var interestRateTextField: UITextField!
     @IBOutlet var downPaymentTextField: UITextField!
-    @IBOutlet var mortgagePickerView: UIPickerView!
+    @IBOutlet var mortgageLengthPickerView: UIPickerView!
+    @IBOutlet var mortgageTypePickerView: UIPickerView!
     
     
     // MARK: - IBActions
@@ -41,9 +42,19 @@ class MortgageCalculatorViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        mortgagePickerView.delegate = self
-        mortgagePickerView.dataSource = self
-        
+        mortgageLengthPickerView.delegate = self
+        mortgageLengthPickerView.dataSource = self
+        mortgageTypePickerView.delegate = self
+        mortgageTypePickerView.dataSource = self
+        guard let mortgageLoan = mortgageLoanController.mortgageLoan else { return }
+        let mortgageType = mortgageLoan.mortgageType
+        if mortgageType == .mortgage {
+            mortgageTypePickerView.selectRow(0, inComponent: 1, animated: true)
+        } else if mortgageType == .vaLoan {
+            mortgageTypePickerView.selectRow(1, inComponent: 1, animated: true)
+        } else {
+            mortgageTypePickerView.selectRow(2, inComponent: 1, animated: true)
+        }
 
         calculateMortgageButton.layer.cornerRadius = 12
         calculateMortgageButton.backgroundColor = UIColor(red:0.00, green:0.51, blue:0.33, alpha:1.0)
@@ -64,15 +75,27 @@ class MortgageCalculatorViewController: UIViewController {
 
 extension MortgageCalculatorViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return mortgagePickerData.count
+        if pickerView.tag == 0 {
+            return mortgageTypeData.count
+        } else {
+            return mortgageLengthData.count
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return mortgagePickerData[component].count
+        if pickerView.tag == 0 {
+            return mortgageTypeData[component].count
+        } else {
+            return mortgageLengthData[component].count
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return mortgagePickerData[component][row]
+        if pickerView.tag == 0 {
+            return mortgageTypeData[component][row]
+        } else {
+            return mortgageLengthData[component][row]
+        }
     }
     
 }

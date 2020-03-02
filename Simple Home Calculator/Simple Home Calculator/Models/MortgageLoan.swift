@@ -15,6 +15,9 @@ struct MortgageLoan: Codable, Equatable {
     var interestRate: Double?
     var mortgageLength: Int?
     var savedName: String?
+    var monthlyHOA: Double?
+    var homeInsurance: Double?
+    var propertyTax: Double?
     
     
     init(mortgageType: String) {
@@ -24,6 +27,9 @@ struct MortgageLoan: Codable, Equatable {
         self.interestRate = nil
         self.mortgageLength = nil
         self.savedName = nil
+        self.monthlyHOA = nil
+        self.homeInsurance = nil
+        self.propertyTax = nil
     }
     /* can add:
     property tax

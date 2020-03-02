@@ -31,7 +31,10 @@ class MortgageLoanController {
                             downPayment: Double?,
                             interestRate: Double?,
                             mortgageLength: Int?,
-                            savedName: String?) {
+                            savedName: String?,
+                            monthlyHOA: Double?,
+                            homeInsurance: Double?,
+                            propertyTax: Double?) {
         
     }
     
