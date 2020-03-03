@@ -10,6 +10,8 @@ import UIKit
 
 class CanIBuyResultsViewController: UIViewController {
 
+    var potentialHome: PotentialHomePurchase?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
