@@ -105,4 +105,19 @@ class MortgageLoanController {
             print("Error loading Mortgage data: \(error)")
         }
     }
+    
+    
+    // MARK: - Other methods
+    func calculateMonthlyPrinciple() -> Double {
+        //M = P [ i(1 + i)^n ] / [ (1 + i)^n – 1]
+        guard let P = mortgageLoan?.amount,
+            let interest = mortgageLoan?.interestRate,
+            let number = mortgageLoan?.mortgageLength
+            else { return 0.0 }
+        let i = interest/100/12
+        let n = Double(number*12)
+        let numerator = P * (i * pow((1 + i), n))
+        let denominator = pow((1 + i), (n)) - 1
+        return numerator/denominator
+    }
 }

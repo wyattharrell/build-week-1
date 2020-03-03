@@ -107,9 +107,6 @@ class MortgageCalculatorViewController: UIViewController {
         guard let length = mortgageLength else { return 0 }
         return length
     }
-    
-    
-    
 
 
     // MARK: - Navigation
@@ -154,3 +151,5 @@ extension MortgageCalculatorViewController: UIPickerViewDataSource, UIPickerView
     }
     
 }
+
+
