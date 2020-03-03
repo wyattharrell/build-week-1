@@ -21,9 +21,6 @@ class MortgagePage1ViewController: UIViewController {
     @IBOutlet var mortgageTypePickerView: UIPickerView!
     @IBOutlet var selectMortgageTypeButton: UIButton!
     
-    
-    // MARK: - IBActions
-    
 
     // MARK: - Methods
     
@@ -35,6 +32,7 @@ class MortgagePage1ViewController: UIViewController {
         selectMortgageTypeButton.layer.cornerRadius = 12
         selectMortgageTypeButton.backgroundColor = UIColor(red:0.00, green:0.51, blue:0.33, alpha:1.0)
     }
+    
     
     // MARK: - Navigation
 

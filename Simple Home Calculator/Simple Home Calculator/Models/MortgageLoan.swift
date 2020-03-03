@@ -3,6 +3,7 @@
 //  Simple Home Calculator
 //
 //  Created by Lambda_School_Loaner_259 on 3/1/20.
+//  Christopher DeVito
 //  Copyright © 2020 Wyatt Harrell. All rights reserved.
 //
 
@@ -32,14 +33,6 @@ struct MortgageLoan: Codable, Equatable {
         self.propertyTax = nil
     }
     /* can add:
-    property tax
     PMI
-    Home Insurance
-    Monthly HOA
-    Credit rating:
-        Excellent (720+)
-        Good (620-719)
-        Fair (580-619)
-        Poor (<580)
     */
 }
