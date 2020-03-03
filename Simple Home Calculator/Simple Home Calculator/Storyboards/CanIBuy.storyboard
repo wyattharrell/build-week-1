@@ -117,7 +117,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Y5V-Ac-gEq"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Can I Buy?" id="2AL-mP-X80"/>
+                    <navigationItem key="navigationItem" title="Can I Buy?" id="2AL-mP-X80">
+                        <barButtonItem key="rightBarButtonItem" title="History" id="zop-r5-Oni">
+                            <connections>
+                                <segue destination="reD-Mb-MXu" kind="show" id="InT-bB-qPo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="annualIncomeTextField" destination="8HJ-7r-nT7" id="swk-OM-nmi"/>
                         <outlet property="calculateButton" destination="W9w-c0-KQH" id="oxS-Mn-WS1"/>
@@ -475,6 +481,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V76-zM-p1k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1399" y="-68"/>
+        </scene>
+        <!--History-->
+        <scene sceneID="1jK-Cp-ZU2">
+            <objects>
+                <tableViewController id="reD-Mb-MXu" customClass="CanIBuyTableViewController" customModule="Simple_Home_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="JVh-79-LKm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PotentialHomeCell" textLabel="J7D-oa-J9H" style="IBUITableViewCellStyleDefault" id="DDY-RD-pBV">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DDY-RD-pBV" id="I63-Ku-kNX">
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="J7D-oa-J9H">
+                                            <rect key="frame" x="20" y="0.0" width="355" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="reD-Mb-MXu" id="5xy-hM-RJ9"/>
+                            <outlet property="delegate" destination="reD-Mb-MXu" id="UDH-Ln-tQs"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="History" id="Roc-1f-Idk"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iwa-0p-c5f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2125" y="585"/>
         </scene>
         <!--CanI Buy Results View Controller-->
         <scene sceneID="lcD-vv-kzA">

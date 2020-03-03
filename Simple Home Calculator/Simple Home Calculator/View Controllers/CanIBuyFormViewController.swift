@@ -41,7 +41,7 @@ class CanIBuyFormViewController: UIViewController {
     var maxHomePriceBasedOnFunds: Double = 0
     var maxDebtToIncomeRatio: Double = 0.36
     
-    var potentialHome: PotentialHomePurchase?
+    let potentialHomePurchaseController = PotentialHomePurchaseController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,7 +111,8 @@ class CanIBuyFormViewController: UIViewController {
         totalEstimatedClosingCosts = calculateTotalEstimatedClosingCosts(variableClosingCosts: variableClosingCosts_Double, loanAmountBasedOnMaxPIPayment: loanAmountBasedOnMaxPIPayment, fixedClosingCosts: fixedClosingCosts_Double, downPaymentBasedOnAvailFunds: downPaymentBasedOnAvailFunds)
         maxHomePrice = calculateMaxHomePrice(a: loanAmountBasedOnMaxPIPayment, b: downPaymentBasedOnAvailFunds)
 
-        potentialHome = PotentialHomePurchase(estimatedHomePrice: Int(maxHomePrice), piPayment: Int(lowerOfM3M4), propertyTax: Int(propertyTax_Double), insurance: Int(hoa_Double), pmi: Int(privateMortgageInsurance_Double), hoa: Int(hoaFees_Double), otherExpenses: Int(otherFees_Double), loanAmount: Int(loanAmountBasedOnMaxPIPayment), downPayment: Int(downPaymentBasedOnAvailFunds), estClosingCosts: Int(totalEstimatedClosingCosts))
+        
+        potentialHomePurchaseController.create(estimatedHomePrice: Int(maxHomePrice), piPayment: Int(lowerOfM3M4), propertyTax: Int(propertyTax_Double), insurance: Int(hoa_Double), pmi: Int(privateMortgageInsurance_Double), hoa: Int(hoaFees_Double), otherExpenses: Int(otherFees_Double), loanAmount: Int(loanAmountBasedOnMaxPIPayment), downPayment: Int(downPaymentBasedOnAvailFunds), estClosingCosts: Int(totalEstimatedClosingCosts))
     }
     
     // MARK: - Navigation
@@ -119,7 +120,7 @@ class CanIBuyFormViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowCanIBuyResults" {
             guard let CanIBuyResultsVC = segue.destination as? CanIBuyResultsViewController else { return }
-            CanIBuyResultsVC.potentialHome = potentialHome
+            CanIBuyResultsVC.potentialHome = potentialHomePurchaseController.potentialHomes[potentialHomePurchaseController.potentialHomes.count-1]
         }
     }
 
