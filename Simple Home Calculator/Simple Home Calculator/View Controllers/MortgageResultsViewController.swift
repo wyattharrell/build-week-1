@@ -12,11 +12,21 @@ import UIKit
 class MortgageResultsViewController: UIViewController {
     
     // MARK: - Properties
-    let mortgageLoanController = MortgageLoanController.mortgageLoanController
+    var mortgageLoanController = MortgageLoanController.mortgageLoanController
     
     
     // MARK: - IBOutlets
     
+    
+    // MARK: - Temp IBOutlets
+    @IBOutlet var amountLabelTemp: UILabel!
+    @IBOutlet var typeLabelTemp: UILabel!
+    @IBOutlet var downLabelTemp: UILabel!
+    @IBOutlet var rateLabelTemp: UILabel!
+    @IBOutlet var lengthLabelTemp: UILabel!
+    @IBOutlet var hoaLabelTemp: UILabel!
+    @IBOutlet var insuranceLabelTemp: UILabel!
+    @IBOutlet var taxLabelTemp: UILabel!
     
     // MARK: - IBActions
     
@@ -25,17 +35,34 @@ class MortgageResultsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let mortgage = mortgageLoanController.mortgageLoan
+        guard let amount = mortgage?.amount,
+            let mortgageType = mortgage?.mortgageType,
+            let downPayment = mortgage?.downPayment,
+            let interestRate = mortgage?.interestRate,
+            let mortgageLength = mortgage?.mortgageLength,
+            let monthlyHOA = mortgage?.monthlyHOA,
+            let homeInsurance = mortgage?.homeInsurance,
+            let propertyTax = mortgage?.propertyTax else { return }
+        amountLabelTemp.text = "\(amount)"
+        typeLabelTemp.text = "\(mortgageType)"
+        downLabelTemp.text = "\(downPayment)"
+        rateLabelTemp.text = "\(interestRate)"
+        lengthLabelTemp.text = "\(mortgageLength)"
+        hoaLabelTemp.text = "\(monthlyHOA)"
+        insuranceLabelTemp.text = "\(homeInsurance)"
+        taxLabelTemp.text = "\(propertyTax)"
     }
     
 
-    /*
+
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        //if segue.identifier == ""
+//        // Pass the selected object to the new view controller.
+//    }
+
 
 }
