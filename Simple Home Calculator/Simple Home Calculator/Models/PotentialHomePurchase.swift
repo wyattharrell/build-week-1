@@ -11,11 +11,11 @@ import Foundation
 struct PotentialHomePurchase {
     let estimatedHomePrice: Int
     let piPayment: Int
-    let propertyTax: Int
-    let insurance: Int
-    let pmi: Int
-    let hoa: Int
-    let otherExpenses: Int
+    let propertyTax: Int?
+    let insurance: Int?
+    let pmi: Int?
+    let hoa: Int?
+    let otherExpenses: Int?
     let loanAmount: Int
     let downPayment: Int
     let estClosingCosts: Int
