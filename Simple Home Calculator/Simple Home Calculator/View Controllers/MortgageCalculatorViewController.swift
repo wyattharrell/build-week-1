@@ -25,7 +25,7 @@ class MortgageCalculatorViewController: UIViewController {
         return data
     }()
     
-    var mortgageLength: Int?
+    var mortgageLength: Int? = 15
     
     
     // MARK: - IBOutlets
@@ -57,6 +57,8 @@ class MortgageCalculatorViewController: UIViewController {
 
         calculateMortgageButton.layer.cornerRadius = 12
         calculateMortgageButton.backgroundColor = UIColor(red:0.00, green:0.51, blue:0.33, alpha:1.0)
+        
+        mortgageLengthPickerView.selectRow(0, inComponent: 1, animated: true)
     }
     
     func getAllInputs() {
@@ -114,10 +116,10 @@ class MortgageCalculatorViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         getAllInputs()
-        if segue.identifier == "CalculateMortgageSegue" {
-            let mortgageResultsVC = segue.destination as! MortgageResultsViewController
-            
-        }
+//        if segue.identifier == "CalculateMortgageSegue" {
+//            let mortgageResultsVC = segue.destination as! MortgageResultsViewController
+//
+//        }
         // Pass the selected object to the new view controller.
     }
 
