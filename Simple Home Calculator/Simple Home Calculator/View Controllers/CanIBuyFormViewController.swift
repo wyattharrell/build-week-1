@@ -101,6 +101,22 @@ class CanIBuyFormViewController: UIViewController {
         
         lowerOfM3M4 = calculateLowerOfM3M4(m3: maxPIPaymentBasedOnExpenses_M3, m4: maxPIPaymentBasedOnFunds_M4)
         
+        loanAmountBasedOnMaxPIPayment = calculateLoanAmountBasedOnMaxPIPayment(maxHomePriceBasedOnFundss: maxHomePriceBasedOnFunds, minDownPayment: tem)
+        
+        downPaymentBasedOnAvailFunds = calculateDownPaymentBasedOnAvailFunds(availableFunds: availableFunds_Double, fixedClosingCosts: fixedClosingCosts_Double, variableClosingCosts: variableClosingCosts_Double)
+        totalEstimatedClosingCosts = calculateTotalEstimatedClosingCosts(variableClosingCosts: variableClosingCosts_Double, loanAmountBasedOnMaxPIPayment: loanAmountBasedOnMaxPIPayment, fixedClosingCosts: fixedClosingCosts_Double, downPaymentBasedOnAvailFunds: downPaymentBasedOnAvailFunds)
+        maxHomePrice = calculateMaxHomePrice(a: loanAmountBasedOnMaxPIPayment, b: downPaymentBasedOnAvailFunds)
+        
+        print(maxMonthlyPaymentBasedOnDebt_M2)
+        print(lowerOfM1M2)
+        print(maxPIPaymentBasedOnExpenses_M3)
+        print(maxHomePriceBasedOnFunds)
+        print(maxPIPaymentBasedOnFunds_M4)
+        print(lowerOfM3M4)
+        print(loanAmountBasedOnMaxPIPayment)
+        print(downPaymentBasedOnAvailFunds)
+        print(totalEstimatedClosingCosts)
+        print(maxHomePrice)
         
     }
     
@@ -129,7 +145,7 @@ class CanIBuyFormViewController: UIViewController {
     
     func calculateMaxHomePriceBasedOnFunds(availFunds: Double, fixedClosingCosts: Double, variableClosingCosts: Double, minDownPayment: Double) -> Double {
         let a = availFunds - fixedClosingCosts
-        let b = variableClosingCosts + minDownPayment
+        let b = (variableClosingCosts / 100) + (minDownPayment / 100)
         return a / b
     }
     
@@ -147,16 +163,21 @@ class CanIBuyFormViewController: UIViewController {
         return maxHomePriceBasedOnFundss * (1-minDownPayment) //pass 0.2 not 20
     }
     
-//    func calculateDownPaymentBasedOnAvailFunds() -> Double {
-//
-//    }
-//
-//    func calculateTotalEstimatedClosingCosts() -> Double {
-//
-//    }
+    func calculateDownPaymentBasedOnAvailFunds(availableFunds: Double, fixedClosingCosts: Double, variableClosingCosts: Double) -> Double {
+        let varClosing = (variableClosingCosts / 100)
+        var result = availableFunds - fixedClosingCosts
+        
+        result = result - (varClosing * loanAmountBasedOnMaxPIPayment)
+        result = result / (1+varClosing)
+        return result
+    }
+
+    func calculateTotalEstimatedClosingCosts(variableClosingCosts: Double, loanAmountBasedOnMaxPIPayment: Double, fixedClosingCosts: Double, downPaymentBasedOnAvailFunds: Double) -> Double {
+        return (variableClosingCosts / 100 ) * (loanAmountBasedOnMaxPIPayment + downPaymentBasedOnAvailFunds) + fixedClosingCosts
+    }
     
     func calculateMaxHomePrice(a: Double, b: Double) -> Double {
-        return a + b //totalEstimatedClosingCosts + downPaymentBasedOnAvailFunds
+        return a + b
     }
     
     
