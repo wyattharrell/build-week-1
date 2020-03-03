@@ -53,6 +53,8 @@ class CanIBuyFormViewController: UIViewController {
         guard let income = income else { return }
         guard let maxMonthlyPaymentBasedOnIncome_M1 = maxMonthlyPaymentBasedOnIncome_M1 else { return }
         guard let monthlyDebts = monthlyDebtsTextField.text, let monthlyDebts_Int = Int(monthlyDebts) else { return }
+        guard let propertyTax = propertyTaxesTextField.text, let propertyTax_Double = Double(propertyTax), let hoa = homeOwnersInsuranceTextField.text, let hoa_Double = Double(hoa), let privateMortgageInsurance = privateMortgageInsuranceTextField.text, let privateMortgageInsurance_Double = Double(privateMortgageInsurance), let hoaFees = hoaFeesTextField.text, let hoaFees_Double = Double(hoaFees), let otherFees = otherFeesTextField.text, let otherFees_Double = Double(otherFees) else { return }
+        
         
         switch maxDebtToIncomeRatioSegmentedControl.selectedSegmentIndex {
             case 0:
@@ -63,14 +65,22 @@ class CanIBuyFormViewController: UIViewController {
                 print("N/A")
         }
         
+        let expenses = propertyTax_Double + hoa_Double + hoaFees_Double + privateMortgageInsurance_Double + otherFees_Double
+        
         maxMonthlyPaymentBasedOnDebt_M2 = calculateMaxMonthlyPaymentBasedOnDebt_M2(income: income, debt: monthlyDebts_Int, maxDTIRatio: maxDebtToIncomeRatio)
         lowerOfM1M2 = calculateLowerOfM1M2(m1: maxMonthlyPaymentBasedOnIncome_M1, m2: maxMonthlyPaymentBasedOnDebt_M2)
-        
-        guard let propertyTax = propertyTaxesTextField.text, let propertyTax_Double = Double(propertyTax), let hoa = homeOwnersInsuranceTextField.text, let hoa_Double = Double(hoa), let privateMortgageInsurance = privateMortgageInsuranceTextField.text, let privateMortgageInsurance_Double = Double(privateMortgageInsurance), let hoaFees = hoaFeesTextField.text, let hoaFees_Double = Double(hoaFees), let otherFees = otherFeesTextField.text, let otherFees_Double = Double(otherFees) else { return }
-        
-        let expenses = propertyTax_Double + hoa_Double + hoaFees_Double + privateMortgageInsurance_Double + otherFees_Double
-
         maxPIPaymentBasedOnExpenses_M3 = calculatePIPaymentBasedOnExpenses_M3(lowerOfM1orM2: lowerOfM1M2, expenses: expenses)
+        
+        guard let availableFunds = availableFundsTextField.text, let availableFunds_Double = Double(availableFunds), let minDownPayment = minDownPaymentTextField.text, let minDownPayment_Double = Double(minDownPayment) else { return }
+        
+        guard let fixedClosingCosts = fixedClosingCostsTextField.text, let fixedClosingCosts_Double = Double(fixedClosingCosts), let variableClosingCostss = variableClosingCosts.text, let variableClosingCosts_Double = Double(variableClosingCostss) else { return }
+        
+        
+        maxHomePriceBasedOnFunds = calculateMaxHomePriceBasedOnFunds(availFunds: availableFunds_Double, fixedClosingCosts: fixedClosingCosts_Double, variableClosingCosts: variableClosingCosts_Double, minDownPayment: minDownPayment_Double)
+        
+        maxPIPaymentBasedOnFunds_M4 = calculateMaxPIPaymentBasedOnFunds_M4(r: <#T##Double#>, n: <#T##Double#>, pv: <#T##Double#>)
+        
+        lowerOfM3M4 = calculateLowerOfM3M4(m3: maxPIPaymentBasedOnExpenses_M3, m4: maxPIPaymentBasedOnFunds_M4)
         
         
     }
