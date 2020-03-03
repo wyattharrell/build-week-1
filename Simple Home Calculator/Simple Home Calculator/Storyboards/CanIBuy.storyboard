@@ -507,6 +507,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Foc-qC-ckt" kind="show" identifier="ShowCanIBuySearch" id="Iij-JG-WnX"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -518,7 +521,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iwa-0p-c5f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2125" y="585"/>
+            <point key="canvasLocation" x="1400" y="646"/>
         </scene>
         <!--CanI Buy Results View Controller-->
         <scene sceneID="lcD-vv-kzA">
@@ -600,4 +603,7 @@
         <image name="circle.fill" catalog="system" width="64" height="60"/>
         <image name="house.fill" catalog="system" width="64" height="52"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Iij-JG-WnX"/>
+    </inferredMetricsTieBreakers>
 </document>
