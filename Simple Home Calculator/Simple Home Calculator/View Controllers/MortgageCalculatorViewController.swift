@@ -106,6 +106,8 @@ class MortgageCalculatorViewController: UIViewController {
         return length
     }
     
+    
+    
 
 
     // MARK: - Navigation
