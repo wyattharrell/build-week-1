@@ -39,7 +39,7 @@ class CanIBuyFormViewController: UIViewController {
     var totalEstimatedClosingCosts: Double = 0
     var maxHomePrice: Double = 0
     var maxHomePriceBasedOnFunds: Double = 0
-    var maxDebtToIncomeRatio: Double = 0
+    var maxDebtToIncomeRatio: Double = 0.36
     
     var potentialHome: PotentialHomePurchase?
 
@@ -49,6 +49,30 @@ class CanIBuyFormViewController: UIViewController {
         calculateButton.backgroundColor = UIColor(red:0.00, green:0.51, blue:0.33, alpha:1.0)
     }
     
+    @IBAction func maxDebtToIncomeRatioSegmentedControlTapped(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            maxDebtToIncomeRatio = 0.36
+        case 1:
+            let alert = UIAlertController(title: "Maximum Housing Expense", message: "Enter your maximum allowed housing expense percentage", preferredStyle: .alert)
+            alert.addTextField { (UITextField) in
+                UITextField.placeholder = "0%"
+            }
+            let action = UIAlertAction(title: "Dismiss", style: .default) { _ in
+                guard let percentage = alert.textFields?[0].text, let percentage_Double = Double(percentage) else {
+                    return
+                }
+                sender.setTitle("\(Int(percentage_Double))%", forSegmentAt: 1)
+                self.maxDebtToIncomeRatio = percentage_Double / 100
+            }
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
+        default:
+            print("N/A")
+        }
+    }
+    
+    
     @IBAction func calculateButtonTapped(_ sender: Any) {
         guard let income = income else { return }
         guard let maxMonthlyPaymentBasedOnIncome_M1 = maxMonthlyPaymentBasedOnIncome_M1 else { return }
@@ -57,15 +81,6 @@ class CanIBuyFormViewController: UIViewController {
         guard let availableFunds = availableFundsTextField.text, let availableFunds_Double = Double(availableFunds), let minDownPayment = minDownPaymentTextField.text, let minDownPayment_Double = Double(minDownPayment) else { return }
         guard let fixedClosingCosts = fixedClosingCostsTextField.text, let fixedClosingCosts_Double = Double(fixedClosingCosts), let variableClosingCostss = variableClosingCosts.text, let variableClosingCosts_Double = Double(variableClosingCostss) else { return }
         guard let annualInterestRate = annualInterestRateTextField.text, let annualInterestRate_Double = Double(annualInterestRate) else { return }
-        
-        switch maxDebtToIncomeRatioSegmentedControl.selectedSegmentIndex {
-            case 0:
-                maxDebtToIncomeRatio = 0.36
-            case 1:
-                print("---------------------- MUST CALL UIALERT ----------------------")
-            default:
-                print("N/A")
-        }
         
         let expenses = propertyTax_Double + hoa_Double + hoaFees_Double + privateMortgageInsurance_Double + otherFees_Double
         
