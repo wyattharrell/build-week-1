@@ -483,14 +483,53 @@
                     <view key="view" contentMode="scaleToFill" id="qgI-1w-xPW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vyg-Re-hlo">
+                                <rect key="frame" x="0.0" y="140" width="414" height="100"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="9yj-gd-dQG">
+                                        <rect key="frame" x="122.5" y="23.5" width="169.5" height="53.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Estimated Home Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wX-q2-bf2">
+                                                <rect key="frame" x="0.0" y="0.0" width="169.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4g-Xv-Ae8">
+                                                <rect key="frame" x="0.0" y="24.5" width="169.5" height="29"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="9yj-gd-dQG" firstAttribute="centerY" secondItem="vyg-Re-hlo" secondAttribute="centerY" id="9OQ-Ez-YFx"/>
+                                    <constraint firstAttribute="height" constant="100" id="LwF-yk-6cr"/>
+                                    <constraint firstItem="9yj-gd-dQG" firstAttribute="centerX" secondItem="vyg-Re-hlo" secondAttribute="centerX" id="R5W-5u-0fG"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="vyg-Re-hlo" firstAttribute="leading" secondItem="QHf-t8-oOX" secondAttribute="leading" id="DNV-gO-Hti"/>
+                            <constraint firstItem="vyg-Re-hlo" firstAttribute="top" secondItem="QHf-t8-oOX" secondAttribute="top" id="EyJ-7g-ETb"/>
+                            <constraint firstItem="vyg-Re-hlo" firstAttribute="trailing" secondItem="QHf-t8-oOX" secondAttribute="trailing" id="cNJ-dk-kAK"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="QHf-t8-oOX"/>
                     </view>
                     <navigationItem key="navigationItem" id="1Vp-Cd-Lrw"/>
+                    <connections>
+                        <outlet property="bannerView" destination="vyg-Re-hlo" id="4RD-fu-Nzn"/>
+                        <outlet property="homePriceLabel" destination="Z4g-Xv-Ae8" id="Sgv-CD-tQA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vIh-ps-XxQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2126" y="-68"/>
+            <point key="canvasLocation" x="2124.6376811594205" y="-68.303571428571431"/>
         </scene>
         <!--Can I Buy-->
         <scene sceneID="EUD-hL-qSu">
