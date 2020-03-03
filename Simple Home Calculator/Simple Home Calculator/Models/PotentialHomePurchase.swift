@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct PotentialHomePurchase {
+struct PotentialHomePurchase: Codable {
     let estimatedHomePrice: Int
     let piPayment: Int
     let propertyTax: Int?
@@ -19,4 +19,5 @@ struct PotentialHomePurchase {
     let loanAmount: Int
     let downPayment: Int
     let estClosingCosts: Int
+    let date: Date
 }

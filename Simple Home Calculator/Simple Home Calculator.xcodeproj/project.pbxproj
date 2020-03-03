@@ -10,6 +10,8 @@
 		133B3391240DA80800539A0F /* CanIBuyResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133B3390240DA80800539A0F /* CanIBuyResultsViewController.swift */; };
 		133B3393240DA83500539A0F /* CanIBuyFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133B3392240DA83500539A0F /* CanIBuyFormViewController.swift */; };
 		133B3395240EC1F900539A0F /* PotentialHomePurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133B3394240EC1F900539A0F /* PotentialHomePurchase.swift */; };
+		13929443240F04AB00AD388B /* PotentialHomePurchaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13929442240F04AB00AD388B /* PotentialHomePurchaseController.swift */; };
+		13929445240F0C0400AD388B /* CanIBuyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13929444240F0C0400AD388B /* CanIBuyTableViewController.swift */; };
 		13A8BEAD240A164700088296 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A8BEAC240A164700088296 /* AppDelegate.swift */; };
 		13A8BEAF240A164700088296 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A8BEAE240A164700088296 /* SceneDelegate.swift */; };
 		13A8BEB4240A164700088296 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13A8BEB2240A164700088296 /* Main.storyboard */; };
@@ -31,6 +33,8 @@
 		133B3390240DA80800539A0F /* CanIBuyResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanIBuyResultsViewController.swift; sourceTree = "<group>"; };
 		133B3392240DA83500539A0F /* CanIBuyFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanIBuyFormViewController.swift; sourceTree = "<group>"; };
 		133B3394240EC1F900539A0F /* PotentialHomePurchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotentialHomePurchase.swift; sourceTree = "<group>"; };
+		13929442240F04AB00AD388B /* PotentialHomePurchaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotentialHomePurchaseController.swift; sourceTree = "<group>"; };
+		13929444240F0C0400AD388B /* CanIBuyTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanIBuyTableViewController.swift; sourceTree = "<group>"; };
 		13A8BEA9240A164700088296 /* Simple Home Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple Home Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13A8BEAC240A164700088296 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13A8BEAE240A164700088296 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 				13A8BEE8240AB49B00088296 /* CanIBuyViewController.swift */,
 				133B3390240DA80800539A0F /* CanIBuyResultsViewController.swift */,
 				133B3392240DA83500539A0F /* CanIBuyFormViewController.swift */,
+				13929444240F0C0400AD388B /* CanIBuyTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -147,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				BB612A50240BA4CC00A451ED /* MortgageLoanController.swift */,
+				13929442240F04AB00AD388B /* PotentialHomePurchaseController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -225,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13929443240F04AB00AD388B /* PotentialHomePurchaseController.swift in Sources */,
 				BB612A4B240B932600A451ED /* MortgageCalculatorViewController.swift in Sources */,
 				133B3391240DA80800539A0F /* CanIBuyResultsViewController.swift in Sources */,
 				13A8BEE9240AB49B00088296 /* CanIBuyViewController.swift in Sources */,
@@ -234,6 +241,7 @@
 				133B3395240EC1F900539A0F /* PotentialHomePurchase.swift in Sources */,
 				BB612A4D240B934D00A451ED /* MortgageResultsViewController.swift in Sources */,
 				BB612A53240BA75E00A451ED /* MortgageExtensions.swift in Sources */,
+				13929445240F0C0400AD388B /* CanIBuyTableViewController.swift in Sources */,
 				13A8BEAD240A164700088296 /* AppDelegate.swift in Sources */,
 				133B3393240DA83500539A0F /* CanIBuyFormViewController.swift in Sources */,
 				13A8BEAF240A164700088296 /* SceneDelegate.swift in Sources */,
