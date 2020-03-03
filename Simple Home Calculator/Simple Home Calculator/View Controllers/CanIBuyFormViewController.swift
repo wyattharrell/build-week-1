@@ -75,10 +75,29 @@ class CanIBuyFormViewController: UIViewController {
         
         guard let fixedClosingCosts = fixedClosingCostsTextField.text, let fixedClosingCosts_Double = Double(fixedClosingCosts), let variableClosingCostss = variableClosingCosts.text, let variableClosingCosts_Double = Double(variableClosingCostss) else { return }
         
+        guard let annualInterestRate = annualInterestRateTextField.text, let annualInterestRate_Double = Double(annualInterestRate) else { return }
+        
         
         maxHomePriceBasedOnFunds = calculateMaxHomePriceBasedOnFunds(availFunds: availableFunds_Double, fixedClosingCosts: fixedClosingCosts_Double, variableClosingCosts: variableClosingCosts_Double, minDownPayment: minDownPayment_Double)
         
-        maxPIPaymentBasedOnFunds_M4 = calculateMaxPIPaymentBasedOnFunds_M4(r: <#T##Double#>, n: <#T##Double#>, pv: <#T##Double#>)
+        let aIR = (annualInterestRate_Double / 100) / 12
+
+        var term: Double = 0
+        switch termOfMortgageSegmentedControl.selectedSegmentIndex {
+            case 0:
+                term = 15
+            case 1:
+                term = 30
+            case 2:
+                term = 40
+            default:
+                print("N/A")
+        }
+        
+        term = term * 12
+        let tem = minDownPayment_Double / 100
+        let temp = maxHomePriceBasedOnFunds * (1 - tem)
+        maxPIPaymentBasedOnFunds_M4 = calculateMaxPIPaymentBasedOnFunds_M4(r: aIR, n: term, pv: temp)
         
         lowerOfM3M4 = calculateLowerOfM3M4(m3: maxPIPaymentBasedOnExpenses_M3, m4: maxPIPaymentBasedOnFunds_M4)
         
