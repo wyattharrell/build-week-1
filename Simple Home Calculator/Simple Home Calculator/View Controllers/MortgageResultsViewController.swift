@@ -13,6 +13,13 @@ class MortgageResultsViewController: UIViewController {
     
     // MARK: - Properties
     var mortgageLoanController = MortgageLoanController.mortgageLoanController
+    var currencyFormatter: NumberFormatter {
+        let formatter = NumberFormatter()
+        formatter.usesGroupingSeparator = true
+        formatter.numberStyle = .currency
+        formatter.locale = Locale.current
+        return formatter
+    }
     
     
     // MARK: - IBOutlets
@@ -37,32 +44,18 @@ class MortgageResultsViewController: UIViewController {
         super.viewDidLoad()
         
         let mortgage = mortgageLoanController.mortgageLoan
-        guard let amount = mortgage?.amount,
-            let mortgageType = mortgage?.mortgageType,
-            let downPayment = mortgage?.downPayment,
-            let interestRate = mortgage?.interestRate,
-            let mortgageLength = mortgage?.mortgageLength,
-            let monthlyHOA = mortgage?.monthlyHOA,
-            let homeInsurance = mortgage?.homeInsurance,
-            let propertyTax = mortgage?.propertyTax else { return }
-        amountLabelTemp.text = "\(amount)"
-        typeLabelTemp.text = "\(mortgageType)"
-        downLabelTemp.text = "\(downPayment)"
-        rateLabelTemp.text = "\(interestRate)"
-        lengthLabelTemp.text = "\(mortgageLength)"
-        hoaLabelTemp.text = "\(monthlyHOA)"
-        insuranceLabelTemp.text = "\(homeInsurance)"
-        taxLabelTemp.text = "\(propertyTax)"
+        let amount = mortgageLoanController.calculateMonthlyPrinciple()
+        let amountNSN = NSNumber(value: amount)
+        guard let amountFormatted = currencyFormatter.string(from: amountNSN) else { return }
+//        guard let amount = mortgage?.amount,
+//            let mortgageType = mortgage?.mortgageType,
+//            let downPayment = mortgage?.downPayment,
+//            let interestRate = mortgage?.interestRate,
+//            let mortgageLength = mortgage?.mortgageLength,
+//            let monthlyHOA = mortgage?.monthlyHOA,
+//            let homeInsurance = mortgage?.homeInsurance,
+//            let propertyTax = mortgage?.propertyTax else { return }
+        amountLabelTemp.text = "\(amountFormatted)"
+        
     }
-    
-
-
-    // MARK: - Navigation
-
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        //if segue.identifier == ""
-//        // Pass the selected object to the new view controller.
-//    }
-
-
 }
