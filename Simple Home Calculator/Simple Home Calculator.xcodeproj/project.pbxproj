@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -92,11 +92,10 @@
 			isa = PBXGroup;
 			children = (
 				BB612A44240B6CB300A451ED /* Models */,
-				BB612A45240B6CC600A451ED /* Views */,
+				13A8BEC1240A166100088296 /* Views */,
 				BB612A46240B6CD000A451ED /* View Controllers */,
 				BB612A47240B6CDC00A451ED /* Controllers */,
 				13A8BEC0240A165800088296 /* Resources */,
-				13A8BEC1240A166100088296 /* Storyboards */,
 			);
 			path = "Simple Home Calculator";
 			sourceTree = "<group>";
@@ -112,7 +111,7 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		13A8BEC1240A166100088296 /* Storyboards */ = {
+		13A8BEC1240A166100088296 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				13A8BEB2240A164700088296 /* Main.storyboard */,
@@ -121,7 +120,7 @@
 				13A8BEC4240A175300088296 /* CostOfLiving.storyboard */,
 				13A8BEB7240A164700088296 /* LaunchScreen.storyboard */,
 			);
-			path = Storyboards;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		A948083B6F7428265035D05F /* Frameworks */ = {
@@ -140,13 +139,6 @@
 				133B3394240EC1F900539A0F /* PotentialHomePurchase.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		BB612A45240B6CC600A451ED /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		BB612A46240B6CD000A451ED /* View Controllers */ = {
@@ -178,7 +170,6 @@
 				17FC25A2F049657CE8BB22A5 /* Pods-Simple Home Calculator.debug.xcconfig */,
 				4F8612E26D159A86A8A9CB88 /* Pods-Simple Home Calculator.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

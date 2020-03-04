@@ -108,16 +108,46 @@ class MortgageLoanController {
     
     
     // MARK: - Other methods
-    func calculateMonthlyPrinciple() -> Double {
+    func calculateMonthlyInterest() -> Double {
         //M = P [ i(1 + i)^n ] / [ (1 + i)^n – 1]
         guard let P = mortgageLoan?.amount,
-            let interest = mortgageLoan?.interestRate,
+            let interestRate = mortgageLoan?.interestRate,
             let number = mortgageLoan?.mortgageLength
             else { return 0.0 }
-        let i = interest/100/12
+        let i = interestRate/100/12
         let n = Double(number*12)
         let numerator = P * (i * pow((1 + i), n))
         let denominator = pow((1 + i), (n)) - 1
-        return numerator/denominator
+        let totalPrincipleAndTax = numerator/denominator
+        let principlePerMonth = P/n
+        let interest = totalPrincipleAndTax - principlePerMonth
+        return interest
+    }
+    
+    func calculateMonthlyPrinciple() -> Double {
+        guard let P = mortgageLoan?.amount,
+            let number = mortgageLoan?.mortgageLength
+            else { return 0.0 }
+        let n = Double(number*12)
+        let principle = P/n
+        return principle
+    }
+    
+    func calculateMonthlyInsurance() -> Double {
+        guard let insurance = mortgageLoan?.homeInsurance else { return 0.0 }
+        let monthlyInsurance = insurance/12
+        return monthlyInsurance
+    }
+    
+    func calculateMonthlyTax() -> Double {
+        guard let tax = mortgageLoan?.propertyTax else { return 0.0 }
+        let monthlyTax = tax/12
+        return monthlyTax
+    }
+    
+    func calculateMonthlyHOA() -> Double {
+        guard let hoa = mortgageLoan?.monthlyHOA else { return 0.0 }
+        let monthlyHoa = hoa/12
+        return monthlyHoa
     }
 }
