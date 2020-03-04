@@ -105,7 +105,7 @@ class CanIBuyResultsViewController: UIViewController {
         dataSet.valueColors = [UIColor.black]
         pieChart.legend.font = UIFont(name: "Futura", size: 12)!
         pieChart.chartDescription?.font = UIFont(name: "Futura", size: 12)!
-        pieChart.backgroundColor = UIColor.black
+        pieChart.backgroundColor = UIColor.white
 
     }
 }
