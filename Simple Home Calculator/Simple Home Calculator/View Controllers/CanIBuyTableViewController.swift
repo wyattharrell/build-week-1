@@ -53,7 +53,13 @@ class CanIBuyTableViewController: UITableViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //guard let segue.identifier == "ShowCanIBuySearch" as? CanIBuyResultsViewController else { return }
+        if segue.identifier == "ShowCanIBuySearch" {
+            guard let CanIBuyResultsVC = segue.destination as? CanIBuyResultsViewController else { return }
+            
+            guard let selected = tableView.indexPathForSelectedRow else { return }
+            
+            CanIBuyResultsVC.potentialHome = potentialHomePurchaseController.potentialHomes[selected.row]
+        }
     }
 
 }

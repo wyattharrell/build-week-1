@@ -523,7 +523,7 @@
             </objects>
             <point key="canvasLocation" x="1400" y="646"/>
         </scene>
-        <!--CanI Buy Results View Controller-->
+        <!--Can I Buy?-->
         <scene sceneID="lcD-vv-kzA">
             <objects>
                 <viewController id="Foc-qC-ckt" customClass="CanIBuyResultsViewController" customModule="Simple_Home_Calculator" customModuleProvider="target" sceneMemberID="viewController">
@@ -559,19 +559,41 @@
                                     <constraint firstItem="9yj-gd-dQG" firstAttribute="centerX" secondItem="vyg-Re-hlo" secondAttribute="centerX" id="R5W-5u-0fG"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vJp-H1-dTy" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="250" width="414" height="500"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gw-a1-wwr">
+                                        <rect key="frame" x="186" y="240" width="42" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="5gw-a1-wwr" firstAttribute="centerX" secondItem="vJp-H1-dTy" secondAttribute="centerX" id="Ru7-nt-2Mh"/>
+                                    <constraint firstItem="5gw-a1-wwr" firstAttribute="centerY" secondItem="vJp-H1-dTy" secondAttribute="centerY" id="m4q-yE-8Wn"/>
+                                    <constraint firstAttribute="height" constant="500" id="pVj-Jh-vFT"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="vyg-Re-hlo" firstAttribute="leading" secondItem="QHf-t8-oOX" secondAttribute="leading" id="DNV-gO-Hti"/>
+                            <constraint firstItem="vJp-H1-dTy" firstAttribute="top" secondItem="vyg-Re-hlo" secondAttribute="bottom" constant="10" id="Egd-xh-own"/>
                             <constraint firstItem="vyg-Re-hlo" firstAttribute="top" secondItem="QHf-t8-oOX" secondAttribute="top" id="EyJ-7g-ETb"/>
+                            <constraint firstItem="QHf-t8-oOX" firstAttribute="trailing" secondItem="vJp-H1-dTy" secondAttribute="trailing" id="FOa-4t-6dO"/>
+                            <constraint firstItem="vJp-H1-dTy" firstAttribute="leading" secondItem="QHf-t8-oOX" secondAttribute="leading" id="YPx-Wq-Ehd"/>
                             <constraint firstItem="vyg-Re-hlo" firstAttribute="trailing" secondItem="QHf-t8-oOX" secondAttribute="trailing" id="cNJ-dk-kAK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QHf-t8-oOX"/>
                     </view>
-                    <navigationItem key="navigationItem" id="1Vp-Cd-Lrw"/>
+                    <navigationItem key="navigationItem" title="Can I Buy?" id="1Vp-Cd-Lrw"/>
                     <connections>
                         <outlet property="bannerView" destination="vyg-Re-hlo" id="4RD-fu-Nzn"/>
                         <outlet property="homePriceLabel" destination="Z4g-Xv-Ae8" id="Sgv-CD-tQA"/>
+                        <outlet property="monthlyExpensesLabel" destination="5gw-a1-wwr" id="TzS-hA-TDf"/>
+                        <outlet property="pieChart" destination="vJp-H1-dTy" id="Gfv-oA-HGi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vIh-ps-XxQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
