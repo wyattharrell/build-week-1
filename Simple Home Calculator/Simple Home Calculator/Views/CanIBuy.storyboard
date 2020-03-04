@@ -523,7 +523,7 @@
             </objects>
             <point key="canvasLocation" x="1400" y="646"/>
         </scene>
-        <!--CanI Buy Results View Controller-->
+        <!--Can I Buy?-->
         <scene sceneID="lcD-vv-kzA">
             <objects>
                 <viewController id="Foc-qC-ckt" customClass="CanIBuyResultsViewController" customModule="Simple_Home_Calculator" customModuleProvider="target" sceneMemberID="viewController">
@@ -559,19 +559,115 @@
                                     <constraint firstItem="9yj-gd-dQG" firstAttribute="centerX" secondItem="vyg-Re-hlo" secondAttribute="centerX" id="R5W-5u-0fG"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vJp-H1-dTy" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="250" width="414" height="455"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gw-a1-wwr">
+                                        <rect key="frame" x="185" y="217.5" width="44.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="5gw-a1-wwr" firstAttribute="centerX" secondItem="vJp-H1-dTy" secondAttribute="centerX" id="Ru7-nt-2Mh"/>
+                                    <constraint firstItem="5gw-a1-wwr" firstAttribute="centerY" secondItem="vJp-H1-dTy" secondAttribute="centerY" id="m4q-yE-8Wn"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cc1-aA-DRA">
+                                <rect key="frame" x="0.0" y="713" width="414" height="100"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="WML-lf-msR">
+                                        <rect key="frame" x="27" y="25.5" width="360" height="49"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8sT-fb-0Yr">
+                                                <rect key="frame" x="0.0" y="0.0" width="104" height="49"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loan Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezK-ap-w6T">
+                                                        <rect key="frame" x="0.0" y="0.0" width="104" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNp-8g-hOS">
+                                                        <rect key="frame" x="31" y="28.5" width="42" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cpv-Bq-tQH">
+                                                <rect key="frame" x="119" y="0.0" width="117.5" height="49"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Down Payment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SW5-fc-Ut8">
+                                                        <rect key="frame" x="0.0" y="0.0" width="117.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eco-vM-NhE">
+                                                        <rect key="frame" x="38" y="28.5" width="42" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UK9-2V-EoJ">
+                                                <rect key="frame" x="251.5" y="0.0" width="108.5" height="49"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Closing Costs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4c-43-pq9">
+                                                        <rect key="frame" x="0.0" y="0.0" width="108.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lue-qh-CFc">
+                                                        <rect key="frame" x="33.5" y="28.5" width="42" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Jtb-dq-szQ"/>
+                                    <constraint firstItem="WML-lf-msR" firstAttribute="centerY" secondItem="Cc1-aA-DRA" secondAttribute="centerY" id="xue-zD-OcH"/>
+                                    <constraint firstItem="WML-lf-msR" firstAttribute="centerX" secondItem="Cc1-aA-DRA" secondAttribute="centerX" id="z9z-iu-S3o"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="vyg-Re-hlo" firstAttribute="leading" secondItem="QHf-t8-oOX" secondAttribute="leading" id="DNV-gO-Hti"/>
+                            <constraint firstItem="vJp-H1-dTy" firstAttribute="top" secondItem="vyg-Re-hlo" secondAttribute="bottom" constant="10" id="Egd-xh-own"/>
                             <constraint firstItem="vyg-Re-hlo" firstAttribute="top" secondItem="QHf-t8-oOX" secondAttribute="top" id="EyJ-7g-ETb"/>
+                            <constraint firstItem="QHf-t8-oOX" firstAttribute="trailing" secondItem="vJp-H1-dTy" secondAttribute="trailing" id="FOa-4t-6dO"/>
+                            <constraint firstItem="Cc1-aA-DRA" firstAttribute="trailing" secondItem="QHf-t8-oOX" secondAttribute="trailing" id="S1X-8U-ZJc"/>
+                            <constraint firstItem="vJp-H1-dTy" firstAttribute="leading" secondItem="QHf-t8-oOX" secondAttribute="leading" id="YPx-Wq-Ehd"/>
+                            <constraint firstItem="Cc1-aA-DRA" firstAttribute="leading" secondItem="QHf-t8-oOX" secondAttribute="leading" id="bFX-dd-mfo"/>
                             <constraint firstItem="vyg-Re-hlo" firstAttribute="trailing" secondItem="QHf-t8-oOX" secondAttribute="trailing" id="cNJ-dk-kAK"/>
+                            <constraint firstItem="QHf-t8-oOX" firstAttribute="bottom" secondItem="Cc1-aA-DRA" secondAttribute="bottom" id="wF4-IT-DKW"/>
+                            <constraint firstItem="Cc1-aA-DRA" firstAttribute="top" secondItem="vJp-H1-dTy" secondAttribute="bottom" constant="8" symbolic="YES" id="wUa-hw-kST"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QHf-t8-oOX"/>
                     </view>
-                    <navigationItem key="navigationItem" id="1Vp-Cd-Lrw"/>
+                    <navigationItem key="navigationItem" title="Can I Buy?" id="1Vp-Cd-Lrw"/>
                     <connections>
                         <outlet property="bannerView" destination="vyg-Re-hlo" id="4RD-fu-Nzn"/>
+                        <outlet property="closingCostsLabel" destination="Lue-qh-CFc" id="Tdh-cr-vTN"/>
+                        <outlet property="downPaymentLabel" destination="Eco-vM-NhE" id="4jD-KT-8GM"/>
+                        <outlet property="footerView" destination="Cc1-aA-DRA" id="LxA-0E-nwm"/>
                         <outlet property="homePriceLabel" destination="Z4g-Xv-Ae8" id="Sgv-CD-tQA"/>
+                        <outlet property="loanAmountLabel" destination="CNp-8g-hOS" id="ca3-Gw-oUL"/>
+                        <outlet property="monthlyExpensesLabel" destination="5gw-a1-wwr" id="TzS-hA-TDf"/>
+                        <outlet property="pieChart" destination="vJp-H1-dTy" id="Gfv-oA-HGi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vIh-ps-XxQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
