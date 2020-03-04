@@ -33,6 +33,10 @@ class MortgageResultsViewController: UIViewController {
     @IBAction func saveQuoteButton(_ sender: Any) {
         guard let name = savedNameTextField.text else { return }
         mortgageLoanController.saveMortgageLoan(savedName: name)
+        let alert = UIAlertController(title: "Success!", message: "Your quote \"\(name)\" has been saved.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
     }
     
     
