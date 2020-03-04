@@ -48,12 +48,15 @@ class MortgageResultsViewController: UIViewController {
     }
     
     func pieChartUpdate() {
+        
+        // Get component values
         let principleValue = mortgageLoanController.calculateMonthlyPrinciple()
         let interestValue = mortgageLoanController.calculateMonthlyInterest()
         let insuranceValue = mortgageLoanController.calculateMonthlyInsurance()
         let propertyTaxValue = mortgageLoanController.calculateMonthlyTax()
         let hoaValue = mortgageLoanController.calculateMonthlyHOA()
         
+        // Set up pie chart data set
         let principle = PieChartDataEntry(value: principleValue, label: "Principle")
         let interest = PieChartDataEntry(value: interestValue, label: "Interest")
         let insurance = PieChartDataEntry(value: insuranceValue, label: "Home Insurance")
@@ -62,8 +65,16 @@ class MortgageResultsViewController: UIViewController {
         let dataSet = PieChartDataSet(entries: [principle, interest, insurance, propertyTax, hoa], label: "Mortgage Payment Breakdown")
         let data = PieChartData(dataSet: dataSet)
         
+        // Set up value formatter
+        let formatter = DefaultValueFormatter(formatter: currencyFormatter)
+        dataSet.valueFormatter = .some(formatter)
+        
+        // Set up center text
+        
+        
+        // Display pie chart
         resultsPieChart.data = data
-        resultsPieChart.chartDescription?.text = "Share of Mortgage Payment"
+        resultsPieChart.chartDescription?.text = "Mortgage Payment Components"
         dataSet.colors = ChartColorTemplates.joyful()
 
         //All other additions to this function will go here
