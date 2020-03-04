@@ -12,15 +12,18 @@ import Charts
 class CanIBuyResultsViewController: UIViewController {
 
     @IBOutlet weak var bannerView: UIView!
+    @IBOutlet weak var footerView: UIView!
     @IBOutlet weak var homePriceLabel: UILabel!
     @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var monthlyExpensesLabel: UILabel!
+    @IBOutlet weak var loanAmountLabel: UILabel!
+    @IBOutlet weak var downPaymentLabel: UILabel!
+    @IBOutlet weak var closingCostsLabel: UILabel!
     
     var potentialHome: PotentialHomePurchase?
     
     let numberFormatter = NumberFormatter()
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
@@ -29,6 +32,7 @@ class CanIBuyResultsViewController: UIViewController {
     
     func updateViews() {
         bannerView.backgroundColor = UIColor(red:0.00, green:0.51, blue:0.33, alpha:1.0)
+        footerView.backgroundColor = UIColor(red:0.00, green:0.51, blue:0.33, alpha:1.0)
 
         guard let potentialHome = potentialHome else { return }
         
@@ -39,8 +43,19 @@ class CanIBuyResultsViewController: UIViewController {
             homePriceLabel.text = "$\(potentialHome.estimatedHomePrice)"
         }
         
-//        let result = potentialHome.piPayment + potentialHome.propertyTax + potentialHome.insurance + potentialHome.pmi + potentialHome.hoa + potentialHome.otherExpenses + potentialHome.loanAmount + potentialHome.downPayment + potentialHome.estClosingCosts
-//        monthlyExpensesLabel.text = "$\(result) /month"
+        var result = potentialHome.piPayment
+        if let propertyTax = potentialHome.propertyTax, let insurance = potentialHome.insurance, let pmi = potentialHome.pmi, let hoa = potentialHome.hoa, let other = potentialHome.otherExpenses {
+            result = result + propertyTax + insurance + pmi + hoa + other
+        }
+        guard let monthlyExpenses = numberFormatter.string(from: NSNumber(value: result)) else { return }
+        monthlyExpensesLabel.text = "$\(monthlyExpenses) / month"
+        
+        guard let loanAmount = numberFormatter.string(from: NSNumber(value: potentialHome.loanAmount)) else { return }
+        guard let downPayment = numberFormatter.string(from: NSNumber(value: potentialHome.downPayment)) else { return }
+        guard let closingCosts = numberFormatter.string(from: NSNumber(value: potentialHome.estClosingCosts)) else { return }
+        loanAmountLabel.text = "$\(loanAmount)"
+        downPaymentLabel.text = "$\(downPayment)"
+        closingCostsLabel.text = "$\(closingCosts)"
     }
     
     func pieChartUpdate () {
@@ -90,9 +105,7 @@ class CanIBuyResultsViewController: UIViewController {
         dataSet.valueColors = [UIColor.black]
         pieChart.legend.font = UIFont(name: "Futura", size: 12)!
         pieChart.chartDescription?.font = UIFont(name: "Futura", size: 12)!
-//        pieChart.chartDescription?.xOffset = pieChart.frame.width - 50
-//        pieChart.chartDescription?.yOffset = pieChart.frame.height * (2/3)
-//        pieChart.chartDescription?.textAlign = NSTextAlignment.left
+        pieChart.backgroundColor = UIColor.black
 
     }
 }
