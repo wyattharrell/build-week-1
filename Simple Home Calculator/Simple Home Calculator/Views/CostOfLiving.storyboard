@@ -10,7 +10,7 @@
         <!--Cost of Living-->
         <scene sceneID="Aaw-d7-o9L">
             <objects>
-                <viewController id="DQ8-Kx-zNW" sceneMemberID="viewController">
+                <viewController id="DQ8-Kx-zNW" customClass="CostOfLivingViewController" customModule="Simple_Home_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="to9-nc-tVy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -48,19 +48,57 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cji-eg-HVP">
+                                <rect key="frame" x="20" y="743" width="374" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.50936472420000001" blue="0.32830613850000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="tnK-YF-C4i"/>
+                                </constraints>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="calculateButtonTapped:" destination="DQ8-Kx-zNW" eventType="touchUpInside" id="ajM-UY-V29"/>
+                                    <segue destination="hbN-UM-3sX" kind="show" identifier="ShowCostOfLivingResults" id="SPp-oY-75G"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="zCC-nb-gTR" firstAttribute="centerY" secondItem="to9-nc-tVy" secondAttribute="centerY" id="Ivr-Ej-eqV"/>
+                            <constraint firstItem="b5f-v1-jpU" firstAttribute="trailing" secondItem="Cji-eg-HVP" secondAttribute="trailing" constant="20" id="N0N-Dp-05u"/>
+                            <constraint firstItem="Cji-eg-HVP" firstAttribute="leading" secondItem="b5f-v1-jpU" secondAttribute="leading" constant="20" id="jfo-C3-R7D"/>
+                            <constraint firstItem="b5f-v1-jpU" firstAttribute="bottom" secondItem="Cji-eg-HVP" secondAttribute="bottom" constant="20" id="thu-xj-7qY"/>
                             <constraint firstItem="zCC-nb-gTR" firstAttribute="centerX" secondItem="to9-nc-tVy" secondAttribute="centerX" id="vGb-QV-4e0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b5f-v1-jpU"/>
                     </view>
                     <navigationItem key="navigationItem" title="Cost of Living" id="zGn-Q5-feS"/>
+                    <connections>
+                        <outlet property="calculateButton" destination="Cji-eg-HVP" id="MPM-OQ-WIh"/>
+                        <outlet property="currentStatePickerView" destination="XQ5-pL-4AS" id="Yys-7X-DXh"/>
+                        <outlet property="furtureStatePickerView" destination="GNg-b7-gmQ" id="Caq-Vt-CfU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wGk-sX-fBa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1118.840579710145" y="154.6875"/>
+        </scene>
+        <!--Cost Of Living Results View Controller-->
+        <scene sceneID="kDt-JB-49H">
+            <objects>
+                <viewController id="hbN-UM-3sX" customClass="CostOfLivingResultsViewController" customModule="Simple_Home_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HN9-aG-Wb3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="V1O-Sc-bM5"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="y8I-w9-AG5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k9K-nO-JQE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1906" y="155"/>
         </scene>
         <!--Cost of Living-->
         <scene sceneID="emN-hP-MQa">

@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1300659024101B7B00F5B602 /* CostOfLiving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1300658F24101B7B00F5B602 /* CostOfLiving.swift */; };
+		1300659024101B7B00F5B602 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1300658F24101B7B00F5B602 /* State.swift */; };
+		1300659224101BFF00F5B602 /* CostOfLivingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1300659124101BFF00F5B602 /* CostOfLivingController.swift */; };
+		1300659424101F4200F5B602 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 1300659324101F4200F5B602 /* data.json */; };
+		1300659624101F6600F5B602 /* CostOfLivingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1300659524101F6600F5B602 /* CostOfLivingViewController.swift */; };
+		130065982410286700F5B602 /* CostOfLivingResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130065972410286700F5B602 /* CostOfLivingResultsViewController.swift */; };
 		133B3391240DA80800539A0F /* CanIBuyResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133B3390240DA80800539A0F /* CanIBuyResultsViewController.swift */; };
 		133B3393240DA83500539A0F /* CanIBuyFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133B3392240DA83500539A0F /* CanIBuyFormViewController.swift */; };
 		133B3395240EC1F900539A0F /* PotentialHomePurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133B3394240EC1F900539A0F /* PotentialHomePurchase.swift */; };
@@ -32,7 +36,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1300658F24101B7B00F5B602 /* CostOfLiving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostOfLiving.swift; sourceTree = "<group>"; };
+		1300658F24101B7B00F5B602 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		1300659124101BFF00F5B602 /* CostOfLivingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostOfLivingController.swift; sourceTree = "<group>"; };
+		1300659324101F4200F5B602 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		1300659524101F6600F5B602 /* CostOfLivingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostOfLivingViewController.swift; sourceTree = "<group>"; };
+		130065972410286700F5B602 /* CostOfLivingResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostOfLivingResultsViewController.swift; sourceTree = "<group>"; };
 		133B3390240DA80800539A0F /* CanIBuyResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanIBuyResultsViewController.swift; sourceTree = "<group>"; };
 		133B3392240DA83500539A0F /* CanIBuyFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanIBuyFormViewController.swift; sourceTree = "<group>"; };
 		133B3394240EC1F900539A0F /* PotentialHomePurchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotentialHomePurchase.swift; sourceTree = "<group>"; };
@@ -93,6 +101,7 @@
 		13A8BEAB240A164700088296 /* Simple Home Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				1300659324101F4200F5B602 /* data.json */,
 				BB612A44240B6CB300A451ED /* Models */,
 				13A8BEC1240A166100088296 /* Views */,
 				BB612A46240B6CD000A451ED /* View Controllers */,
@@ -139,7 +148,7 @@
 				BB612A4E240BA26D00A451ED /* MortgageLoan.swift */,
 				BB612A52240BA75E00A451ED /* MortgageExtensions.swift */,
 				133B3394240EC1F900539A0F /* PotentialHomePurchase.swift */,
-				1300658F24101B7B00F5B602 /* CostOfLiving.swift */,
+				1300658F24101B7B00F5B602 /* State.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -154,6 +163,8 @@
 				133B3390240DA80800539A0F /* CanIBuyResultsViewController.swift */,
 				133B3392240DA83500539A0F /* CanIBuyFormViewController.swift */,
 				13929444240F0C0400AD388B /* CanIBuyTableViewController.swift */,
+				1300659524101F6600F5B602 /* CostOfLivingViewController.swift */,
+				130065972410286700F5B602 /* CostOfLivingResultsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -163,6 +174,7 @@
 			children = (
 				BB612A50240BA4CC00A451ED /* MortgageLoanController.swift */,
 				13929442240F04AB00AD388B /* PotentialHomePurchaseController.swift */,
+				1300659124101BFF00F5B602 /* CostOfLivingController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -237,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13A8BEC3240A174900088296 /* CanIBuy.storyboard in Resources */,
+				1300659424101F4200F5B602 /* data.json in Resources */,
 				13A8BEC5240A175300088296 /* CostOfLiving.storyboard in Resources */,
 				13A8BEB9240A164700088296 /* LaunchScreen.storyboard in Resources */,
 				13A8BEB6240A164700088296 /* Assets.xcassets in Resources */,
@@ -296,8 +309,10 @@
 			files = (
 				13929443240F04AB00AD388B /* PotentialHomePurchaseController.swift in Sources */,
 				BB612A4B240B932600A451ED /* MortgageCalculatorViewController.swift in Sources */,
-				1300659024101B7B00F5B602 /* CostOfLiving.swift in Sources */,
+				1300659224101BFF00F5B602 /* CostOfLivingController.swift in Sources */,
+				1300659024101B7B00F5B602 /* State.swift in Sources */,
 				133B3391240DA80800539A0F /* CanIBuyResultsViewController.swift in Sources */,
+				1300659624101F6600F5B602 /* CostOfLivingViewController.swift in Sources */,
 				13A8BEE9240AB49B00088296 /* CanIBuyViewController.swift in Sources */,
 				BB612A4F240BA26D00A451ED /* MortgageLoan.swift in Sources */,
 				BB612A51240BA4CC00A451ED /* MortgageLoanController.swift in Sources */,
@@ -308,6 +323,7 @@
 				13929445240F0C0400AD388B /* CanIBuyTableViewController.swift in Sources */,
 				13A8BEAD240A164700088296 /* AppDelegate.swift in Sources */,
 				133B3393240DA83500539A0F /* CanIBuyFormViewController.swift in Sources */,
+				130065982410286700F5B602 /* CostOfLivingResultsViewController.swift in Sources */,
 				13A8BEAF240A164700088296 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
