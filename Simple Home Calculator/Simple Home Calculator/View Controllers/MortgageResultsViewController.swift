@@ -50,11 +50,16 @@ class MortgageResultsViewController: UIViewController {
     func pieChartUpdate() {
         
         // Get component values
-        let principleValue = mortgageLoanController.calculateMonthlyPrinciple()
+        //if mortgageLoanController.mortgageLoan?.mortgageLength == 51 {
+            //let principleValue = mortgageLoanController.calculateMonthlyPrincipleVariable()
+        //} else {
+            let principleValue = mortgageLoanController.calculateMonthlyPrinciple()
+        //}
         let interestValue = mortgageLoanController.calculateMonthlyInterest()
         let insuranceValue = mortgageLoanController.calculateMonthlyInsurance()
         let propertyTaxValue = mortgageLoanController.calculateMonthlyTax()
         let hoaValue = mortgageLoanController.calculateMonthlyHOA()
+        let totalPayment = principleValue + interestValue + insuranceValue + propertyTaxValue + hoaValue
         
         // Set up pie chart data set
         let principle = PieChartDataEntry(value: principleValue, label: "Principle")
@@ -65,19 +70,19 @@ class MortgageResultsViewController: UIViewController {
         let dataSet = PieChartDataSet(entries: [principle, interest, insurance, propertyTax, hoa], label: "Mortgage Payment Breakdown")
         let data = PieChartData(dataSet: dataSet)
         
-        // Set up value formatter
+        // Set up text format
+        dataSet.valueColors = [UIColor.black]
         let formatter = DefaultValueFormatter(formatter: currencyFormatter)
         dataSet.valueFormatter = .some(formatter)
-        
-        // Set up center text
-        
         
         // Display pie chart
         resultsPieChart.data = data
         resultsPieChart.chartDescription?.text = "Mortgage Payment Components"
         dataSet.colors = ChartColorTemplates.joyful()
 
-        //All other additions to this function will go here
+        // Set up center text
+        guard let centerTextValue = currencyFormatter.string(for: totalPayment) else { return }
+        resultsPieChart.centerText = "Total Payment: " + centerTextValue
 
         //This must stay at end of function
         resultsPieChart.notifyDataSetChanged()

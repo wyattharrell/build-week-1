@@ -110,10 +110,12 @@ class MortgageLoanController {
     // MARK: - Other methods
     func calculateMonthlyInterest() -> Double {
         //M = P [ i(1 + i)^n ] / [ (1 + i)^n – 1]
-        guard let P = mortgageLoan?.amount,
+        guard let loanAmount = mortgageLoan?.amount,
+            let downPayment = mortgageLoan?.downPayment,
             let interestRate = mortgageLoan?.interestRate,
             let number = mortgageLoan?.mortgageLength
             else { return 0.0 }
+        let P = loanAmount - downPayment
         let i = interestRate/100/12
         let n = Double(number*12)
         let numerator = P * (i * pow((1 + i), n))
@@ -125,9 +127,11 @@ class MortgageLoanController {
     }
     
     func calculateMonthlyPrinciple() -> Double {
-        guard let P = mortgageLoan?.amount,
+        guard let loanAmount = mortgageLoan?.amount,
+            let downPayment = mortgageLoan?.downPayment,
             let number = mortgageLoan?.mortgageLength
             else { return 0.0 }
+        let P = loanAmount - downPayment
         let n = Double(number*12)
         let principle = P/n
         return principle
