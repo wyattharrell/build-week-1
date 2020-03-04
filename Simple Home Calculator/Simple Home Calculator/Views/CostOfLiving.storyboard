@@ -10,18 +10,142 @@
         <!--Cost of Living-->
         <scene sceneID="Aaw-d7-o9L">
             <objects>
-                <viewController id="DQ8-Kx-zNW" sceneMemberID="viewController">
+                <viewController id="DQ8-Kx-zNW" customClass="CostOfLivingViewController" customModule="Simple_Home_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="to9-nc-tVy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="zCC-nb-gTR">
+                                <rect key="frame" x="47" y="210" width="320" height="476"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="r9b-Dh-77R">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="237.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O36-2y-aCE">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XQ5-pL-4AS">
+                                                <rect key="frame" x="0.0" y="21.5" width="320" height="216"/>
+                                            </pickerView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PYU-6a-JuP">
+                                        <rect key="frame" x="0.0" y="239.5" width="320" height="236.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Future Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ob0-jh-dZ3">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GNg-b7-gmQ">
+                                                <rect key="frame" x="0.0" y="20.5" width="320" height="216"/>
+                                            </pickerView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cji-eg-HVP">
+                                <rect key="frame" x="20" y="743" width="374" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.50936472420000001" blue="0.32830613850000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="tnK-YF-C4i"/>
+                                </constraints>
+                                <state key="normal" title="Calculate">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="calculateButtonTapped:" destination="DQ8-Kx-zNW" eventType="touchUpInside" id="ajM-UY-V29"/>
+                                    <segue destination="hbN-UM-3sX" kind="show" identifier="ShowCostOfLivingResults" id="SPp-oY-75G"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="zCC-nb-gTR" firstAttribute="centerY" secondItem="to9-nc-tVy" secondAttribute="centerY" id="Ivr-Ej-eqV"/>
+                            <constraint firstItem="b5f-v1-jpU" firstAttribute="trailing" secondItem="Cji-eg-HVP" secondAttribute="trailing" constant="20" id="N0N-Dp-05u"/>
+                            <constraint firstItem="Cji-eg-HVP" firstAttribute="leading" secondItem="b5f-v1-jpU" secondAttribute="leading" constant="20" id="jfo-C3-R7D"/>
+                            <constraint firstItem="b5f-v1-jpU" firstAttribute="bottom" secondItem="Cji-eg-HVP" secondAttribute="bottom" constant="20" id="thu-xj-7qY"/>
+                            <constraint firstItem="zCC-nb-gTR" firstAttribute="centerX" secondItem="to9-nc-tVy" secondAttribute="centerX" id="vGb-QV-4e0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="b5f-v1-jpU"/>
                     </view>
                     <navigationItem key="navigationItem" title="Cost of Living" id="zGn-Q5-feS"/>
+                    <connections>
+                        <outlet property="calculateButton" destination="Cji-eg-HVP" id="MPM-OQ-WIh"/>
+                        <outlet property="currentStatePickerView" destination="XQ5-pL-4AS" id="Yys-7X-DXh"/>
+                        <outlet property="furtureStatePickerView" destination="GNg-b7-gmQ" id="Caq-Vt-CfU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wGk-sX-fBa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1118.840579710145" y="154.6875"/>
+        </scene>
+        <!--Cost Of Living-->
+        <scene sceneID="kDt-JB-49H">
+            <objects>
+                <viewController id="hbN-UM-3sX" customClass="CostOfLivingResultsViewController" customModule="Simple_Home_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HN9-aG-Wb3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lyv-Vd-yJ3">
+                                <rect key="frame" x="0.0" y="140" width="414" height="200"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="kZw-cf-tl6">
+                                        <rect key="frame" x="79.5" y="21.5" width="255.5" height="157.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gr1-XD-yjI">
+                                                <rect key="frame" x="0.0" y="1" width="255.5" height="98"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="GDz-7d-Spe"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[A] vs. [B]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UMv-GW-cKX">
+                                                <rect key="frame" x="0.0" y="104" width="255.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cost of Living Increase" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5a-eS-0io">
+                                                <rect key="frame" x="0.0" y="128.5" width="255.5" height="29"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.50936472420000001" blue="0.32830613850000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="kZw-cf-tl6" firstAttribute="centerY" secondItem="lyv-Vd-yJ3" secondAttribute="centerY" id="Dtq-Wl-fBb"/>
+                                    <constraint firstAttribute="height" constant="200" id="aSz-ME-BpO"/>
+                                    <constraint firstItem="kZw-cf-tl6" firstAttribute="centerX" secondItem="lyv-Vd-yJ3" secondAttribute="centerX" id="akv-7T-n6T"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="lyv-Vd-yJ3" firstAttribute="trailing" secondItem="V1O-Sc-bM5" secondAttribute="trailing" id="0VJ-bU-2Ag"/>
+                            <constraint firstItem="lyv-Vd-yJ3" firstAttribute="top" secondItem="V1O-Sc-bM5" secondAttribute="top" id="q7s-tL-5ZW"/>
+                            <constraint firstItem="lyv-Vd-yJ3" firstAttribute="leading" secondItem="V1O-Sc-bM5" secondAttribute="leading" id="rc1-Po-6FC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="V1O-Sc-bM5"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Cost Of Living" id="y8I-w9-AG5"/>
+                    <connections>
+                        <outlet property="arrowImage" destination="gr1-XD-yjI" id="cJf-Le-H7Y"/>
+                        <outlet property="increaseOrDecreaseLabel" destination="N5a-eS-0io" id="kmB-wd-TL7"/>
+                        <outlet property="stateLabel" destination="UMv-GW-cKX" id="CAQ-1w-cF8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k9K-nO-JQE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1905.7971014492755" y="154.6875"/>
         </scene>
         <!--Cost of Living-->
         <scene sceneID="emN-hP-MQa">
@@ -45,6 +169,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.up" catalog="system" width="60" height="64"/>
         <image name="dollarsign.circle.fill" catalog="system" width="64" height="60"/>
     </resources>
 </document>
