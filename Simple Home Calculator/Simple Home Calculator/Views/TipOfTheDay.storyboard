@@ -10,29 +10,28 @@
         <!--Homebuying Tips-->
         <scene sceneID="vTN-x6-hhO">
             <objects>
-                <viewController id="87P-FA-gX5" customClass="TiipsViewController" customModule="Simple_Home_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="87P-FA-gX5" customClass="TipsViewController" customModule="Simple_Home_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AS5-eY-I58">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aqf-kj-f9C">
-                                <rect key="frame" x="82" y="269" width="250" height="358"/>
+                                <rect key="frame" x="20" y="269" width="374" height="358"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S0Z-s3-sm8">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3gT-wg-54E">
-                                        <rect key="frame" x="0.0" y="58" width="250" height="300"/>
+                                        <rect key="frame" x="0.0" y="58" width="374" height="300"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="300" id="4zZ-Vv-NEc"/>
-                                            <constraint firstAttribute="width" constant="250" id="blE-gY-Kzf"/>
                                         </constraints>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
@@ -40,8 +39,9 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="aqf-kj-f9C" firstAttribute="centerX" secondItem="AS5-eY-I58" secondAttribute="centerX" id="CzD-DS-VdB"/>
                             <constraint firstItem="aqf-kj-f9C" firstAttribute="centerY" secondItem="AS5-eY-I58" secondAttribute="centerY" id="cXa-TO-mWe"/>
+                            <constraint firstItem="Pr8-ny-wPc" firstAttribute="trailing" secondItem="aqf-kj-f9C" secondAttribute="trailing" constant="20" id="i8v-LR-PuE"/>
+                            <constraint firstItem="aqf-kj-f9C" firstAttribute="leading" secondItem="Pr8-ny-wPc" secondAttribute="leading" constant="20" id="jSH-x3-bwG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Pr8-ny-wPc"/>
                     </view>

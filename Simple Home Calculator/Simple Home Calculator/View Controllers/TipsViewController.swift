@@ -8,10 +8,11 @@
 
 import UIKit
 
-class TiipsViewController: UIViewController {
+class TipsViewController: UIViewController {
     
     // MARK: - Properties
-    private var tipsDictionary: [String : [String]] = ["test" : ["testing1", "testing2", "testing3"], "test2" : ["testing4", "testing5", "testing6"]]
+    let tipsLoader = TipsLoader.tipsLoader
+    private var tipsDictionary: [String : [String]] = [ : ]
     
     
     // MARK: - IBOutlet
@@ -21,6 +22,8 @@ class TiipsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tipsLoader.load()
+        tipsDictionary = tipsLoader.tips
         
         let randomNumber = Int.random(in: 0..<tipsDictionary.count)
         let randomEntry = tipsDictionary.randomElement()
