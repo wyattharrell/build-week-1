@@ -54,7 +54,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="tnK-YF-C4i"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Calculate">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -84,21 +84,68 @@
             </objects>
             <point key="canvasLocation" x="1118.840579710145" y="154.6875"/>
         </scene>
-        <!--Cost Of Living Results View Controller-->
+        <!--Cost Of Living-->
         <scene sceneID="kDt-JB-49H">
             <objects>
                 <viewController id="hbN-UM-3sX" customClass="CostOfLivingResultsViewController" customModule="Simple_Home_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HN9-aG-Wb3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lyv-Vd-yJ3">
+                                <rect key="frame" x="0.0" y="140" width="414" height="200"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="kZw-cf-tl6">
+                                        <rect key="frame" x="79.5" y="21.5" width="255.5" height="157.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gr1-XD-yjI">
+                                                <rect key="frame" x="0.0" y="1" width="255.5" height="98"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="GDz-7d-Spe"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[A] vs. [B]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UMv-GW-cKX">
+                                                <rect key="frame" x="0.0" y="104" width="255.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cost of Living Increase" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5a-eS-0io">
+                                                <rect key="frame" x="0.0" y="128.5" width="255.5" height="29"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.50936472420000001" blue="0.32830613850000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="kZw-cf-tl6" firstAttribute="centerY" secondItem="lyv-Vd-yJ3" secondAttribute="centerY" id="Dtq-Wl-fBb"/>
+                                    <constraint firstAttribute="height" constant="200" id="aSz-ME-BpO"/>
+                                    <constraint firstItem="kZw-cf-tl6" firstAttribute="centerX" secondItem="lyv-Vd-yJ3" secondAttribute="centerX" id="akv-7T-n6T"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="lyv-Vd-yJ3" firstAttribute="trailing" secondItem="V1O-Sc-bM5" secondAttribute="trailing" id="0VJ-bU-2Ag"/>
+                            <constraint firstItem="lyv-Vd-yJ3" firstAttribute="top" secondItem="V1O-Sc-bM5" secondAttribute="top" id="q7s-tL-5ZW"/>
+                            <constraint firstItem="lyv-Vd-yJ3" firstAttribute="leading" secondItem="V1O-Sc-bM5" secondAttribute="leading" id="rc1-Po-6FC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="V1O-Sc-bM5"/>
                     </view>
-                    <navigationItem key="navigationItem" id="y8I-w9-AG5"/>
+                    <navigationItem key="navigationItem" title="Cost Of Living" id="y8I-w9-AG5"/>
+                    <connections>
+                        <outlet property="arrowImage" destination="gr1-XD-yjI" id="cJf-Le-H7Y"/>
+                        <outlet property="increaseOrDecreaseLabel" destination="N5a-eS-0io" id="kmB-wd-TL7"/>
+                        <outlet property="stateLabel" destination="UMv-GW-cKX" id="CAQ-1w-cF8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k9K-nO-JQE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1906" y="155"/>
+            <point key="canvasLocation" x="1905.7971014492755" y="154.6875"/>
         </scene>
         <!--Cost of Living-->
         <scene sceneID="emN-hP-MQa">
@@ -122,6 +169,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.up" catalog="system" width="60" height="64"/>
         <image name="dollarsign.circle.fill" catalog="system" width="64" height="60"/>
     </resources>
 </document>
