@@ -17,6 +17,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W9w-c0-KQH">
                                 <rect key="frame" x="20" y="743" width="374" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.50936472420000001" blue="0.32830613850000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="PqK-6Z-F9d"/>
                                 </constraints>
@@ -24,6 +25,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="calculateButtonTapped:" destination="mah-Vt-0gT" eventType="touchUpInside" id="0Ly-GC-pQv"/>
                                     <segue destination="2q4-yD-Mzj" kind="show" identifier="ShowCanIBuyForm" id="OrY-5u-t1R"/>
                                 </connections>
                             </button>

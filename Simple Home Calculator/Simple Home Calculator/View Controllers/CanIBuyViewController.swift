@@ -16,11 +16,11 @@ class CanIBuyViewController: UIViewController {
     @IBOutlet weak var expensePercentSegmentedControl: UISegmentedControl!
     
     var maxHousingExpensePercent: Double = 0.28
+    var canProceed: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         calculateButton.layer.cornerRadius = 12
-        calculateButton.backgroundColor = UIColor(red:0.00, green:0.51, blue:0.33, alpha:1.0)
         addAccessoryView()
     }
     
@@ -45,6 +45,24 @@ class CanIBuyViewController: UIViewController {
         default:
             print("N/A")
         }
+    }
+
+    @IBAction func calculateButtonTapped(_ sender: Any) {
+        if let income = annualIncomeTextField.text, !income.isEmpty {
+            canProceed = true
+        }
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if !canProceed {
+            let alert = UIAlertController(title: "Error", message: "Please complete all required text fields.", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
+            
+            return false
+        }
+        return true
     }
     
     // MARK: - Navigation
