@@ -22,7 +22,12 @@ class CanIBuyTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,30 +39,25 @@ class CanIBuyTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PotentialHomeCell", for: indexPath)
 
         cell.textLabel?.text = "\(dateFormatter.string(from: potentialHomePurchaseController.potentialHomes[indexPath.row].date))"
+        cell.detailTextLabel?.text = "Est. Home Price: $\(potentialHomePurchaseController.potentialHomes[indexPath.row].estimatedHomePrice)"
 
         return cell
     }
 
-    /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            potentialHomePurchaseController.delete(indexPath: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-    */
     
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowCanIBuySearch" {
             guard let CanIBuyResultsVC = segue.destination as? CanIBuyResultsViewController else { return }
-            
             guard let selected = tableView.indexPathForSelectedRow else { return }
-            
             CanIBuyResultsVC.potentialHome = potentialHomePurchaseController.potentialHomes[selected.row]
         }
     }

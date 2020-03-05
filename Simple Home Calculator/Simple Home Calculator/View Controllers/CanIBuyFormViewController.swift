@@ -42,6 +42,7 @@ class CanIBuyFormViewController: UIViewController {
     var maxDebtToIncomeRatio: Double = 0.36
     
     let potentialHomePurchaseController = PotentialHomePurchaseController()
+    var canProceed: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,20 +77,26 @@ class CanIBuyFormViewController: UIViewController {
     @IBAction func calculateButtonTapped(_ sender: Any) {
         guard let income = income else { return }
         guard let maxMonthlyPaymentBasedOnIncome_M1 = maxMonthlyPaymentBasedOnIncome_M1 else { return }
-        guard let monthlyDebts = monthlyDebtsTextField.text, let monthlyDebts_Int = Int(monthlyDebts) else { return }
-        guard let propertyTax = propertyTaxesTextField.text, let propertyTax_Double = Double(propertyTax), let hoa = homeOwnersInsuranceTextField.text, let hoa_Double = Double(hoa), let privateMortgageInsurance = privateMortgageInsuranceTextField.text, let privateMortgageInsurance_Double = Double(privateMortgageInsurance), let hoaFees = hoaFeesTextField.text, let hoaFees_Double = Double(hoaFees), let otherFees = otherFeesTextField.text, let otherFees_Double = Double(otherFees) else { return }
-        guard let availableFunds = availableFundsTextField.text, let availableFunds_Double = Double(availableFunds), let minDownPayment = minDownPaymentTextField.text, let minDownPayment_Double = Double(minDownPayment) else { return }
-        guard let fixedClosingCosts = fixedClosingCostsTextField.text, let fixedClosingCosts_Double = Double(fixedClosingCosts), let variableClosingCostss = variableClosingCosts.text, let variableClosingCosts_Double = Double(variableClosingCostss) else { return }
-        guard let annualInterestRate = annualInterestRateTextField.text, let annualInterestRate_Double = Double(annualInterestRate) else { return }
         
-        let expenses = propertyTax_Double + hoa_Double + hoaFees_Double + privateMortgageInsurance_Double + otherFees_Double
-        
-        maxMonthlyPaymentBasedOnDebt_M2 = calculateMaxMonthlyPaymentBasedOnDebt_M2(income: income, debt: monthlyDebts_Int, maxDTIRatio: maxDebtToIncomeRatio)
-        lowerOfM1M2 = calculateLowerOfM1M2(m1: maxMonthlyPaymentBasedOnIncome_M1, m2: maxMonthlyPaymentBasedOnDebt_M2)
-        maxPIPaymentBasedOnExpenses_M3 = calculatePIPaymentBasedOnExpenses_M3(lowerOfM1orM2: lowerOfM1M2, expenses: expenses)
-        maxHomePriceBasedOnFunds = calculateMaxHomePriceBasedOnFunds(availFunds: availableFunds_Double, fixedClosingCosts: fixedClosingCosts_Double, variableClosingCosts: variableClosingCosts_Double, minDownPayment: minDownPayment_Double)
+        guard let monthlyDebts = monthlyDebtsTextField.text, !monthlyDebts.isEmpty, let monthlyDebts_Int = Int(monthlyDebts) else { return }
+        guard let propertyTax = propertyTaxesTextField.text, !propertyTax.isEmpty, let propertyTax_Double = Double(propertyTax) else { return }
+        guard let hoa = homeOwnersInsuranceTextField.text, !hoa.isEmpty, let hoa_Double = Double(hoa) else { return }
+        guard let privateMortgageInsurance = privateMortgageInsuranceTextField.text, !privateMortgageInsurance.isEmpty, let privateMortgageInsurance_Double = Double(privateMortgageInsurance) else { return }
+        guard let hoaFees = hoaFeesTextField.text, !hoaFees.isEmpty, let hoaFees_Double = Double(hoaFees) else { return }
+        guard let otherFees = otherFeesTextField.text, !otherFees.isEmpty, let otherFees_Double = Double(otherFees) else { return }
+        guard let availableFunds = availableFundsTextField.text, !availableFunds.isEmpty, let availableFunds_Double = Double(availableFunds) else { return }
+        guard let minDownPayment = minDownPaymentTextField.text, !minDownPayment.isEmpty, let minDownPayment_Double = Double(minDownPayment) else { return }
+        guard let fixedClosingCosts = fixedClosingCostsTextField.text, !fixedClosingCosts.isEmpty, let fixedClosingCosts_Double = Double(fixedClosingCosts) else { return }
+        guard let variableClosingCostss = variableClosingCosts.text, !variableClosingCostss.isEmpty, let variableClosingCosts_Double = Double(variableClosingCostss) else { return }
+        guard let annualInterestRate = annualInterestRateTextField.text, !annualInterestRate.isEmpty, let annualInterestRate_Double = Double(annualInterestRate) else { return }
+                
+        canProceed = true
         
         var term: Double = 0
+        let expenses = propertyTax_Double + hoa_Double + hoaFees_Double + privateMortgageInsurance_Double + otherFees_Double
+        let aIR = (annualInterestRate_Double / 100) / 12
+        let minDownPayment_Percent = minDownPayment_Double / 100
+        
         switch termOfMortgageSegmentedControl.selectedSegmentIndex {
             case 0:
                 term = 15 * 12
@@ -101,12 +108,13 @@ class CanIBuyFormViewController: UIViewController {
                 print("N/A")
         }
         
-        let aIR = (annualInterestRate_Double / 100) / 12
-        let tem = minDownPayment_Double / 100
-        let temp = maxHomePriceBasedOnFunds * (1 - tem)
-        maxPIPaymentBasedOnFunds_M4 = calculateMaxPIPaymentBasedOnFunds_M4(r: aIR, n: term, pv: temp)
+        maxMonthlyPaymentBasedOnDebt_M2 = calculateMaxMonthlyPaymentBasedOnDebt_M2(income: income, debt: monthlyDebts_Int, maxDTIRatio: maxDebtToIncomeRatio)
+        lowerOfM1M2 = calculateLowerOfM1M2(m1: maxMonthlyPaymentBasedOnIncome_M1, m2: maxMonthlyPaymentBasedOnDebt_M2)
+        maxPIPaymentBasedOnExpenses_M3 = calculatePIPaymentBasedOnExpenses_M3(lowerOfM1orM2: lowerOfM1M2, expenses: expenses)
+        maxHomePriceBasedOnFunds = calculateMaxHomePriceBasedOnFunds(availFunds: availableFunds_Double, fixedClosingCosts: fixedClosingCosts_Double, variableClosingCosts: variableClosingCosts_Double, minDownPayment: minDownPayment_Double)
+        maxPIPaymentBasedOnFunds_M4 = calculateMaxPIPaymentBasedOnFunds_M4(r: aIR, n: term, maxHomePriceBasedOnFunds: maxHomePriceBasedOnFunds, minDownPayment_Percent: minDownPayment_Percent)
         lowerOfM3M4 = calculateLowerOfM3M4(m3: maxPIPaymentBasedOnExpenses_M3, m4: maxPIPaymentBasedOnFunds_M4)
-        loanAmountBasedOnMaxPIPayment = calculateLoanAmountBasedOnMaxPIPayment(maxHomePriceBasedOnFundss: maxHomePriceBasedOnFunds, minDownPayment: tem)
+        loanAmountBasedOnMaxPIPayment = calculateLoanAmountBasedOnMaxPIPayment(maxHomePriceBasedOnFunds: maxHomePriceBasedOnFunds, minDownPayment: minDownPayment_Percent)
         downPaymentBasedOnAvailFunds = calculateDownPaymentBasedOnAvailFunds(availableFunds: availableFunds_Double, fixedClosingCosts: fixedClosingCosts_Double, variableClosingCosts: variableClosingCosts_Double)
         totalEstimatedClosingCosts = calculateTotalEstimatedClosingCosts(variableClosingCosts: variableClosingCosts_Double, loanAmountBasedOnMaxPIPayment: loanAmountBasedOnMaxPIPayment, fixedClosingCosts: fixedClosingCosts_Double, downPaymentBasedOnAvailFunds: downPaymentBasedOnAvailFunds)
         maxHomePrice = calculateMaxHomePrice(a: loanAmountBasedOnMaxPIPayment, b: downPaymentBasedOnAvailFunds)
@@ -115,6 +123,17 @@ class CanIBuyFormViewController: UIViewController {
     }
     
     // MARK: - Navigation
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if !canProceed {
+            let alert = UIAlertController(title: "All text fields are required", message: "Please complete all text fields", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
+            return false
+        }
+        return true
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowCanIBuyResults" {
@@ -147,20 +166,20 @@ class CanIBuyFormViewController: UIViewController {
         return min(m3,m4)
     }
     
-    func calculateMaxPIPaymentBasedOnFunds_M4(r: Double, n: Double, pv: Double) -> Double {
-        let temp = (1 + r)
+    func calculateMaxPIPaymentBasedOnFunds_M4(r: Double, n: Double, maxHomePriceBasedOnFunds: Double, minDownPayment_Percent: Double) -> Double {
+        let temp = maxHomePriceBasedOnFunds * (1 - minDownPayment_Percent)
+        let temp2 = (1 + r)
         let negativeN = 0 - n
-        return pv * (r / (1 - pow(temp, negativeN)))
+        return temp * (r / (1 - pow(temp2, negativeN)))
     }
     
-    func calculateLoanAmountBasedOnMaxPIPayment(maxHomePriceBasedOnFundss: Double, minDownPayment: Double) -> Double {
-        return maxHomePriceBasedOnFundss * (1-minDownPayment) //pass 0.2 not 20
+    func calculateLoanAmountBasedOnMaxPIPayment(maxHomePriceBasedOnFunds: Double, minDownPayment: Double) -> Double {
+        return maxHomePriceBasedOnFunds * (1-minDownPayment) //pass 0.2 not 20
     }
     
     func calculateDownPaymentBasedOnAvailFunds(availableFunds: Double, fixedClosingCosts: Double, variableClosingCosts: Double) -> Double {
         let varClosing = (variableClosingCosts / 100)
         var result = availableFunds - fixedClosingCosts
-        
         result = result - (varClosing * loanAmountBasedOnMaxPIPayment)
         result = result / (1+varClosing)
         return result
