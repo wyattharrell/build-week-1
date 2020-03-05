@@ -53,12 +53,7 @@ class MortgageResultsViewController: UIViewController {
     
     func pieChartUpdate() {
         
-        // Get component values
-        //if mortgageLoanController.mortgageLoan?.mortgageLength == 51 {
-            //let principleValue = mortgageLoanController.calculateMonthlyPrincipleVariable()
-        //} else {
-            let principleValue = mortgageLoanController.calculateMonthlyPrinciple()
-        //}
+        let principleValue = mortgageLoanController.calculateMonthlyPrinciple()
         let interestValue = mortgageLoanController.calculateMonthlyInterest()
         let insuranceValue = mortgageLoanController.calculateMonthlyInsurance()
         let propertyTaxValue = mortgageLoanController.calculateMonthlyTax()

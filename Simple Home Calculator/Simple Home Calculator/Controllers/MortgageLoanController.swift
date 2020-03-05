@@ -135,12 +135,20 @@ class MortgageLoanController {
     
     
     // MARK: - Other methods
-    func calculateMonthlyInterest() -> Double {
+    func calculateMonthlyInterest(loanLength: Int?) -> Double {
         //M = P [ i(1 + i)^n ] / [ (1 + i)^n – 1]
+        var number = 15
+        if let loanLength = loanLength {
+            number = loanLength
+        } else if let loanLength = mortgageLoan?.mortgageLength {
+            number = loanLength
+        } else {
+            return 0.0
+        }
+        
         guard let loanAmount = mortgageLoan?.amount,
             let downPayment = mortgageLoan?.downPayment,
-            let interestRate = mortgageLoan?.interestRate,
-            let number = mortgageLoan?.mortgageLength
+            let interestRate = mortgageLoan?.interestRate
             else { return 0.0 }
         let P = loanAmount - downPayment
         let i = interestRate/100/12
