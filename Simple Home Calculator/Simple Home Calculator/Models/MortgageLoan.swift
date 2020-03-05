@@ -20,6 +20,10 @@ struct MortgageLoan: Codable, Equatable {
     var homeInsurance: Double?
     var propertyTax: Double?
     
+    var maxInterestRate: Double?
+    var estRateChange: Double?
+    var initialLength: Int?
+    
     
     init(mortgageType: String) {
         self.amount = nil
@@ -31,8 +35,9 @@ struct MortgageLoan: Codable, Equatable {
         self.monthlyHOA = nil
         self.homeInsurance = nil
         self.propertyTax = nil
+        
+        self.maxInterestRate = nil
+        self.estRateChange = nil
+        self.initialLength = nil
     }
-    /* can add:
-    PMI
-    */
 }

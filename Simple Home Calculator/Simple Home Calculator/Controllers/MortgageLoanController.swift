@@ -50,6 +50,33 @@ class MortgageLoanController {
         }
     }
     
+    func updateARMLoan(mortgageLoan: MortgageLoan,
+                       amount: Double,
+                       downPayment: Double,
+                       initialInterestRate: Double,
+                       maxInterestRate: Double,
+                       estRateChange: Double,
+                       mortgageLength: Int,
+                       initialLength: Int,
+                       monthlyHOA: Double,
+                       homeInsurance: Double,
+                       propertyTax: Double) {
+        self.mortgageLoan?.amount = amount
+        self.mortgageLoan?.downPayment = downPayment
+        self.mortgageLoan?.interestRate = initialInterestRate
+        self.mortgageLoan?.maxInterestRate = maxInterestRate
+        self.mortgageLoan?.estRateChange = estRateChange
+        self.mortgageLoan?.mortgageLength = mortgageLength
+        self.mortgageLoan?.initialLength = initialLength
+        self.mortgageLoan?.monthlyHOA = monthlyHOA
+        self.mortgageLoan?.homeInsurance = homeInsurance
+        self.mortgageLoan?.propertyTax = propertyTax
+        let values = mortgages.values
+        if values.contains(mortgageLoan) {
+            saveToPersistentStore()
+        }
+    }
+    
     func saveMortgageLoan(savedName: String) {
         mortgageLoan?.savedName = savedName
         mortgages[savedName] = mortgageLoan!
@@ -151,7 +178,6 @@ class MortgageLoanController {
     
     func calculateMonthlyHOA() -> Double {
         guard let hoa = mortgageLoan?.monthlyHOA else { return 0.0 }
-        let monthlyHoa = hoa/12
-        return monthlyHoa
+        return hoa
     }
 }
