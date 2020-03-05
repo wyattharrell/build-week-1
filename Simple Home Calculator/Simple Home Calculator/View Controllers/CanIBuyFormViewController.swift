@@ -47,6 +47,34 @@ class CanIBuyFormViewController: UIViewController {
         super.viewDidLoad()
         calculateButton.layer.cornerRadius = 12
         calculateButton.backgroundColor = UIColor(red:0.00, green:0.51, blue:0.33, alpha:1.0)
+        addAccessoryView()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true) //This will hide the keyboard
+    }
+    
+    func addAccessoryView() -> Void {
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 44))
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.nextButtonTapped(button:)))
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolBar.items = [flexSpace, doneButton]
+        toolBar.tintColor = UIColor(red:0.00, green:0.51, blue:0.33, alpha:1.0)
+        monthlyDebtsTextField.inputAccessoryView = toolBar
+        propertyTaxesTextField.inputAccessoryView = toolBar
+        homeOwnersInsuranceTextField.inputAccessoryView = toolBar
+        privateMortgageInsuranceTextField.inputAccessoryView = toolBar
+        hoaFeesTextField.inputAccessoryView = toolBar
+        otherFeesTextField.inputAccessoryView = toolBar
+        availableFundsTextField.inputAccessoryView = toolBar
+        fixedClosingCostsTextField.inputAccessoryView = toolBar
+        variableClosingCosts.inputAccessoryView = toolBar
+        minDownPaymentTextField.inputAccessoryView = toolBar
+        annualInterestRateTextField.inputAccessoryView = toolBar
+    }
+    
+    @objc func nextButtonTapped(button:UIBarButtonItem) -> Void {
+        self.view.endEditing(true)
     }
     
     @IBAction func maxDebtToIncomeRatioSegmentedControlTapped(_ sender: UISegmentedControl) {
@@ -176,6 +204,24 @@ class CanIBuyFormViewController: UIViewController {
     }
 }
 
-extension CanIBuyViewController: UITextFieldDelegate {
-    
+extension CanIBuyViewController {
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        if textField.text != nil {
+//            switch textField {
+//                case locationTextField:
+//                    countryTextField.becomeFirstResponder()
+//                case countryTextField:
+//                    clue1TextField.becomeFirstResponder()
+//                case clue1TextField:
+//                    clue2TextField.becomeFirstResponder()
+//                case clue2TextField:
+//                    clue3TextField.becomeFirstResponder()
+//                case clue3TextField:
+//                    clue3TextField.resignFirstResponder()
+//                default:
+//                    print("Error")
+//            }
+//        }
+//        return true
+//    }
 }
