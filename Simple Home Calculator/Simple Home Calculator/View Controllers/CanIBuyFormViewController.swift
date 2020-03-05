@@ -50,33 +50,6 @@ class CanIBuyFormViewController: UIViewController {
         addAccessoryView()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true) //This will hide the keyboard
-    }
-    
-    func addAccessoryView() -> Void {
-        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 44))
-        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.nextButtonTapped(button:)))
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        toolBar.items = [flexSpace, doneButton]
-        toolBar.tintColor = UIColor(red:0.00, green:0.51, blue:0.33, alpha:1.0)
-        monthlyDebtsTextField.inputAccessoryView = toolBar
-        propertyTaxesTextField.inputAccessoryView = toolBar
-        homeOwnersInsuranceTextField.inputAccessoryView = toolBar
-        privateMortgageInsuranceTextField.inputAccessoryView = toolBar
-        hoaFeesTextField.inputAccessoryView = toolBar
-        otherFeesTextField.inputAccessoryView = toolBar
-        availableFundsTextField.inputAccessoryView = toolBar
-        fixedClosingCostsTextField.inputAccessoryView = toolBar
-        variableClosingCosts.inputAccessoryView = toolBar
-        minDownPaymentTextField.inputAccessoryView = toolBar
-        annualInterestRateTextField.inputAccessoryView = toolBar
-    }
-    
-    @objc func nextButtonTapped(button:UIBarButtonItem) -> Void {
-        self.view.endEditing(true)
-    }
-    
     @IBAction func maxDebtToIncomeRatioSegmentedControlTapped(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
@@ -99,7 +72,6 @@ class CanIBuyFormViewController: UIViewController {
             print("N/A")
         }
     }
-    
     
     @IBAction func calculateButtonTapped(_ sender: Any) {
         guard let income = income else { return }
@@ -139,7 +111,6 @@ class CanIBuyFormViewController: UIViewController {
         totalEstimatedClosingCosts = calculateTotalEstimatedClosingCosts(variableClosingCosts: variableClosingCosts_Double, loanAmountBasedOnMaxPIPayment: loanAmountBasedOnMaxPIPayment, fixedClosingCosts: fixedClosingCosts_Double, downPaymentBasedOnAvailFunds: downPaymentBasedOnAvailFunds)
         maxHomePrice = calculateMaxHomePrice(a: loanAmountBasedOnMaxPIPayment, b: downPaymentBasedOnAvailFunds)
 
-        
         potentialHomePurchaseController.create(estimatedHomePrice: Int(maxHomePrice), piPayment: Int(lowerOfM3M4), propertyTax: Int(propertyTax_Double), insurance: Int(hoa_Double), pmi: Int(privateMortgageInsurance_Double), hoa: Int(hoaFees_Double), otherExpenses: Int(otherFees_Double), loanAmount: Int(loanAmountBasedOnMaxPIPayment), downPayment: Int(downPaymentBasedOnAvailFunds), estClosingCosts: Int(totalEstimatedClosingCosts))
     }
     
@@ -204,24 +175,56 @@ class CanIBuyFormViewController: UIViewController {
     }
 }
 
-extension CanIBuyViewController {
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        if textField.text != nil {
-//            switch textField {
-//                case locationTextField:
-//                    countryTextField.becomeFirstResponder()
-//                case countryTextField:
-//                    clue1TextField.becomeFirstResponder()
-//                case clue1TextField:
-//                    clue2TextField.becomeFirstResponder()
-//                case clue2TextField:
-//                    clue3TextField.becomeFirstResponder()
-//                case clue3TextField:
-//                    clue3TextField.resignFirstResponder()
-//                default:
-//                    print("Error")
-//            }
-//        }
-//        return true
-//    }
+// MARK: - TextField Toolbar
+
+extension CanIBuyFormViewController {
+    func addAccessoryView() -> Void {
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 44))
+        let nextButton = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(self.nextButtonTapped(button:)))
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneButtonTapped(button:)))
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolBar.items = [nextButton, flexSpace, doneButton]
+        toolBar.tintColor = UIColor(red:0.00, green:0.51, blue:0.33, alpha:1.0)
+        monthlyDebtsTextField.inputAccessoryView = toolBar
+        propertyTaxesTextField.inputAccessoryView = toolBar
+        homeOwnersInsuranceTextField.inputAccessoryView = toolBar
+        privateMortgageInsuranceTextField.inputAccessoryView = toolBar
+        hoaFeesTextField.inputAccessoryView = toolBar
+        otherFeesTextField.inputAccessoryView = toolBar
+        availableFundsTextField.inputAccessoryView = toolBar
+        fixedClosingCostsTextField.inputAccessoryView = toolBar
+        variableClosingCosts.inputAccessoryView = toolBar
+        minDownPaymentTextField.inputAccessoryView = toolBar
+        annualInterestRateTextField.inputAccessoryView = toolBar
+    }
+    
+    @objc func nextButtonTapped(button:UIBarButtonItem) -> Void {
+        if monthlyDebtsTextField.isFirstResponder {
+            propertyTaxesTextField.becomeFirstResponder()
+        } else if propertyTaxesTextField.isFirstResponder {
+            homeOwnersInsuranceTextField.becomeFirstResponder()
+        } else if homeOwnersInsuranceTextField.isFirstResponder {
+            privateMortgageInsuranceTextField.becomeFirstResponder()
+        } else if privateMortgageInsuranceTextField.isFirstResponder {
+            hoaFeesTextField.becomeFirstResponder()
+        } else if hoaFeesTextField.isFirstResponder {
+            otherFeesTextField.becomeFirstResponder()
+        } else if otherFeesTextField.isFirstResponder {
+            availableFundsTextField.becomeFirstResponder()
+        } else if availableFundsTextField.isFirstResponder {
+            fixedClosingCostsTextField.becomeFirstResponder()
+        } else if fixedClosingCostsTextField.isFirstResponder {
+            variableClosingCosts.becomeFirstResponder()
+        } else if variableClosingCosts.isFirstResponder {
+            minDownPaymentTextField.becomeFirstResponder()
+        } else if minDownPaymentTextField.isFirstResponder {
+            annualInterestRateTextField.becomeFirstResponder()
+        } else if annualInterestRateTextField.isFirstResponder {
+            annualInterestRateTextField.resignFirstResponder()
+        }
+    }
+    
+    @objc func doneButtonTapped(button:UIBarButtonItem) -> Void {
+        self.view.endEditing(true)
+    }
 }
