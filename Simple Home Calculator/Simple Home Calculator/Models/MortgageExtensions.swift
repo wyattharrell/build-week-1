@@ -11,13 +11,14 @@ import Foundation
 
 extension String {
     static let mortgage = "Mortgage"
-    static let vaLoan = "VA Loan"
+    static let fiveOne = "5/1Loan"
     static let refinance = "Refinance"
     static let didInitializeMortgagesArray = "DidInitializeMortgagesArray"
 }
 
 extension Int {
     static let fifteen = 15
+    static let twenty = 20
     static let thirty =  30
-    static let fiveOne = 51
+    static let forty = 40
 }

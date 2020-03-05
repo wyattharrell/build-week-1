@@ -14,7 +14,7 @@ class MortgageLoanController {
     // MARK: - Properties
     static var mortgageLoanController = MortgageLoanController()
     var mortgageLoan: MortgageLoan?
-    var mortgages: [String: MortgageLoan] = [:]
+    var mortgages: [String : MortgageLoan] = [:]
     
     
     // MARK: - CRUD

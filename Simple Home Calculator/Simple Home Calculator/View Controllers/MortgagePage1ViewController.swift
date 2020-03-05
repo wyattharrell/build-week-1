@@ -12,7 +12,7 @@ import UIKit
 class MortgagePage1ViewController: UIViewController {
     
     // MARK: - Properties
-    private let mortgageTypes: [String] = ["Mortgage", "VA Loan", "Refinance"]
+    private let mortgageTypes: [String] = ["Mortgage", "5/1 ARM", "Refinance"]
     var mortgageLoanController = MortgageLoanController.mortgageLoanController
     
     
@@ -26,6 +26,7 @@ class MortgagePage1ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mortgageLoanController.loadFromPersistentStore()
         self.mortgageTypePickerView.delegate = self
         self.mortgageTypePickerView.dataSource = self
 
@@ -44,6 +45,10 @@ class MortgagePage1ViewController: UIViewController {
             let mortgageP2VC = segue.destination as! MortgageCalculatorViewController
             mortgageP2VC.mortgageLoanController = mortgageLoanController
         }
+    }
+    
+    @IBAction func unwindToHome(sender: UIStoryboardSegue) {
+        mortgageLoanController.mortgageLoan = nil
     }
 
 }

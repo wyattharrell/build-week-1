@@ -33,6 +33,8 @@
 		BB612A4F240BA26D00A451ED /* MortgageLoan.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB612A4E240BA26D00A451ED /* MortgageLoan.swift */; };
 		BB612A51240BA4CC00A451ED /* MortgageLoanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB612A50240BA4CC00A451ED /* MortgageLoanController.swift */; };
 		BB612A53240BA75E00A451ED /* MortgageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB612A52240BA75E00A451ED /* MortgageExtensions.swift */; };
+		BB6578CD241167EE0094ACD1 /* MortgageLoanLoadQuoteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6578CC241167EE0094ACD1 /* MortgageLoanLoadQuoteTableViewController.swift */; };
+		BB6578CF24116A630094ACD1 /* MortgageLoanSavedQuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6578CE24116A630094ACD1 /* MortgageLoanSavedQuoteTableViewCell.swift */; };
 		BB9B6FB6241015C0001E9B1E /* TipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9B6FB5241015C0001E9B1E /* TipsViewController.swift */; };
 		BB9B6FB824106677001E9B1E /* tips.json in Resources */ = {isa = PBXBuildFile; fileRef = BB9B6FB724106677001E9B1E /* tips.json */; };
 		BB9B6FBC24106FE2001E9B1E /* TipsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9B6FBB24106FE1001E9B1E /* TipsLoader.swift */; };
@@ -69,6 +71,8 @@
 		BB612A4E240BA26D00A451ED /* MortgageLoan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortgageLoan.swift; sourceTree = "<group>"; };
 		BB612A50240BA4CC00A451ED /* MortgageLoanController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortgageLoanController.swift; sourceTree = "<group>"; };
 		BB612A52240BA75E00A451ED /* MortgageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortgageExtensions.swift; sourceTree = "<group>"; };
+		BB6578CC241167EE0094ACD1 /* MortgageLoanLoadQuoteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortgageLoanLoadQuoteTableViewController.swift; sourceTree = "<group>"; };
+		BB6578CE24116A630094ACD1 /* MortgageLoanSavedQuoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortgageLoanSavedQuoteTableViewCell.swift; sourceTree = "<group>"; };
 		BB9B6FB5241015C0001E9B1E /* TipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsViewController.swift; sourceTree = "<group>"; };
 		BB9B6FB724106677001E9B1E /* tips.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = tips.json; path = "Simple Home Calculator/tips.json"; sourceTree = SOURCE_ROOT; };
 		BB9B6FB924106E05001E9B1E /* tipsStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tipsStruct.swift; sourceTree = "<group>"; };
@@ -175,6 +179,8 @@
 				BB9B6FB5241015C0001E9B1E /* TipsViewController.swift */,
 				1300659524101F6600F5B602 /* CostOfLivingViewController.swift */,
 				130065972410286700F5B602 /* CostOfLivingResultsViewController.swift */,
+				BB6578CC241167EE0094ACD1 /* MortgageLoanLoadQuoteTableViewController.swift */,
+				BB6578CE24116A630094ACD1 /* MortgageLoanSavedQuoteTableViewCell.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -343,8 +349,10 @@
 				BB612A4D240B934D00A451ED /* MortgageResultsViewController.swift in Sources */,
 				BB612A53240BA75E00A451ED /* MortgageExtensions.swift in Sources */,
 				13929445240F0C0400AD388B /* CanIBuyTableViewController.swift in Sources */,
+				BB6578CF24116A630094ACD1 /* MortgageLoanSavedQuoteTableViewCell.swift in Sources */,
 				13A8BEAD240A164700088296 /* AppDelegate.swift in Sources */,
 				133B3393240DA83500539A0F /* CanIBuyFormViewController.swift in Sources */,
+				BB6578CD241167EE0094ACD1 /* MortgageLoanLoadQuoteTableViewController.swift in Sources */,
 				130065982410286700F5B602 /* CostOfLivingResultsViewController.swift in Sources */,
 				13A8BEAF240A164700088296 /* SceneDelegate.swift in Sources */,
 			);

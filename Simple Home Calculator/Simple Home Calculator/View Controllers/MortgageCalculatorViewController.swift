@@ -13,14 +13,9 @@ class MortgageCalculatorViewController: UIViewController {
     
     // MARK: - Properties
     var mortgageLoanController = MortgageLoanController.mortgageLoanController
-    lazy private var mortgageTypeData: [[String]] = {
-        let loanType: [String] = [.mortgage, .vaLoan, .refinance]
-        let data: [[String]] = [["Type"], loanType]
-        return data
-    }()
     
     lazy private var mortgageLengthData: [[String]] = {
-        let loanLength: [String] = ["15 Years", "30 Years", "5/1 ARM"]
+        let loanLength: [String] = ["15 Years", "20 Years", "30 Years", "40 Years"]
         let data: [[String]] = [["Length"], loanLength]
         return data
     }()
@@ -48,6 +43,7 @@ class MortgageCalculatorViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        addAccessoryView()
         
         mortgageLengthPickerView.delegate = self
         mortgageLengthPickerView.dataSource = self
@@ -141,15 +137,50 @@ extension MortgageCalculatorViewController: UIPickerViewDataSource, UIPickerView
         if  mortgageLengthString == mortgageLengthData[1][0] {
             mortgageLength = .fifteen
         } else if mortgageLengthString == mortgageLengthData[1][1] {
+            mortgageLength = .twenty
+        } else if mortgageLengthString == mortgageLengthData[1][2] {
             mortgageLength = .thirty
         } else {
-            mortgageLength = .fiveOne
-        }
-        if let mortgageLength = mortgageLength {
-            print("\(mortgageLength)")
+            mortgageLength = .forty
         }
     }
     
 }
 
+extension MortgageCalculatorViewController {
+    func addAccessoryView() -> Void {
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 44))
+        let nextButton = UIBarButtonItem(title: "Next", style: .done, target: self, action: #selector(self.nextButtonTapped(button:)))
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneButtonTapped(button:)))
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolBar.items = [nextButton, flexSpace, doneButton]
+        toolBar.tintColor = UIColor(red:0.00, green:0.51, blue:0.33, alpha:1.0)
+        loanAmountTextField.inputAccessoryView = toolBar
+        interestRateTextField.inputAccessoryView = toolBar
+        downPaymentTextField.inputAccessoryView = toolBar
+        monthlyHOATextField.inputAccessoryView = toolBar
+        homeInsuranceTextField.inputAccessoryView = toolBar
+        propertyTaxTextField.inputAccessoryView = toolBar
+    }
+    
+    @objc func nextButtonTapped(button:UIBarButtonItem) -> Void {
+        if loanAmountTextField.isFirstResponder {
+            interestRateTextField.becomeFirstResponder()
+        } else if interestRateTextField.isFirstResponder {
+            downPaymentTextField.becomeFirstResponder()
+        } else if downPaymentTextField.isFirstResponder {
+            monthlyHOATextField.becomeFirstResponder()
+        } else if monthlyHOATextField.isFirstResponder {
+            homeInsuranceTextField.becomeFirstResponder()
+        } else if homeInsuranceTextField.isFirstResponder {
+            propertyTaxTextField.becomeFirstResponder()
+        } else if propertyTaxTextField.isFirstResponder {
+            propertyTaxTextField.resignFirstResponder()
+        }
+    }
+    
+    @objc func doneButtonTapped(button:UIBarButtonItem) -> Void {
+        self.view.endEditing(true)
+    }
 
+}

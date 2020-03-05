@@ -59,7 +59,7 @@
         <scene sceneID="54H-vp-Mrr">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9HH-Zy-TzT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Tip of the day" selectedImage="doc.plaintext" catalog="system" id="SmQ-Or-APJ"/>
+                    <tabBarItem key="tabBarItem" title="Tip of the day" image="doc.plaintext" catalog="system" selectedImage="doc.plaintext" id="SmQ-Or-APJ"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="c2v-oA-7QD">
