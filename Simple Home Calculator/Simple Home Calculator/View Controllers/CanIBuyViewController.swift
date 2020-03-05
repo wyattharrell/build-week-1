@@ -24,7 +24,7 @@ class CanIBuyViewController: UIViewController {
         addAccessoryView()
     }
     
-    @IBAction func expensePercentSegmentedControllTapped(_ sender: UISegmentedControl) {
+    @IBAction func expensePercentSegmentedControlTapped(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
             maxHousingExpensePercent = 0.28
@@ -50,22 +50,27 @@ class CanIBuyViewController: UIViewController {
     @IBAction func calculateButtonTapped(_ sender: Any) {
         if let income = annualIncomeTextField.text, !income.isEmpty {
             canProceed = true
+        } else {
+            canProceed = false
         }
     }
+        
+    // MARK: - Navigation
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "ShowHistoryVC" {
+            return true
+        }
         if !canProceed {
-            let alert = UIAlertController(title: "Error", message: "Please complete all required text fields.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "All text fields are required", message: "Please complete all text fields", preferredStyle: .alert)
             let action = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
             alert.addAction(action)
             present(alert, animated: true, completion: nil)
-            
             return false
         }
         return true
     }
     
-    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowCanIBuyForm" {
             guard let CanIBuyFormVC = segue.destination as? CanIBuyFormViewController else { return }

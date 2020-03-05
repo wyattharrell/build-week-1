@@ -95,7 +95,7 @@
                                                     <segment title="Other"/>
                                                 </segments>
                                                 <connections>
-                                                    <action selector="expensePercentSegmentedControllTapped:" destination="mah-Vt-0gT" eventType="valueChanged" id="A2s-mT-FpQ"/>
+                                                    <action selector="expensePercentSegmentedControlTapped:" destination="mah-Vt-0gT" eventType="valueChanged" id="Vt9-sD-5K1"/>
                                                 </connections>
                                             </segmentedControl>
                                         </subviews>
@@ -124,7 +124,7 @@
                         <barButtonItem key="rightBarButtonItem" title="History" id="zop-r5-Oni">
                             <color key="tintColor" red="0.0" green="0.50936472420000001" blue="0.32830613850000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="reD-Mb-MXu" kind="show" id="InT-bB-qPo"/>
+                                <segue destination="reD-Mb-MXu" kind="show" identifier="ShowHistoryVC" id="InT-bB-qPo"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

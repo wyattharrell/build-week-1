@@ -94,17 +94,11 @@ class CanIBuyResultsViewController: UIViewController {
         let data = PieChartData(dataSet: dataSet)
         pieChart.data = data
         pieChart.chartDescription?.text = "Expenses"
-
-        //All other additions to this function will go here
-
-        //This must stay at end of function
         pieChart.notifyDataSetChanged()
-        
         dataSet.colors = ChartColorTemplates.joyful()
         dataSet.valueColors = [UIColor.black]
         pieChart.legend.font = UIFont(name: "Futura", size: 12)!
         pieChart.chartDescription?.font = UIFont(name: "Futura", size: 12)!
         pieChart.backgroundColor = UIColor.white
-
     }
 }

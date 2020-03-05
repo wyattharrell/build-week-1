@@ -21,7 +21,11 @@ class PotentialHomePurchaseController {
         saveToPersistentStore()
     }
     
-    
+    func delete(indexPath: Int) {
+        potentialHomes.remove(at: indexPath)
+        saveToPersistentStore()
+    }
+
     var persistentFileURL: URL? {
         let fileManager = FileManager.default
         let documentsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first
