@@ -32,7 +32,6 @@ class CanIBuyResultsViewController: UIViewController {
     
     func updateViews() {
         bannerView.backgroundColor = UIColor(red:0.00, green:0.51, blue:0.33, alpha:1.0)
-        //footerView.backgroundColor = UIColor(red:0.00, green:0.51, blue:0.33, alpha:1.0)
 
         guard let potentialHome = potentialHome else { return }
         

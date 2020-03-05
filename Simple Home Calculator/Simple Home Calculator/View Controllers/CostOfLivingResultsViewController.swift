@@ -47,9 +47,12 @@ class CostOfLivingResultsViewController: UIViewController {
         if currentState.costRank < futureState.costRank {
             increaseOrDecreaseLabel.text = "Cost Of Living Increase"
             arrowImage.image = UIImage(systemName: "arrow.up")
-        } else {
+        } else if currentState.costRank > futureState.costRank {
             increaseOrDecreaseLabel.text = "Cost Of Living Decrease"
             arrowImage.image = UIImage(systemName: "arrow.down")
+        } else {
+            arrowImage.image = UIImage(systemName: "arrow.right.arrow.left")
+            increaseOrDecreaseLabel.text = "Equal Cost Of Living"
         }
         
         if let currentCost = Double(currentState.costIndex), let currentGrocery = Double(currentState.groceryCost), let currentHousing = Double(currentState.housingCost), let currentUtilities = Double(currentState.utilitiesCost), let currentTransportation = Double(currentState.transportationCost), let currentMisc = Double(currentState.miscCost) {

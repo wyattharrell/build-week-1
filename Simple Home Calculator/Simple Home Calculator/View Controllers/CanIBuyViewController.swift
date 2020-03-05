@@ -21,21 +21,7 @@ class CanIBuyViewController: UIViewController {
         super.viewDidLoad()
         calculateButton.layer.cornerRadius = 12
         calculateButton.backgroundColor = UIColor(red:0.00, green:0.51, blue:0.33, alpha:1.0)
-        circleImageView.tintColor = UIColor(red:0.00, green:0.51, blue:0.33, alpha:1.0)
         addAccessoryView()
-    }
-    
-    func addAccessoryView() -> Void {
-        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 44))
-        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.nextButtonTapped(button:)))
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        toolBar.items = [flexSpace, doneButton]
-        toolBar.tintColor = UIColor(red:0.00, green:0.51, blue:0.33, alpha:1.0)
-        annualIncomeTextField.inputAccessoryView = toolBar
-    }
-    
-    @objc func nextButtonTapped(button:UIBarButtonItem) -> Void {
-        self.view.endEditing(true)
     }
     
     @IBAction func expensePercentSegmentedControllTapped(_ sender: UISegmentedControl) {
@@ -80,3 +66,19 @@ class CanIBuyViewController: UIViewController {
     }
 }
 
+// MARK: - TextField Toolbar
+
+extension CanIBuyViewController {
+    func addAccessoryView() -> Void {
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 44))
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.doneButtonTapped(button:)))
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolBar.items = [flexSpace, doneButton]
+        toolBar.tintColor = UIColor(red:0.00, green:0.51, blue:0.33, alpha:1.0)
+        annualIncomeTextField.inputAccessoryView = toolBar
+    }
+    
+    @objc func doneButtonTapped(button:UIBarButtonItem) -> Void {
+        self.view.endEditing(true)
+    }
+}
