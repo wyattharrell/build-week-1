@@ -24,7 +24,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3gT-wg-54E">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3gT-wg-54E">
                                         <rect key="frame" x="0.0" y="58" width="374" height="300"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
@@ -59,7 +59,7 @@
         <scene sceneID="54H-vp-Mrr">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9HH-Zy-TzT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Tip of the day" id="SmQ-Or-APJ"/>
+                    <tabBarItem key="tabBarItem" title="Tip of the day" selectedImage="doc.plaintext" catalog="system" id="SmQ-Or-APJ"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="c2v-oA-7QD">
@@ -76,4 +76,7 @@
             <point key="canvasLocation" x="-17.39130434782609" y="-24.107142857142858"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="doc.plaintext" catalog="system" width="56" height="64"/>
+    </resources>
 </document>
