@@ -7,21 +7,53 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Homebuying Tips-->
         <scene sceneID="vTN-x6-hhO">
             <objects>
-                <viewController id="87P-FA-gX5" sceneMemberID="viewController">
+                <viewController id="87P-FA-gX5" customClass="TipsViewController" customModule="Simple_Home_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AS5-eY-I58">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aqf-kj-f9C">
+                                <rect key="frame" x="20" y="269" width="374" height="358"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S0Z-s3-sm8">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3gT-wg-54E">
+                                        <rect key="frame" x="0.0" y="58" width="374" height="300"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="300" id="4zZ-Vv-NEc"/>
+                                        </constraints>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="aqf-kj-f9C" firstAttribute="centerY" secondItem="AS5-eY-I58" secondAttribute="centerY" id="cXa-TO-mWe"/>
+                            <constraint firstItem="Pr8-ny-wPc" firstAttribute="trailing" secondItem="aqf-kj-f9C" secondAttribute="trailing" constant="20" id="i8v-LR-PuE"/>
+                            <constraint firstItem="aqf-kj-f9C" firstAttribute="leading" secondItem="Pr8-ny-wPc" secondAttribute="leading" constant="20" id="jSH-x3-bwG"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Pr8-ny-wPc"/>
                     </view>
-                    <navigationItem key="navigationItem" id="m2s-n6-2Pq"/>
+                    <navigationItem key="navigationItem" title="Homebuying Tips" id="m2s-n6-2Pq"/>
+                    <connections>
+                        <outlet property="tipsTextView" destination="3gT-wg-54E" id="f7c-c1-So6"/>
+                        <outlet property="tipsTypeLabel" destination="S0Z-s3-sm8" id="rnG-aD-DJc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P1s-x3-Kp4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="892.75362318840587" y="-24.107142857142858"/>
+            <point key="canvasLocation" x="714" y="-24"/>
         </scene>
         <!--Tip of the day-->
         <scene sceneID="54H-vp-Mrr">
