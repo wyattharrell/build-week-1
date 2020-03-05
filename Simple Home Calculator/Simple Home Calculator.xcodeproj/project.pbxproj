@@ -35,7 +35,6 @@
 		BB612A53240BA75E00A451ED /* MortgageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB612A52240BA75E00A451ED /* MortgageExtensions.swift */; };
 		BB9B6FB6241015C0001E9B1E /* TipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9B6FB5241015C0001E9B1E /* TipsViewController.swift */; };
 		BB9B6FB824106677001E9B1E /* tips.json in Resources */ = {isa = PBXBuildFile; fileRef = BB9B6FB724106677001E9B1E /* tips.json */; };
-		BB9B6FBA24106E05001E9B1E /* tipsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9B6FB924106E05001E9B1E /* tipsStruct.swift */; };
 		BB9B6FBC24106FE2001E9B1E /* TipsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9B6FBB24106FE1001E9B1E /* TipsLoader.swift */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +94,7 @@
 				13A8BEAA240A164700088296 /* Products */,
 				D1BCC0D49CE2B0D56A75C314 /* Pods */,
 				A948083B6F7428265035D05F /* Frameworks */,
+				BBE497182410823F00106A75 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -188,6 +188,14 @@
 				1300659124101BFF00F5B602 /* CostOfLivingController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BBE497182410823F00106A75 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				BB9B6FB924106E05001E9B1E /* tipsStruct.swift */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		D1BCC0D49CE2B0D56A75C314 /* Pods */ = {
@@ -319,7 +327,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB9B6FBA24106E05001E9B1E /* tipsStruct.swift in Sources */,
 				13929443240F04AB00AD388B /* PotentialHomePurchaseController.swift in Sources */,
 				BB9B6FB6241015C0001E9B1E /* TipsViewController.swift in Sources */,
 				BB612A4B240B932600A451ED /* MortgageCalculatorViewController.swift in Sources */,
