@@ -39,6 +39,7 @@ class CanIBuyTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PotentialHomeCell", for: indexPath)
 
         cell.textLabel?.text = "\(dateFormatter.string(from: potentialHomePurchaseController.potentialHomes[indexPath.row].date))"
+        cell.detailTextLabel?.text = "Est. Home Price: $\(potentialHomePurchaseController.potentialHomes[indexPath.row].estimatedHomePrice)"
 
         return cell
     }

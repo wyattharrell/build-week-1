@@ -112,7 +112,6 @@ class CanIBuyFormViewController: UIViewController {
         lowerOfM1M2 = calculateLowerOfM1M2(m1: maxMonthlyPaymentBasedOnIncome_M1, m2: maxMonthlyPaymentBasedOnDebt_M2)
         maxPIPaymentBasedOnExpenses_M3 = calculatePIPaymentBasedOnExpenses_M3(lowerOfM1orM2: lowerOfM1M2, expenses: expenses)
         maxHomePriceBasedOnFunds = calculateMaxHomePriceBasedOnFunds(availFunds: availableFunds_Double, fixedClosingCosts: fixedClosingCosts_Double, variableClosingCosts: variableClosingCosts_Double, minDownPayment: minDownPayment_Double)
-        #warning("T##message##")
         maxPIPaymentBasedOnFunds_M4 = calculateMaxPIPaymentBasedOnFunds_M4(r: aIR, n: term, maxHomePriceBasedOnFunds: maxHomePriceBasedOnFunds, minDownPayment_Percent: minDownPayment_Percent)
         lowerOfM3M4 = calculateLowerOfM3M4(m3: maxPIPaymentBasedOnExpenses_M3, m4: maxPIPaymentBasedOnFunds_M4)
         loanAmountBasedOnMaxPIPayment = calculateLoanAmountBasedOnMaxPIPayment(maxHomePriceBasedOnFunds: maxHomePriceBasedOnFunds, minDownPayment: minDownPayment_Percent)
@@ -168,7 +167,6 @@ class CanIBuyFormViewController: UIViewController {
     }
     
     func calculateMaxPIPaymentBasedOnFunds_M4(r: Double, n: Double, maxHomePriceBasedOnFunds: Double, minDownPayment_Percent: Double) -> Double {
-        #warning("T##message##")
         let temp = maxHomePriceBasedOnFunds * (1 - minDownPayment_Percent)
         let temp2 = (1 + r)
         let negativeN = 0 - n

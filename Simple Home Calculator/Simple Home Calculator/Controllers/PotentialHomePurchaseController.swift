@@ -12,6 +12,7 @@ class PotentialHomePurchaseController {
     
     init() {
         loadFromPersistentStore()
+        sort()
     }
     
     var potentialHomes: [PotentialHomePurchase] = []
@@ -57,5 +58,9 @@ class PotentialHomePurchaseController {
         } catch {
             print("Error decoding potential homes: \(error)")
         }
+    }
+    
+    func sort() {
+        self.potentialHomes = self.potentialHomes.sorted(by: { $0.date > $1.date })
     }
 }
