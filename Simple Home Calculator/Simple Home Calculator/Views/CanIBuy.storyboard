@@ -348,7 +348,7 @@
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0%" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YLE-Q5-Otb">
                                                                         <rect key="frame" x="276.5" y="0.0" width="97.5" height="34"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                                     </textField>
                                                                 </subviews>
                                                             </stackView>
@@ -364,7 +364,7 @@
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0%" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A3n-Sc-1cE">
                                                                         <rect key="frame" x="276" y="0.0" width="98" height="34"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                                     </textField>
                                                                 </subviews>
                                                             </stackView>
@@ -410,7 +410,7 @@
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0%" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iH6-bO-KEf">
                                                                         <rect key="frame" x="276.5" y="0.0" width="97.5" height="34"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                                     </textField>
                                                                 </subviews>
                                                             </stackView>
@@ -711,6 +711,6 @@
         <image name="house.fill" catalog="system" width="64" height="52"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Iij-JG-WnX"/>
+        <segue reference="gnm-xI-NiY"/>
     </inferredMetricsTieBreakers>
 </document>

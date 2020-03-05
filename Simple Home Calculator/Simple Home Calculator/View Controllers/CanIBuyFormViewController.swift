@@ -62,6 +62,7 @@ class CanIBuyFormViewController: UIViewController {
             }
             let action = UIAlertAction(title: "Dismiss", style: .default) { _ in
                 guard let percentage = alert.textFields?[0].text, let percentage_Double = Double(percentage) else {
+                    sender.selectedSegmentIndex = 0
                     return
                 }
                 sender.setTitle("\(Int(percentage_Double))%", forSegmentAt: 1)
