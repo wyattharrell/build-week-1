@@ -18,7 +18,6 @@ class MortgagePage1ViewController: UIViewController {
     
     // MARK: - IBOutlets
     @IBOutlet var titleImage: UIImageView!
-    @IBOutlet var mortgageTypePickerView: UIPickerView!
     @IBOutlet var selectMortgageTypeButton: UIButton!
     
 
@@ -27,8 +26,6 @@ class MortgagePage1ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mortgageLoanController.loadFromPersistentStore()
-        self.mortgageTypePickerView.delegate = self
-        self.mortgageTypePickerView.dataSource = self
 
         selectMortgageTypeButton.layer.cornerRadius = 12
         selectMortgageTypeButton.backgroundColor = UIColor(red:0.00, green:0.51, blue:0.33, alpha:1.0)
@@ -39,8 +36,8 @@ class MortgagePage1ViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SelectMortgageTypeSegue" {
-            let mortgageTypeIndex = mortgageTypePickerView.selectedRow(inComponent: 0)
-            let mortgageType = mortgageTypes[mortgageTypeIndex]
+//            let mortgageTypeIndex = mortgageTypePickerView.selectedRow(inComponent: 0)
+            let mortgageType = "Mortgage"
             mortgageLoanController.createMortgageLoan(mortgageType: mortgageType)
             let mortgageP2VC = segue.destination as! MortgageCalculatorViewController
             mortgageP2VC.mortgageLoanController = mortgageLoanController
@@ -51,18 +48,4 @@ class MortgagePage1ViewController: UIViewController {
         mortgageLoanController.mortgageLoan = nil
     }
 
-}
-
-extension MortgagePage1ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return mortgageTypes.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return mortgageTypes[row]
-    }
 }

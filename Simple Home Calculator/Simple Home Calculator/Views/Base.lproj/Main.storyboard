@@ -16,46 +16,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="house.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="7Ea-yT-qYf">
-                                <rect key="frame" x="20" y="159.5" width="374" height="425.5"/>
-                            </imageView>
-                            <pickerView contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="iNN-IZ-Aau">
-                                <rect key="frame" x="0.0" y="635" width="414" height="100"/>
+                                <rect key="frame" x="20" y="159.5" width="374" height="373.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="4kz-hp-PHw"/>
+                                    <constraint firstAttribute="width" secondItem="7Ea-yT-qYf" secondAttribute="height" multiplier="1:1" id="MOT-7e-URj"/>
                                 </constraints>
-                            </pickerView>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rnc-jn-JWq">
                                 <rect key="frame" x="20" y="743" width="374" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="c10-Nw-WlD"/>
                                 </constraints>
-                                <state key="normal" title="Calculate">
+                                <state key="normal" title="Calculate New Loan">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <segue destination="Dsc-Yj-OLo" kind="show" identifier="SelectMortgageTypeSegue" id="3VU-GD-DbZ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SELECT A MORTGAGE TYPE: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovN-b5-2a1">
-                                <rect key="frame" x="93" y="606" width="228" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="iNN-IZ-Aau" firstAttribute="top" secondItem="ovN-b5-2a1" secondAttribute="bottom" constant="8" id="0BH-g9-IQ5"/>
                             <constraint firstItem="5eE-Wd-I4q" firstAttribute="bottom" secondItem="Rnc-jn-JWq" secondAttribute="bottom" constant="20" id="6Md-px-HmJ"/>
-                            <constraint firstItem="iNN-IZ-Aau" firstAttribute="trailing" secondItem="5eE-Wd-I4q" secondAttribute="trailing" id="G6n-BC-2Cc"/>
-                            <constraint firstItem="ovN-b5-2a1" firstAttribute="top" secondItem="7Ea-yT-qYf" secondAttribute="bottom" constant="20" id="HV0-jG-ixv"/>
                             <constraint firstItem="5eE-Wd-I4q" firstAttribute="trailing" secondItem="7Ea-yT-qYf" secondAttribute="trailing" constant="20" id="Jz3-AP-es1"/>
-                            <constraint firstItem="iNN-IZ-Aau" firstAttribute="leading" secondItem="5eE-Wd-I4q" secondAttribute="leading" id="RPZ-tx-CWe"/>
-                            <constraint firstItem="Rnc-jn-JWq" firstAttribute="top" secondItem="iNN-IZ-Aau" secondAttribute="bottom" constant="8" id="RcS-OZ-Wvz"/>
                             <constraint firstItem="7Ea-yT-qYf" firstAttribute="leading" secondItem="5eE-Wd-I4q" secondAttribute="leading" constant="20" id="Sht-fA-xS9"/>
                             <constraint firstItem="7Ea-yT-qYf" firstAttribute="top" secondItem="5eE-Wd-I4q" secondAttribute="top" constant="20" id="hsO-4F-PHW"/>
                             <constraint firstItem="5eE-Wd-I4q" firstAttribute="trailing" secondItem="Rnc-jn-JWq" secondAttribute="trailing" constant="20" id="i1Z-fM-OjA"/>
-                            <constraint firstItem="ovN-b5-2a1" firstAttribute="centerX" secondItem="NlS-IU-sIW" secondAttribute="centerX" id="s7v-B5-XQe"/>
                             <constraint firstItem="Rnc-jn-JWq" firstAttribute="leading" secondItem="5eE-Wd-I4q" secondAttribute="leading" constant="20" id="ul5-ay-7rP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5eE-Wd-I4q"/>
@@ -68,7 +53,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="mortgageTypePickerView" destination="iNN-IZ-Aau" id="ZNj-ex-c9W"/>
                         <outlet property="selectMortgageTypeButton" destination="Rnc-jn-JWq" id="iCq-UA-Nzm"/>
                         <outlet property="titleImage" destination="7Ea-yT-qYf" id="5ig-3b-IEr"/>
                     </connections>
@@ -450,6 +434,6 @@
         <image name="house.fill" catalog="system" width="64" height="52"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="TpV-8Y-1Bu"/>
+        <segue reference="oof-wV-R2T"/>
     </inferredMetricsTieBreakers>
 </document>
