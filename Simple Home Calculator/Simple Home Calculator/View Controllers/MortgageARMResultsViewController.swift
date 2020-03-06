@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Charts
 
 class MortgageARMResultsViewController: UIViewController {
     
@@ -50,12 +51,16 @@ class MortgageARMResultsViewController: UIViewController {
     }
     
     func pieChartUpdate() {
+        
         let principleValue = mortgageLoanController.calculateMonthlyPrinciple()
         let interestValue = mortgageLoanController.calculateMonthlyInterest()
+        let interestValueAtMax = mortgageLoanController.calculateInterestAtMax()
         let insuranceValue = mortgageLoanController.calculateMonthlyInsurance()
         let propertyTaxValue = mortgageLoanController.calculateMonthlyTax()
         let hoaValue = mortgageLoanController.calculateMonthlyHOA()
-        let totalPayment = principleValue + interestValue + insuranceValue + propertyTaxValue + hoaValue
+        let totalInitialPayment = principleValue + interestValue + insuranceValue + propertyTaxValue + hoaValue
+        let totalPaymentAtMax = principleValue + interestValueAtMax + insuranceValue + propertyTaxValue + hoaValue
+        
     
         // Set up pie chart data set
         let principle = PieChartDataEntry(value: principleValue, label: "Principle")
@@ -63,36 +68,44 @@ class MortgageARMResultsViewController: UIViewController {
         let insurance = PieChartDataEntry(value: insuranceValue, label: "Home Insurance")
         let propertyTax = PieChartDataEntry(value: propertyTaxValue, label: "Property Tax")
         let hoa = PieChartDataEntry(value: hoaValue, label: "HOA payment")
-        let dataSet = PieChartDataSet(entries: [principle, interest, insurance, propertyTax, hoa], label: "Mortgage Payment Breakdown")
+        
+        let interestAtMax = PieChartDataEntry(value: interestValueAtMax, label: "Interest")
+        
+        let dataSet = PieChartDataSet(entries: [principle, interest, insurance, propertyTax, hoa], label: "Payment Breakdown For Initial Period")
+        let dataSetAtMax = PieChartDataSet(entries: [principle, interestAtMax, insurance, propertyTax, hoa], label: "Payment BreakDown At Max Interest Rate")
         let data = PieChartData(dataSet: dataSet)
+        let dataAtMax = PieChartData(dataSet: dataSetAtMax)
     
         // Set up text format
         dataSet.valueColors = [UIColor.black]
         let formatter = DefaultValueFormatter(formatter: currencyFormatter)
         dataSet.valueFormatter = .some(formatter)
+        dataSetAtMax.valueColors = [UIColor.black]
+        dataSetAtMax.valueFormatter = .some(formatter)
     
         // Display pie chart
-        resultsPieChart.data = data
-        resultsPieChart.chartDescription?.text = "Mortgage Payment Components"
+        initialRatePieChart.data = data
+        initialRatePieChart.chartDescription?.text = "Mortgage Payment Components"
+        maxRatePieChart.data = dataAtMax
+        maxRatePieChart.chartDescription?.text = "Mortgage Payment at Max Interest Rate"
         dataSet.colors = ChartColorTemplates.joyful()
+        dataSetAtMax.colors = ChartColorTemplates.joyful()
 
         // Set up center text
-        guard let centerTextValue = currencyFormatter.string(for: totalPayment) else { return }
-        resultsPieChart.centerText = "Total Payment: " + centerTextValue
+        guard let centerTextValue = currencyFormatter.string(for: totalInitialPayment) else { return }
+        initialRatePieChart.centerText = """
+            Total Payment:
+            \(centerTextValue)
+            """
+        guard let centerTextValueAtMax = currencyFormatter.string(for: totalPaymentAtMax) else { return }
+        maxRatePieChart.centerText = """
+            Total Payment:
+            \(centerTextValueAtMax)
+            """
 
         //This must stay at end of function
-        resultsPieChart.notifyDataSetChanged()
+        initialRatePieChart.notifyDataSetChanged()
+        maxRatePieChart.notifyDataSetChanged()
     }
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

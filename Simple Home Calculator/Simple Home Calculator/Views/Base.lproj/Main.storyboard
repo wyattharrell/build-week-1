@@ -107,7 +107,6 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="savedQuoteLabel" destination="Zej-zY-CiV" id="6OY-Uz-0Mn"/>
-                                    <segue destination="l4M-4M-Zwi" kind="show" identifier="LoadSavedLoanSegue" id="TpV-8Y-1Bu"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -117,6 +116,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Load Saved Loan Quote" id="6jP-Jo-H6N"/>
+                    <connections>
+                        <segue destination="fiz-UD-UPJ" kind="show" identifier="LoadARMSegue" id="elS-AJ-sqW"/>
+                        <segue destination="l4M-4M-Zwi" kind="show" identifier="LoadSavedLoanSegue" id="qOS-3H-Krh"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PcH-Tq-IHh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -461,7 +464,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="calculateButton:" destination="yXa-y2-2Yw" eventType="touchUpInside" id="OD4-Il-JbW"/>
                                     <segue destination="fiz-UD-UPJ" kind="show" identifier="CalculateARMSegue" id="kP6-7e-BNY"/>
                                 </connections>
                             </button>
@@ -707,14 +709,14 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aDL-dC-JPi">
-                                <rect key="frame" x="20" y="20" width="374" height="703"/>
+                                <rect key="frame" x="20" y="140" width="374" height="524.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xsP-MX-AhN" customClass="PieChartView" customModule="Charts">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="347.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="258.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lpp-oi-Dcv" customClass="PieChartView" customModule="Charts">
-                                        <rect key="frame" x="0.0" y="355.5" width="374" height="347.5"/>
+                                        <rect key="frame" x="0.0" y="266.5" width="374" height="258"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </view>
                                 </subviews>
@@ -739,7 +741,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="ELx-pT-sVB" firstAttribute="leading" secondItem="Yd0-2b-Bms" secondAttribute="leading" constant="20" id="E9E-r5-zVr"/>
-                            <constraint firstItem="aDL-dC-JPi" firstAttribute="top" secondItem="dno-hH-13s" secondAttribute="top" constant="20" id="Fz5-Lx-CqY"/>
+                            <constraint firstItem="aDL-dC-JPi" firstAttribute="top" secondItem="Yd0-2b-Bms" secondAttribute="top" id="Fz5-Lx-CqY"/>
                             <constraint firstItem="Yd0-2b-Bms" firstAttribute="trailing" secondItem="ELx-pT-sVB" secondAttribute="trailing" constant="20" id="GYO-Gl-mre"/>
                             <constraint firstItem="Yd0-2b-Bms" firstAttribute="trailing" secondItem="aDL-dC-JPi" secondAttribute="trailing" constant="20" id="LX8-Wc-NUG"/>
                             <constraint firstItem="bjR-94-KaZ" firstAttribute="leading" secondItem="Yd0-2b-Bms" secondAttribute="leading" constant="20" id="RJz-RP-bCg"/>
@@ -747,7 +749,7 @@
                             <constraint firstItem="ELx-pT-sVB" firstAttribute="top" secondItem="bjR-94-KaZ" secondAttribute="bottom" constant="8" id="dW8-Y5-qjp"/>
                             <constraint firstAttribute="trailing" secondItem="bjR-94-KaZ" secondAttribute="trailing" constant="20" id="fAZ-Qe-mhU"/>
                             <constraint firstItem="aDL-dC-JPi" firstAttribute="leading" secondItem="Yd0-2b-Bms" secondAttribute="leading" constant="20" id="sxp-bL-zva"/>
-                            <constraint firstItem="ELx-pT-sVB" firstAttribute="top" secondItem="aDL-dC-JPi" secondAttribute="bottom" constant="20" id="tmW-aV-mC4"/>
+                            <constraint firstItem="bjR-94-KaZ" firstAttribute="top" secondItem="aDL-dC-JPi" secondAttribute="bottom" constant="8" id="tmW-aV-mC4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Yd0-2b-Bms"/>
                     </view>
@@ -776,6 +778,7 @@
         <image name="house.fill" catalog="system" width="64" height="52"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oof-wV-R2T"/>
+        <segue reference="elS-AJ-sqW"/>
+        <segue reference="qOS-3H-Krh"/>
     </inferredMetricsTieBreakers>
 </document>

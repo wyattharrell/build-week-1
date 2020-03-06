@@ -135,20 +135,13 @@ class MortgageLoanController {
     
     
     // MARK: - Other methods
-    func calculateMonthlyInterest(loanLength: Int?) -> Double {
+    func calculateMonthlyInterest() -> Double {
         //M = P [ i(1 + i)^n ] / [ (1 + i)^n – 1]
-        var number = 15
-        if let loanLength = loanLength {
-            number = loanLength
-        } else if let loanLength = mortgageLoan?.mortgageLength {
-            number = loanLength
-        } else {
-            return 0.0
-        }
         
         guard let loanAmount = mortgageLoan?.amount,
             let downPayment = mortgageLoan?.downPayment,
-            let interestRate = mortgageLoan?.interestRate
+            let interestRate = mortgageLoan?.interestRate,
+            let number = mortgageLoan?.mortgageLength
             else { return 0.0 }
         let P = loanAmount - downPayment
         let i = interestRate/100/12
@@ -157,6 +150,24 @@ class MortgageLoanController {
         let denominator = pow((1 + i), (n)) - 1
         let totalPrincipleAndTax = numerator/denominator
         let principlePerMonth = P/n
+        let interest = totalPrincipleAndTax - principlePerMonth
+        return interest
+    }
+    
+    func calculateInterestAtMax() -> Double {
+        guard let interestRate = mortgageLoan?.maxInterestRate,
+            let loanLength = mortgageLoan?.mortgageLength,
+            let initialLength = mortgageLoan?.initialLength
+            else { return 0.0 }
+        let remainingLength = loanLength - initialLength
+        let annualPrinciple = calculateMonthlyPrinciple() * 12
+        let P = Double(remainingLength) * annualPrinciple
+        let i = interestRate/100/12
+        let n = Double(remainingLength*12)
+        let numerator = P * (i * pow((1 + i), n))
+        let denominator = pow((1 + i), n) - 1
+        let totalPrincipleAndTax = numerator / denominator
+        let principlePerMonth = P/numerator
         let interest = totalPrincipleAndTax - principlePerMonth
         return interest
     }
