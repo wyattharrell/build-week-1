@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aqf-kj-f9C">
-                                <rect key="frame" x="20" y="269" width="374" height="358"/>
+                                <rect key="frame" x="20" y="407" width="374" height="82"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S0Z-s3-sm8">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
@@ -24,16 +24,12 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="3gT-wg-54E">
-                                        <rect key="frame" x="0.0" y="58" width="374" height="300"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="300" id="4zZ-Vv-NEc"/>
-                                        </constraints>
-                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRF-Dk-pR5">
+                                        <rect key="frame" x="0.0" y="58" width="374" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -47,7 +43,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Homebuying Tips" id="m2s-n6-2Pq"/>
                     <connections>
-                        <outlet property="tipsTextView" destination="3gT-wg-54E" id="f7c-c1-So6"/>
+                        <outlet property="tipsLabel" destination="rRF-Dk-pR5" id="0Mi-LD-9AH"/>
                         <outlet property="tipsTypeLabel" destination="S0Z-s3-sm8" id="rnG-aD-DJc"/>
                     </connections>
                 </viewController>

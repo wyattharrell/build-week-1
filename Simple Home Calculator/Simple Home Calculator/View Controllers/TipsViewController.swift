@@ -19,6 +19,8 @@ class TipsViewController: UIViewController {
     @IBOutlet var tipsTextView: UITextView!
     @IBOutlet var tipsTypeLabel: UILabel!
     
+    @IBOutlet weak var tipsLabel: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +32,7 @@ class TipsViewController: UIViewController {
         guard let randomKey = randomEntry?.key,
             let randomValue = randomEntry?.value
             else { return }
-        tipsTextView.text = randomValue[randomNumber]
+        tipsLabel.text = randomValue[randomNumber]
         tipsTypeLabel.text = randomKey
     }
 }
