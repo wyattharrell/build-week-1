@@ -17,6 +17,7 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="house.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="7Ea-yT-qYf">
                                 <rect key="frame" x="20" y="159.5" width="374" height="373.5"/>
+                                <color key="tintColor" red="0.0" green="0.50936472420000001" blue="0.32830613850000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="7Ea-yT-qYf" secondAttribute="height" multiplier="1:1" id="MOT-7e-URj"/>
                                 </constraints>
@@ -34,7 +35,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u8g-Ik-Vej">
-                                <rect key="frame" x="20" y="673" width="374" height="50"/>
+                                <rect key="frame" x="20" y="683" width="374" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="bQe-5g-wY2"/>
                                 </constraints>
@@ -52,7 +53,7 @@
                             <constraint firstItem="5eE-Wd-I4q" firstAttribute="bottom" secondItem="Rnc-jn-JWq" secondAttribute="bottom" constant="20" id="6Md-px-HmJ"/>
                             <constraint firstItem="5eE-Wd-I4q" firstAttribute="trailing" secondItem="7Ea-yT-qYf" secondAttribute="trailing" constant="20" id="Jz3-AP-es1"/>
                             <constraint firstItem="7Ea-yT-qYf" firstAttribute="leading" secondItem="5eE-Wd-I4q" secondAttribute="leading" constant="20" id="Sht-fA-xS9"/>
-                            <constraint firstItem="Rnc-jn-JWq" firstAttribute="top" secondItem="u8g-Ik-Vej" secondAttribute="bottom" constant="20" id="UMM-zS-cqL"/>
+                            <constraint firstItem="Rnc-jn-JWq" firstAttribute="top" secondItem="u8g-Ik-Vej" secondAttribute="bottom" constant="10" id="UMM-zS-cqL"/>
                             <constraint firstItem="5eE-Wd-I4q" firstAttribute="trailing" secondItem="u8g-Ik-Vej" secondAttribute="trailing" constant="20" id="ZDN-lS-Li8"/>
                             <constraint firstItem="7Ea-yT-qYf" firstAttribute="top" secondItem="5eE-Wd-I4q" secondAttribute="top" constant="20" id="hsO-4F-PHW"/>
                             <constraint firstItem="5eE-Wd-I4q" firstAttribute="trailing" secondItem="Rnc-jn-JWq" secondAttribute="trailing" constant="20" id="i1Z-fM-OjA"/>
@@ -62,6 +63,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Mortgage Calculator" id="2AD-C6-bmV">
                         <barButtonItem key="rightBarButtonItem" title="Load Quote" id="iMF-FX-2Ox">
+                            <color key="tintColor" red="0.0" green="0.50936472420000001" blue="0.32830613850000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="Uw3-BL-tZL" kind="show" identifier="SelectSavedLoanSegue" id="raN-fh-tJh"/>
                             </connections>
@@ -234,7 +236,7 @@
                                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3DG-b9-Vpb">
                                                 <rect key="frame" x="0.0" y="0.0" width="183" height="62.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YearlyHome Insurance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krn-z0-nMc">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yearly Home Insurance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krn-z0-nMc">
                                                         <rect key="frame" x="0.0" y="0.0" width="183" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -386,6 +388,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="leM-Oo-c1i">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.0" green="0.50936472420000001" blue="0.32830613850000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -779,6 +782,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="kP6-7e-BNY"/>
-        <segue reference="qOS-3H-Krh"/>
+        <segue reference="oof-wV-R2T"/>
     </inferredMetricsTieBreakers>
 </document>
