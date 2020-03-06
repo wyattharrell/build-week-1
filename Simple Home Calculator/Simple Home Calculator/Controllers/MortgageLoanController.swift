@@ -50,6 +50,33 @@ class MortgageLoanController {
         }
     }
     
+    func updateARMLoan(mortgageLoan: MortgageLoan,
+                       amount: Double,
+                       downPayment: Double,
+                       initialInterestRate: Double,
+                       maxInterestRate: Double,
+                       estRateChange: Double,
+                       mortgageLength: Int,
+                       initialLength: Int,
+                       monthlyHOA: Double,
+                       homeInsurance: Double,
+                       propertyTax: Double) {
+        self.mortgageLoan?.amount = amount
+        self.mortgageLoan?.downPayment = downPayment
+        self.mortgageLoan?.interestRate = initialInterestRate
+        self.mortgageLoan?.maxInterestRate = maxInterestRate
+        self.mortgageLoan?.estRateChange = estRateChange
+        self.mortgageLoan?.mortgageLength = mortgageLength
+        self.mortgageLoan?.initialLength = initialLength
+        self.mortgageLoan?.monthlyHOA = monthlyHOA
+        self.mortgageLoan?.homeInsurance = homeInsurance
+        self.mortgageLoan?.propertyTax = propertyTax
+        let values = mortgages.values
+        if values.contains(mortgageLoan) {
+            saveToPersistentStore()
+        }
+    }
+    
     func saveMortgageLoan(savedName: String) {
         mortgageLoan?.savedName = savedName
         mortgages[savedName] = mortgageLoan!
@@ -110,6 +137,7 @@ class MortgageLoanController {
     // MARK: - Other methods
     func calculateMonthlyInterest() -> Double {
         //M = P [ i(1 + i)^n ] / [ (1 + i)^n – 1]
+        
         guard let loanAmount = mortgageLoan?.amount,
             let downPayment = mortgageLoan?.downPayment,
             let interestRate = mortgageLoan?.interestRate,
@@ -122,6 +150,24 @@ class MortgageLoanController {
         let denominator = pow((1 + i), (n)) - 1
         let totalPrincipleAndTax = numerator/denominator
         let principlePerMonth = P/n
+        let interest = totalPrincipleAndTax - principlePerMonth
+        return interest
+    }
+    
+    func calculateInterestAtMax() -> Double {
+        guard let interestRate = mortgageLoan?.maxInterestRate,
+            let loanLength = mortgageLoan?.mortgageLength,
+            let initialLength = mortgageLoan?.initialLength
+            else { return 0.0 }
+        let remainingLength = loanLength - initialLength
+        let annualPrinciple = calculateMonthlyPrinciple() * 12
+        let P = Double(remainingLength) * annualPrinciple
+        let i = interestRate/100/12
+        let n = Double(remainingLength*12)
+        let numerator = P * (i * pow((1 + i), n))
+        let denominator = pow((1 + i), n) - 1
+        let totalPrincipleAndTax = numerator / denominator
+        let principlePerMonth = P/numerator
         let interest = totalPrincipleAndTax - principlePerMonth
         return interest
     }
@@ -151,7 +197,6 @@ class MortgageLoanController {
     
     func calculateMonthlyHOA() -> Double {
         guard let hoa = mortgageLoan?.monthlyHOA else { return 0.0 }
-        let monthlyHoa = hoa/12
-        return monthlyHoa
+        return hoa
     }
 }

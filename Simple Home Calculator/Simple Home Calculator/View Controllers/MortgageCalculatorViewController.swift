@@ -35,10 +35,6 @@ class MortgageCalculatorViewController: UIViewController {
     @IBOutlet var propertyTaxTextField: UITextField!
     
     
-    
-    // MARK: - IBActions
-    
-    
     // MARK: - Methods
 
     override func viewDidLoad() {
@@ -109,11 +105,6 @@ class MortgageCalculatorViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         getAllInputs()
-//        if segue.identifier == "CalculateMortgageSegue" {
-//            let mortgageResultsVC = segue.destination as! MortgageResultsViewController
-//
-//        }
-        // Pass the selected object to the new view controller.
     }
 
 
